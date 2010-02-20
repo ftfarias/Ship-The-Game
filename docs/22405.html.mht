@@ -1,0 +1,1647 @@
+From: <Saved by Mozilla 5.0 (Macintosh; en-US)>
+Subject: GameFAQs: Master of Orion III (PC) Armaments FAQ by Alastair412
+Date: Sun, 14 Feb 2010 14:35:37 -0200
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_0000_EF03AA4B.5396A2E5"
+X-MAF-Information: Produced By MAF V0.18.1.0
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0000_EF03AA4B.5396A2E5
+Content-Type: text/html
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.gamefaqs.com/computer/doswin/file/19577/22405
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><head>
+<meta http-equiv=3D"content-type" content=3D"text/html; charset=3DISO-8859-=
+1">
+
+
+<title>GameFAQs: Master of Orion III (PC) Armaments FAQ by Alastair412</tit=
+le>
+<link href=3D"urn:snapshot-D7E18BAD:http://www.gamefaqs.com/css_wide/file.c=
+ss" rel=3D"stylesheet" type=3D"text/css">
+<script src=3D"urn:snapshot-A0BB2879:http://pixel.quantserve.com/api/segmen=
+ts.json?a=3Dp-51jhoCdjGFIVU&amp;callback=3DcbsiParseQC" type=3D"text/javasc=
+ript" language=3D"javascript"></script></head><body><script src=3D"urn:snap=
+shot-9AB626D6:http://pix04.revsci.net/K05540/b3/0/3/0902121/960748909.js?D=
+=3DDM_LOC%3Dhttp%253A%252F%252Fwww.gamefaqs.com%252Fcomputer%252Fdoswin%252=
+Ffile%252F19577%252F22405%253Fncat%253D36%253A23282%253A120%253A%2526site%2=
+53D19%2526pid%253D19577%2526ptype%253D6468%26DM_REF%3Dhttp%253A%252F%252Fww=
+w.gamefaqs.com%252Fcomputer%252Fdoswin%252Fgame%252F19577.html%26DM_EOM%3D1=
+&amp;C=3DK05540" type=3D"text/javascript"></script>
+<script language=3D"JavaScript1.1" type=3D"text/JavaScript"><!--
+/* Script removed by snapshot save */
+--></script>
+<div id=3D"header"> =20
+<div class=3D"lefttext">
+<b>Master of Orion III: Armaments FAQ</b> by <a href=3D"http://www.gamefaqs=
+.com/features/recognition/32747.html">Alastair412</a><br>
+Version 0.82,  Last Updated 2003-04-15=20
+<a href=3D"http://dw.com.com/redir?asid=3D0&amp;astid=3D8&amp;siteid=3D19&a=
+mp;edid=3D107&amp;destCat=3D&amp;destURL=3Dhttp%3A%2F%2Fdb.gamefaqs.com%2Fc=
+omputer%2Fdoswin%2Ffile%2Fmaster_of_orion_3_armaments.txt">View/Download Or=
+iginal File</a>
+</div>
+<div class=3D"righttext">
+Hosted by <a href=3D"http://www.gamefaqs.com/">GameFAQs</a><br>
+Return to <a href=3D"http://www.gamefaqs.com/computer/doswin/game/19577.htm=
+l"><b>Master of Orion III (PC) FAQs &amp; Guides</b></a>
+</div>
+<br clear=3D"left">Liked this FAQ? <span id=3D"recommend"><a style=3D"curso=
+r: pointer;" onclick=3D"rec( , )">Click here</a> to recommend this item to=
+ other users.</span>
+
+<script src=3D"urn:snapshot-1C53B855:http://www.gamefaqs.com/js/simplejax.j=
+s"></script>
+<script language=3D"JavaScript" type=3D"text/javascript"><!--
+/* Script removed by snapshot save */
+--></script>
+
+</div>
+
+
+<div id=3D"body"> =20
+<pre>                              MASTER OF ORION 3
+                              BOOK OF ARMAMENTS
+
+V0.82  04/15/03 Revamped DF weapon tables and analysis
+
+Copyright 2003 Mario Laubacher (Alastair)
+Send comments, feedback, additions or corrections to alastair412@yahoo.com,
+mentioning the FAQ's name in the subject header.
+Flames or comments on the quality of MOO3 will go straight to /dev/null.
+
+"ARTHUR: Consult the Book of Armaments!=20
+BROTHER MAYNARD: Armaments, Chapter Two, verses Nine to Twenty-one.=20
+SECOND BROTHER: And Saint Attila raised the hand grenade up on high, saying,
+'O Lord, bless this thy hand grenade that with it thou mayest blow thine=20
+enemies to tiny bits, in thy mercy.' And the Lord did grin, and the people=
+ did
+feast upon the lambs and sloths and carp and anchovies and orangutans and=20
+breakfast cereals and fruit bats and large chu--=20
+MAYNARD: Skip a bit, Brother." -- Monty Python's Holy Grail
+
+Contents
+=3D=3D=3D=3D=3D=3D=3D=3D
+1   Introduction and Legal Notice
+2   Revision History
+3   Design Guidelines
+      3.A  When to redesign
+      3.B  Specialized vs. Combined Arms
+      3.C  Point Defense
+      3.D  Comparing Weapon Types
+      3.E  Missiles and Racks
+      3.F  Defense
+      3.G  Electronics
+      3.H  Speed
+      3.I  Ship types and TFs
+      3.J  Target Saturation
+4    Hull Table
+5    Defense Tables
+6    Direct Fire Tables
+7    Fighter Tables
+8    Missile Tables=20
+9    Electronics
+10   Misc techs
+11   Credits and Thanks
+12   Hosting Information
+
+                   /=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D\
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D =A6 1 Introduction=
+ and Legal Notice =A6 =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+                   \=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D/
+
+This FAQ covers Master Of Orion 3's ship design and weaponry.
+
+This FAQ is copyrighted by Alastair (Mario Laubacher), and may not be publi=
+shed
+without my consent. If you wish to maintain a copy of this document on your
+site, please send me an e-mail at alastair412@yahoo.com.
+This may be not be reproduced under any circumstances except for personal,
+private use. Use of this guide on any other web site or as a part of any pu=
+blic
+display without written permission is strictly prohibited, and a violation=
+ of
+copyright.
+
+Master of Orion 3 (MOO3) is copyrighted and trademarked by Quicksilver and
+Infogrames.
+
+Acronyms used:
+The following will appear in the FAQ quite often:
+TF        Taskforce
+IF        Indirect Fire weapons (Missiles)
+DF        Direct Fire weapons
+LR / LRS  Long Range Ships
+SR / SRS  Short Range Ships
+Hulls acronyms
+LC        Light Cruiser
+CR        Cruiser
+BC        Battle Cruiser
+BS        Battleship
+DN        Dreadnought
+SDN       Super Dreadnought
+
+
+
+                     /=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D\
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D =A6 2  Version=
+ History =A6 =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+                     \=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D/
+
+03/21/03 v0.5   Working version (not published).
+03/24/03 v0.6   Initial Release.
+03/25/03 v0.7   DF weapon analysis done, added Ch. 7and 9, acronyms and some
+                other fixes here and there.
+03/26/03 v0.72  Corrections and fixes on armor, PD and fighters
+04/14/03 v0.8   Added missiles, included data patch corrections, drives,
+                new section delving into target saturation (3.J) and more.
+04/15/03 v0.82  Revamped DF weapon tables and analysis, fixed some data,
+                included additional insight on missile payload and a reader
+                submission on cloaking / detection.
+
+                     /=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D\
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D =A6 3  Design=
+ Guidelines =A6 =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+                     \=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D/
+
+--------------( 3.A When to redesign )-------------------------------------=
+---
+               ----------------------
+With a wealth of techs and weaponry available, the timing for redesign is
+quite important. Several options are available, but in general terms, I
+recommend redesigning in the following situations:
+- New warp drive: Speed is crucial. The faster your ships travel down those
+jump lanes, the better your ability to keep the initiative or to react to AI
+actions. Further, newer drives take up less space per speed units (this also
+applies to system drives, BTW).
+- New hull type: what's the use of getting that shiny Leviathan hull if you
+don't use it? Superior hull space packs more firepower - use it to your
+advantage. I don't necessarily redesign other hulls at that point, though.
+- New weaponry: I don't prioritize that part myself. There are a few weapon
+techs which almost beg for a full redesign, though, mainly Lightning fields.
+
+Normally, I obsolete old types within 3 turns of a full redesign. Your mile=
+age
+may vary, though.
+
+Finally, I scrap obsolete reserves as soon as a sizeable reserve of a super=
+ior
+design is available, which means between 10 and 20 turns of introducing the
+new designs.
+
+In relationship with Antaran expeditions, note that launching one will pull
+the required amount of ships from your reserves, apparently at random
+(excluding transports, colony and outpost). To have better control on what
+gets sent out, scrap what you don't need or put it into active taskforces.
+
+On the matter of transports, you'll have noticed that MOO3 has a tendency to
+overdo transport building. This is a recognized bug adressed in the upcommi=
+ng
+patch. In the meantime, make sure you obsolete any transports as soon as you
+have suitable reserves.
+
+--------------( 3.B Specialized vs. Combined Arms )------------------------=
+---
+               -----------------------------------
+When building cruiser and bigger hulls, you tend to get enough space to
+seriously consider whether you want a "pure" design per ship type or rather
+"mixed" weaponry.
+
+Obviously, a "pure" design will pack more damage for the weapon type of
+your choice. However, this comes at the cost of versability both in offense
+and defense. We'll comment briefly on the pros and cons of each weapon group
+a bit later on, but my personal preference goes to "mixed" designs. Whatever
+your choice, though, keep in mind that combined arms brings a huge advantage
+in being able to confront any situations. If you go for "pure" ship designs,
+try at least to mix your ship types when assembling a new TF, even in the=
+ main
+body.
+
+--------------( 3.C Point Defense )----------------------------------------=
+---
+               -------------------
+Currently, before the code patch gets released, PD is broken. You can't cou=
+nt
+on PD weaponry to protect your fleet against incoming missiles, which can=
+ lead
+to severe losses.
+
+However, there is a workaround: it appears that as long as your ships have=
+ any
+missiles left, the PD weapons will do their job. Hence make sure to equip=
+ all
+your ships with one single rack of Nuclear warheads (PD mount does fine).=
+ Some
+people recommend always putting 20 of them. This is not necessary in all
+situations, though, as you can waste valuable space doing so. Your PD weapo=
+ns
+will fire as long as the rack isn't empty - so if you're quite ahead in the
+tech race, 8-12 missiles will do nicely. This is related to the duration of
+your battles: if most fights end within 3 minutes, chances are you won't be
+able to deplete even 8 missiles.
+
+Zhaneel also mentions that the PD bug can be completely offset by issuing
+a patrol command (without the missile racks). I haven't verified this mysel=
+f,
+also note that for my taste, it limits my actions too much.
+
+In terms of equipment, my preference goes to a combination of PD-mounted
+phaser beams coupled with a second series of light-mount phaser beams. While
+damage is equal, the light mount exchanges range for rate of fire. In pract=
+ice
+though, I find it an advantage to be able to fire a few shots at incoming
+missiles from farther away, diminishing the amount of work the PDs have to
+perform to shoot down what's left.
+
+After analyzing the weapon tables, I would recommed replacing phasers with
+disruptor cannons once you have all improvements researched for it. See
+the analysis in the DF weapon tables for a rundown.
+
+For fighter protection, the most efficient PD weapon by far are lightning
+fields. If they aren't on your tech tree, your scientific spies and your
+diplomats should work overtime to get it - it's just too invaluable to miss.
+
+Quicksilver posted a first (unnumbered) data patch. One of the huge changes=
+ in
+there affects missiles and the PD bug. While missile damage has been cut in
+half, the rate of fire has been vastly increased. Which means that you'll=20
+shoot your missile complement out pretty quick - and so does your opponent.
+In terms of PD workaround, be aware that your PD racks will empty much fast=
+er
+now than before, so if you stick to PD racks, favor 20 missiles over 8-12 :)
+
+
+--------------( 3.D Comparing Weapon Types )-------------------------------=
+---
+               ----------------------------
+As you will have noticed, MOO3 offers three weapon types: direct fire,
+fighters and missiles. Here's a rapid rundown of the pros and cons of each
+type:
+
+Direct fire
+Pros:
+- unlimited firepower
+- vast choice of mounts
+- Good damage
+- Lots of modifications
+Cons:
+- Maximal range / damage requires a lot of space
+- The truly damaging mounts have a very low rate of fire
+- Can't be used to bombard planets
+
+Fighters
+Pros:
+- Unlimited supply
+- Virtually unlimited range
+- Deep scouting
+- Expendable targets for enemy missiles and fighters
+Cons:
+- Need to lose a complete squadron before a new one is generated
+- Low speed
+- "Fish school" flight AI
+
+Missiles
+Pros:
+- Best damage / weight ratio (only pre-data patch!)
+- Speed
+Cons:
+- Grouped targetting wastes a whole volley in overkill
+- Limited supply
+
+This quick comparison explains my preference for mixed designs. At the very
+least, both my carriers and IF have at least one spinal-type beam weapon so
+they aren't useless once their last volley has been fired or their fighter
+complement is out fighting planetside while a SR TF approaches your ships.
+
+To maximize the weaponry effect for fighters and missiles, when fighting ne=
+ar
+armed planets, I always select each TF and target the planet every 5 seconds
+to make sure all my indirect weaponry is in flight and ready to react to
+enemy TFs popping up midway. Usually, the first or second volley wipes out
+planetary bases, leaving the rest available to re-acquire whatever target=
+ lies
+in-between.
+
+The benefits of using lots of fighters in any fleet can't be stressed enoug=
+h.=20
+They provide deep recon by forcing enemy ships to uncloack when firing,=20
+and plenty of distraction for fighters and especially missiles.
+When a 1000-damage warhead blows up a 30-HP fighter, that's 970 damage gone=
+ to
+waste. Of course, this works both ways. Note that normally, though, with
+decent cloaking and ECM on your TFs, the AI seems incapable of targetting=
+ your
+main fleets, giving the human player a distinct advantage. To maximize this,
+use the launch method described above as soon as you have a target.
+
+The data patch has changed missiles: half damage, but a much quicker rate of
+fire. In practice, this means you'll apply much more damage in a shorter=20
+timeframe. This also means your IF ships will end up as sitting ducks within
+one and two minutes of combat, and if you still got serious opposition at=
+ that
+time, too bad: your fleet's efficiency is severely hampered.
+Now more than ever, I am comforted in my mixed design approach.
+Major difference is that I find I don't build any IF-type ships at all
+anymore by now, just LR, PD, reco and carriers.
+
+
+--------------( 3.E Missiles and Racks )-----------------------------------=
+---
+               ------------------------
+When designing your missile complement, keep in mind that there are two wei=
+ght
+components: individual missile weight and rack weight. Adding several racks
+ensures larger volleys being shot, adding more missiles per rack ensure that
+more volleys can be shot. On large hulls, I tend to limit myself to 5 racks,
+counting 5+ missiles per rack. But this is also due to my preference for mi=
+xed
+designs, as the rest of the space gets occupied by a bunch of fighters and a
+couple of Spinal+ direct fire weapons.
+
+Note that the heavy chassis sports the best damage / space ratio. Avoid usi=
+ng
+torpedoes.
+
+
+
+--------------( 3.F Defense )----------------------------------------------=
+---
+               -------------
+Armor doesn't take up space, but tends to cost a lot. Shields are relatively
+cheap compared to armor, but take up quite a bit of space, have less stoppi=
+ng
+power, and tend to get depleted pretty quick.
+Hence I usually boost industry DEAs on 5-10 size-12 planets and skip shields
+altogether.
+
+When in need for shielding, though (the enemy is close in techs or ahead of
+me in techs), I go for damper fields as soon as they are available. Although
+they are weaker in sheer power than Class VII+ shields, they recharge to fu=
+ll
+strength every 5 seconds, never running out, while traditional shields run
+out after 1-2 blasts.
+
+
+--------------( 3.G Electronics )------------------------------------------=
+---
+               -----------------
+Due to the lack of explanations on the manual, some confusion exists about=
+ the
+respective effect of ECM and ECCM.
+To summarize what those _should_ do:
+- ECM jam enemy battle computers, rendering the detection of your TFs more
+difficult
+- ECCM unscrambles your own battle computers.
+ECM and ECCM of the same level cancel each other out. However, contrary to
+some people's assumption, this doesn't mean that having both in your TFs ma=
+kes
+them usueless. By design, they are matched against enemy devices, not your
+own.=20
+
+But where to place them?
+Putting both devices on the same ship is a pure waste of space. ECM is a=20
+defensive device, it is probably best placed on your PD ships. ECCM, on the
+other hand, is a detection device, and it's best located on your recon ship=
+s.
+
+Note that ECM protects your whole TF to a point, while ECCM, like the scan
+devices, work a tad differently.
+In MOO3, whenever one single ship notices an enemy ship or weapon, your who=
+le
+fleet sees them at once.
+
+In practice, the computer adds up all the values of each individual ECM in
+your fleet and matches them against the total of the opposing ECCM. If your
+ECM values (see the tech tables below) totals are higher, your fleet will be
+protected. If it's lower, it won't - and vice versa.
+
+Cloaking: I haven't had much time to delve into specifics so far, but from a
+cursory look, it seems to have two effects: a visual cloaking value, and an
+ECM value. There's a big difference, though: The weakest cloak's ECM value=
+ is
+as good as ECM V... for a much smaller space and a ludicrously low cost.
+Which would mean that using any ECM device over cloaking is just a waste of
+space and money as long as you're ahead in the tech race.
+*sigh*. Yet another area where a better manual would have helped... I miss=
+=20
+SMAC / SMAX's detailed encyclopedia...
+
+Note that contrary to ECM, ECCM and detection devices, cloaks can't be
+stacked. Which means it's usually a good idea to have your PD ships adding
+to your TF's total jamming value.
+
+
+--------------( 3.H Speed )------------------------------------------------=
+---
+               -----------
+As my tactics mainly involve sniping from afar or using missiles with=20
+fighters, planet-side fights don't recquire a lot of speed.
+That doesn't mean you should spare the space and drop your system drive spe=
+ed
+to 1 - when flying interception missions or fighting a guardian, your IF and
+carriers are exposed, as they won't launch their weaponry before they spot a
+target.
+I tend to have my system drives at 60%-75% of max speed at any times. For=
+ LRs,
+which need a bit more mobility, I usually select 80% of max speed.
+Note that your TFs will (obviously) always move at the speed of your slowest
+ship within that TF, so keep that in mind when designing and assembling your
+TFs.
+
+
+--------------( 3.I Ship types and TFs )-----------------------------------=
+---
+               ------------------------
+Apart from the obvious like colony and outpost ships, what to build?
+As highlighted in the weapon comparison, carriers and IF ships pretty much=
+ own
+the battlefield, especially when building mixed designs or at least mixed=
+ TFs.
+
+In complement to carriers and IF ships, I build a set of mixed LRS as well,=
+ to
+add some punch to my TFs when combat becomes more close and personal.
+
+I don't like SR ships nor SR TFs. They simply have to get too close to be
+effective - which means lots of losses. Also, to be effective, you would
+probably want to go for full speed and shields - at the expense of firepowe=
+r.
+
+I tend to have several hull sizes per ship type, so that all my planets can
+contribute to the building effort.
+
+For TFs, I build nothing but armadas for offense fleets. A carrier armada
+sports the following combination:
+- 1-2 cap-ship carriers (by turn 200+, titans or bigger)
+- 4-5 smaller carriers (by turn 200+, BC to SDN)
+- 1 cap IF
+- 4 smaller IFs
+- 1 big LRS (DN or better)
+
+Escort ring:
+- 2 PD ships (currently one LC and one BC)
+- 2 BC+-sized LRS
+
+Picket ring:
+- 2 medium-sized reco
+
+IF armadas are currently very similar, I usually only invert the carrier and
+IF ship numbers. In practice, however, as I use mixed ship designs as well,=
+ I
+tend to limit myself to building IF TFs, unless I run out of IF cap ships.
+
+Note that in combat, you are limited to 10 TFs per assault. The CPU selects
+your best TFs present in the system to do the job.
+
+This _seems_ to exclude system ships and orbitals, but I need to confirm th=
+is
+sometime soon.
+
+One use I have for SR TFs is to build one brand of mid-sized SR ships,=20
+and include sensor-heavy recon ships in the TFs. I group them in smaller
+TFs and use them as detectors / decoys in heavily defended and cloacked are=
+as,
+typically guardians and Orion. Those throwaway TFs don't survive for long,=
+ but
+usually allow to detect the opponent and attract its fire without risking=
+ the
+lives of my main (and expensive) armadas.
+
+
+--------------( 3.J Target Saturation )------------------------------------=
+---
+               ----------------------
+To summarize some things which are scattered throughout this FAQ, let me
+formally introduce the notion of target saturation.
+In MOO3 terms, saturation means offering your opponent multiple distractions
+aside from your main fleet.
+The more advanced targets lie between your TFs and the opponent, the less=
+ the
+risk that a heavy missile volley reaches your ships. Saturation is a huge
+boost to defense, and costly to overcome in offense.
+
+Saturation is best achieved by massive fighter groups (hence again one
+advantage to using mixed designs). When you reach Cruiser hull size, try to
+have all your main ships carrying at least 5 interceptors - that's 60
+additional targets to absorb one missile volley flying ahead of your ships.
+
+Saturation also works well for missile volleys themselves: the more missiles
+per volley, the more you'll get through the opponent's PD walls.
+
+To counter saturation is much more difficult. In solo, that's no issue: the=
+ AI
+doesn't use it. But in multiplayer, this could become tricky very quick. The
+keys to overcome fighter saturation would be lightning field and light-moun=
+ted
+PD weaponry.
+I would venture that on large-scale battles involving two high-tech human
+players, a winning fleet setup would involve the following:
+- Cruiser+ PD ships, sporting 10+ Lighting Field Generators, Damper Fields,
+a handful of long-range direct fire beams and scores of light-mounted PDs
+- Reco ships, perhaps the same size, packed with electronics, LFG and Dampe=
+rs
+- Cap ships Titan+, at least 10 ion dual-pod fighters, LFG, good PD beams=
+ and
+some serious long-ranged beam bruising capabilities. Missile set-up is tric=
+ky
+here: It's perhaps better to have less racks with more missiles in order to
+outlast enemy saturation. Just a hunch, though.
+
+Now for the fleet buildup, assuming you're able to sport 10 armadas, Id' try
+out 7 Carrier armadas patrolling in the farthest edge of the map, and 3 PD
+armadas patrolling about 3 squares ahead of them. Make sure your 7 carriers
+send out 4-5 missile volleys and their fighter complement at once. When an
+enemy TF becomes visible, don't group-target more than two armadas at the
+same time - wait about 3-5 seconds before targetting with 2 more TFs. When
+the enemy missile stream starts to trickle down, carefully close in for the
+kill, and let your beams and fighters do the job from afar.
+
+Alternatively, I could suggest building one reco TF with Titan+ sized scout=
+s:
+ultra-heavy armor, full damper fields, full cloak, scanners and jammers, and
+a bunch of short-ranged beams. Wait 'till the initial missile exchange=20
+trickles down, then send this one forward a bit outside of the direct path=
+=20
+between your main TFs and where the opponent seemed to launch his stuff fro=
+m.
+Use this special TFs for both reconnaissance and decoy purposes.
+
+Those are just ideas, BTW, none of them field-tested, as I don't multiplay.
+As with all such games, it's just theorycraft - if you get wasted by a bett=
+er
+opponent, don't just curse me: learn from your opponent, and if you would,
+send me an email telling me where the above theories fall severly short.
+Remember this old military maxim: no plan survives enemy contact.
+
+This section owes to an e-mail sent to me by Mark Reyhner, who noted that=
+ for
+fighters, Death Ray offered a better raw dmg / spc and Firedefay ratio than
+the rest. After thinking about it, though, I'll favour Dual-podded Ion
+fighters because of saturation, until armor piercing gets back in.
+=20
+                     /=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D\
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D =A6 4  Hull Ta=
+ble =A6 =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+                     \=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D/
+
+--------------( Hull Sizes )-----------------------------------------------=
+---
+                ----------
+The data patch halves all hull base costs. Tables have been updated.
+///Updated v0.82
+Zhaneel reminded me that in the patch documentation, this halving supposedly
+applies only to orbitals and system ships. This led me to re-browse the tech
+tables.
+This results in the following distinctions between the ship classes (numbers
+are multipliers over base values):
+
+Class          Cost   Capacity
+------------------------------
+Orbitals       0.66   1.5
+System Ships   0.75   1.33
+Starships      1      1
+
+In short, you fit more stuff for less money on orbitals and system ships,=
+ PLUS
+you spare the space for warp drives. This gives defenders a big theoretical
+advantage, offset by the fact that, when defending a planet, you can't laun=
+ch
+your mobile weaponry before an enemy taskforce uncloaks.
+Possible strategy in multiplayer: don't build planetary defense bases at al=
+l -
+you'll deprive an opponent of an initial target, which negates his saturati=
+on
+advantage and forces him to close in and expose himself.
+When you have both orbitals and system ships, move your system TFs away=20
+sideways from the planet towards the farther edge of the map (where your
+opponents TF's are hiding), so that he only spots your orbitals, then
+move in sideways, lauch your mobile weaponry and aim for the kill.
+In such a strategy, as orbitals are sitting ducks anyway, give them scores
+of the longest-range DFs on ultra spinal mounts, and use the extra space to
+add at least standard damper fields. That should be enough to field a serio=
+us
+defense.
+
+Finally, regarding orbitals, you can have 4 orbitals around your planet, and
+three more per moon. Ethereans with their preference for huge gas giants wh=
+ich
+are surrounded by lots of moons have a distinct racial advantage for defense
+over all other races here.
+///
+
+Type              Cost   Capacity
+---------------------------------
+Lancer              50      50
+Cutter              71      70
+Corvette           102     100
+Frigate            149     140
+Destroyer          219     200
+Light Cruiser      325     285
+Cruiser            487     405
+Battle Cruiser     729     575
+Battleship        1132     815
+Dreadnought       1756    1155
+Superdreadnought  2736    1635
+Titan             4323    2310
+Behemoth          6853    3265
+Leviathan        11122    4615
+
+Notes:
+The advantage of bigger sizes are of course their sheer payload. On the oth=
+er
+hand, though, their cost can become quite a burden on your PP. Keep track of
+your production capacities: A behemoth-sized ship requires you have at least
+a couple of worlds capable of churning out 7000+ PPs per turn in order to=
+ get
+built at a reasonable pace.
+
+
+
+                     /=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D\
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D =A6 5 Defense=
+ Tables =A6 =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+                     \=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D/
+
+--------------( Armor Types )----------------------------------------------=
+---
+                -----------
+
+Name         Cost      ArmorVal     Deflect
+----------------------------------------------
+Zortrium      20         100           2
+Duranium      60         200           6
+Titanium     140         400          10
+Neutronium   300         800          14
+Adamantium   620        1600          18
+
+
+--------------( Armor Plating )--------------------------------------------=
+---
+                -------------
+
+Type                     CostMult  ArmorMult   DeflectMult
+-----------------------------------------------------------
+No Armor                  0          0             0
+Very Light Armor (VLA)    0.75       0.50          0.5
+Light Armor (LA)          1.00       1.00          0.66
+Medium Armor (MA)         3.00       2.00          1
+Heavy Armor (HA)          7.00       4.00          1.5
+Very Heavy Armor (VHA)   12.00       8.00          1.75
+Ultra Heavy Armor (UHA)  18.00      16.00          2
+
+Notes:
+When selecting building VHA or UHA ships, note that going for lower type +=
+ UHA
+will be much cheaper (hence faster to build), at the expense of about 25%-4=
+0% in
+deflection value. But it might be worth considering.
+
+Example: Duranium UHA: cost 1080, Armor 3200, Defl 12
+         Titanium VHA: cost 1680, Armor 3200, Defl 17.5
+
+
+--------------( Shields )--------------------------------------------------=
+---
+                -------
+
+Shield Generators come in three variants: small, standard, and large.
+
+Each size provides 1.5x regen rates and shield str over the smaller size,
+but cost and space doubles every time. If you need the space, absolutely
+prefer better armor and smaller generator.
+
+There are 10 shield types plus Damper fields available. For an increase
+in cost, each size gives you better defletion values and recharge rates, at
+the same space cost - therefore only cost is a consideration when deciding=
+ on
+the type you need.
+
+Notes:
+Traditional shield purchasing gets completely outclassed if you manage to=20
+research Damper fields. Damper fields cost quite a bit more than normal=20
+shields, and take thrice the space, but they regenerate their whole strength
+every 5 seconds. Although technically, the shield resistance for class VII+=
+ is=20
+better, it gets chipped away with every shot, usually way faster than its=20
+recharge rate. Meanwhile, your damper fields keep recharging until the end=
+ of
+the battle.
+
+
+                     /=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D\
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D =A6 6  Direct=
+ Fire Tables =A6 =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+                     \=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D/
+
+--------------( Mounts )---------------------------------------------------=
+---
+                ------
+Legend:
+-------
+Spc       =3D Space multiplier
+Cost      =3D Cost multiplier
+Dmg       =3D Dmg multiplier (affects both NearDmg and FarDmg)
+DistMult  =3D Distance multiplier (affects DmgDis, AccDis and MaxRange)
+FireDlay  =3D Fire Delay mulitplier
+
+Name                  Spc     Cost Dmg    Dist    Fire
+                                          Mult    Dlay
+---------------------------------------------------------------------------
+Point Defense(1)       0.8    1.0  0.33   0.75    0.75  =20
+Light Mount            0.8    0.75 0.8    0.8     0.8   =20
+Standard Mount         1.0    1.0  1.0    1.0     1.0
+Heavy Mount            1.75   2.0  1.5    1.3     1.2   =20
+Very Heavy Mount       2.75   3.0  2.0    1.7     1.4   =20
+Ultra Heavy Mount      4.0    4.0  2.5    2.1     1.6   =20
+Spinal Mount           1.5    3.5  2.0    1.5     2.2   =20
+Improved Spinal Mount  2.0    5.0  3.0    2.0     3.5    =20
+Ultra Spinal Mount     3.0    7.0  5.0    2.5     5    =20
+
+(1) PD has MultFire value of 2. Which means a PD should shoot twice as much
+as any other mount. In practice, it doesn't work. Yet another bug.
+
+Note that Ultra Heavy Mounts are better than Spinals and Improved Spinals,=
+=20
+at the expense of space and cost. The lower Fire Delay is also worth=20
+considering.
+In practice, you can fit twice as much Improved Spinals than Ultra Heavies,
+but they will fire less than half often. If cost is a factor (because your
+production capabilities are an issue), though, prefer Ultra Heavy Mounts.
+
+
+--------------( Weapons )--------------------------------------------------=
+---
+                -------
+///Update v0.82
+On reader request, the tables have been merged, and more comparative data
+has been included. Comparisons by type of weapons have been moved to the
+bottom. Also, there is now an Efficiency Chart below the weaons tables.
+///
+Legend:
+-------
+FireDlay   =3D Delay between two shots
+MultFire   =3D # of shots fired per salvo
+NearDmg    =3D The weapon's max damage, applied between point-blank and Dmg=
+DisSt
+FarDmg     =3D The weapon's min damage, applied between point-blank and Max=
+Rng
+DmgDisSt   =3D The distance between point-blank and the point where damage
+             starts to decrease.
+MaxAcc     =3D The maximum accuracy at AccDisSt? orMaxRng? No way to know.
+AccDisSt   =3D The distance between point-blank and the point where accuracy
+             starts to decrease. The decay is not known.
+MaxRng     =3D The max range at which the weapon will manage to hit a targe=
+t /
+             deal any damage
+Cost       =3D The cost in AU.
+Spc        =3D The space used.
+ShldPen    =3D Shield Penetration. Not certain how the value is used.=20
+ArmrPierc  =3D Armour Piercing. Not used in the game atm.  (1)
+Type       =3D The weapon type.
+Improvements:=20
+   M1 / M2 =3D Miniaturization: Space * .8 per level (both =3D space *.64)
+   I       =3D Improved: NearDmg * 1.5, FarDmg * 1.1
+   AP      =3D Armor Piercing: ArmorPierc *.75, Space * 1.5  (1)
+   AF      =3D AutoFire: MultFire * 3, Space *2 =20
+   C       =3D Continuous: Accuracy *1.5, Space * 1.25
+   E       =3D Envelopping: ShieldPen *.5, Space *1.66   =20
+
+(1)  It looks like all tests indicate that ArmorPiercing has been entirely=
+=20
+removed from the game. I don't really take those into account when=20
+evaluating weapons atm, and a good thing it is, since if this does get
+patched back in, this could severely affect weapon effectiveness.
+This means that at this moment, using AP improvement is a good way to
+waste space for no effect.
+Visage on the official boards verified that multiple firing always goes to=
+ one
+single target per "shooting round". Which means that if the first true shot
+kills your target, the rest gets wasted.
+
+///New v0.82
+Several tests performed by Visage tend to indicate that the dropoff in
+damage due to distance isn't linear - in fact, most of the dropoff occurs
+near MaxRange.
+///
+
+Name                 Fire Mult  Near  Far   Dmg     Max   Acc      Max
+                     Dlay Fire  Dmg   Dmg   DisSt   Acc   DisSt    Rng
+--------------------------------------------------------------------------
+Laser                2.5    1     7     1    4500   0.7    4500    7167=20
+Mass Driver          2.5    1    14     3    5732   0.5    4500    5733=20
+Fusion Beam          2.5    1    31     2    4500   0.8    4500    6167=20
+Quark Cannon         2.5    1    15     3    4500   0.7    4500    8017 =20
+Hard Beam            2.5    1    15     7    4500   0.7    4500   11333=20
+Rail Gun             2.5    1    30     7    9065   0.5    4500    9067 =20
+Neutron Blaster      2.5    1    33     3    4500   0.7    4500   11628=20
+Hellfire Cannon      2.5    1    67    10    4500   0.8    4500    8944 =20
+Graviton Beam        2.5    1    49     3    4500   0.7    4500   13433=20
+Ion Pulse Cannon     2.5    1    33     4    4500   0.7    4500   15500=20
+Particle Beam        2      1    49    10    4500   0.9    4500   13433=20
+Phasors              2.5    1    48     5    4500   0.7    4500   17583=20
+Gauss Cannon         2.5    1    97     9   14065   0.5    4500   14067=20
+Lightning Field Gen  2.5    5    36    36    4500   0.9    4500    6364 =20
+Plasma Cannon        2.5    1   213     6    4500   0.8    4500   13111=20
+Dark Energy Beam     2.5    1   107    20    4500   0.7    4500   17044=20
+Disruptor Cannon     2.5    1   209    20   17399   0.5    4500   17400=20
+Death Ray            2      1   157    50    4500   0.9    4500   18850=20
+Disintegrater Beam   2.5    1   105    23    4500   0.7    4500   21750=20
+Megabolt Cannon      2.5    1   314    23    4500   0.8    4500   14500=20
+Tachyon Beam         2.5    1   231    27    4500   0.7    4500   20656=20
+Mauler               4      1   679     1    4500   1     15887   15889=20
+Dark Matter Proj     2.5    1   453    30   20732   0.5    4500   20733=20
+Stellar Converter    8      1  1000   200    4500   1     27999   28000=20
+
+
+Name                Cost  Spc Shld Armr  Type     Improvements
+                              Pen  Pier
+-------------------------------------------------------------------------
+Laser                 5   10   1    1    Beam     M1, M2, I, AP, AF, C=20
+Mass Driver           9   22   1    1    Mass     M1, M2, I, AP, AF =20
+Fusion Beam          21   15   1    1    Plasma   M1, M2, I, C, E   =20
+Quark Cannon         10   12   0.9  1    Particle M1, M2, I,     =20
+Hard Beam            10    7   1    1    Beam     M1, M2, I,        =20
+Rail Gun             20   13   1    1    Mass     M1, M2, I,        =20
+Neutron Blaster      22   15   0.9  1    Particle M1, M2, I, C      =20
+Hellfire Cannon      45   19   1    1    Plasma   M1, M2, I,         =20
+Graviton Beam        33   18   0.9  1    Particle M1, M2, I, C       =20
+Ion Pulse Cannon     22   10   1    0.8  Beam     M1, M2, I, AF     =20
+Particle Beam        33   18   0.1  0.9  Particle                     =20
+Phasers              32   14   1    1    Beam     M1, M2, I, C, AF, AP
+Gauss Cannon         64   27   1    1    Mass     M1, M2, I, AP, AF  =20
+Lightning Field Gen  24   10   0.7  0.7  Plasma   M1, M2, I,        =20
+Plasma Cannon       142   44   1    1    Plasma   M1, M2, I, C      =20
+Dark Energy Beam     71   33   0.9  1    Particle M1, M2, I,         =20
+Disruptor Cannon    139   54   1    1    Mass     M1, M2, I, AF     =20
+Death Ray           105   45   0.8  0.7  Particle                   =20
+Disintegrator Beam   70   25   1    1    Beam     M1, M2, I,         =20
+Megabolt Cannon     209   59   1    1    Plasma   M1, M2, I,        =20
+Tachyon Beam        154   61   0.9  1    Particle M1, M2, I,        =20
+Mauler              453  113   0.5  1    Plasma   M1, M2            =20
+Dark Matter Proj    302   95   1    1    Mass     M1, M2, I,        =20
+Stellar Converter   666  495   1    1    Beam                       =20
+
+Analysis per weapon type:
+-------------------------
+Beams:
+Beams wield the longest range overall. However, this comes at a cost:
+Both damage and accuracy are severly lowered at the longer ranges.
+They also sport a good Damage / space ratio. They are very well-suited for=
+ PD
+to standard mounts on short distances. If you plan to snipe from afar, thou=
+gh,
+avoid beams.
+Adding to their PD suitability is the fact that Ion Pulse and Phasers sport
+the AutoFire improvement.
+Note that the stellar converter, with a Fire Delay of 8 and a huge space co=
+st
+is simply not worth the trouble for a combat weapon. It's only use: convert=
+ing
+planets to ashes, period.
+
+Mass Drivers:
+Mass drivers have one huge thing going for them: damage remains constant ov=
+er
+distance. Their accuracy, however, is only 50%. This makes them a risky bet
+to use as PD weapons, IMO.
+///New v0.82
+Also, due to the fact that most damage dropoff happens near MaxRange, their
+advantage isn't really that great anyway.
+///
+In the early turns, never use mass drivers over lasers - they're just worse
+all over the band.
+For PDs, a decent late-game alternative to Phasers would be the Disruptor=20
+cannon, though. It's range / damage ratio is almost 4 times better than=20
+phasors for a slight cost increase, and it holds the AF improvement as well.
+Also consider that you need 44 Phasors to match the damage of 10 disruptors=
+ -
+making them longer to design. With the extra range, the disruptor has plenty
+of time to shoot a second time if the first shot misses. A good investment=
+ for
+cap ships.
+
+Particle:
+Particle weapons are quite similar to beams in general. However, their=20
+Dmg / space ratio is none too impressive, the loss of damage on max distance
+is bad.
+Initially, the Death Ray would seem like a decent pick due to its short Fire
+Delay. However, the absence of any improvements leaves is sorely outclassed.
+Altogether, particles are just not worth the trouble. If you could steer yo=
+ur
+research, I would never bother in the first place...
+
+Plasma:
+Plasma weapons offer the shortest max range, but pack an excellent Damage=
+ /
+space ratio. They are altogether a tad lighter than their counterparts in
+other DF weapon types.
+Of all the plasma weapons available, the Megabolt Cannon is the best choice,
+provided you manage to research or steal all three improvements available.
+With a Fire Delay of 4, and a disappointing damage spread, the Mauler,
+however, is just a waste of space.
+
+///New v0.82
+--------------( Efficiency Chart )-----------------------------------------=
+---
+                ----------------
+The efficiency chart shows how the weapons compare with each other based on
+damage potential vs. space used, and the ranking depending on the way it is
+being measured.
+
+Dmg/Spc =3D NearDmg / Spc
+Improv =3D ((Dmg*MultFire)/FireDlay) / (Spc*MaxAcc)
+
+Wpn                 Type     Dmg/Spc Rank   Improv  Rank
+--------------------------------------------------------
+Lightning Field Gen Plasma    3.6     8      18.75     1    =20
+Disruptor Cannon    Mass      3.87    6      10.89     2    =20
+Gauss Cannon        Mass      3.59    9      10.1      3    =20
+Dark Matter Proj    Mass      4.77    4       8.94     4    =20
+Ion Pulse Cannon    Beam      3.3    13       6.63     5    =20
+Megabolt Cannon     Plasma    5.32    2       6.24     6    =20
+Disintegrator Beam  Beam      4.2     5       5.63     7    =20
+Tachyon Beam        Particle  3.79    7       5.07     8    =20
+Dark Energy Beam    Particle  3.24   14       4.34     9    =20
+Rail Gun            Mass      2.31   17       4.33    10   =20
+Hellfire Cannon     Plasma    3.53   10       4.13    11   =20
+Phasers             Beam      3.43   12       3.67    12   =20
+Plasma Cannon       Plasma    4.84    3       3.03    13   =20
+Hard Beam           Beam      2.14   19       2.87    14   =20
+Mauler              Plasma    6.01    1       2.35    15   =20
+Graviton Beam       Particle  2.72   15       1.94    16   =20
+Death Ray           Particle  3.49   11       1.94    17   =20
+Mass Driver         Mass      0.64   24       1.79    18   =20
+Quark Cannon        Particle  1.25   22       1.67    19   =20
+Neutron Blaster     Particle  2.2    18       1.57    20   =20
+Particle Beam       Particle  2.72   16       1.51    21   =20
+Fusion Beam         Plasma    2.07   20       1.29    22   =20
+Laser               Beam      0.7    23       0.75    23   =20
+Stellar Converter   Beam      2.02   21       0.25    24   =20
+
+
+Analysis:
+With this consolidated chart, things become quite obvious, now, don't they?
+In particuliar, properly factoring in improvements demonstrates clearly what
+I introduced a couple of versions ago: Disruptor Cannons own the late-game,
+especially as PD weapons.
+
+At 3rd place, the Gauss Cannon ought to be your mid / late game pick if you=
+'re
+building short-range ships and TFs.
+
+For Late-Game LR ships / TFs, the Dark Matter Projector is an excellent
+solution despite the accuracy penalty - consider however the Megabolt cannon
+as an add-on to improve MaxRange accuracy.
+There's still the special case of the Ion Pulse Cannon: If ArmorPiercing ge=
+ts
+patched back in, expect its rating to drop several ranks. Use with caution.
+For early-game PD, use Hard Beams or Hellfire Cannons, then switch to Phase=
+rs=20
+until you get the Disruptor Cannons and their improvements.
+
+As hinted earlier, skip Mass Drivers altogether, and do whatever it takes to
+research Quark Cannon before you get involved in early-game fights - you'll
+dominate any enemy ships equipped with the first handfull of techs.
+///
+
+--------------( Bottomline )-----------------------------------------------=
+---
+                ----------
+///Revised v0.82
+Altogether, consider DF weapons to be first support and defense weaponry.
+Sure, on short ranges, they are well worth the trouble, but short range com=
+es
+with higher casualties OR requires additional shielding (which removes space
+for more firepower).
+If you applied the first data patch, though, with the missile nerfs, you'll
+find equipping all your ships with 1-2 Ultra Heavy or Ultra Spinal mounted
+weapons in exchange of 1 missile less per rack a more than worthy tradeoff.
+///
+For a serious bruising effect, Ultra Spinal Mounts transform the weakest DF=
+=20
+into a serious threat - but the FireDly gets huge as well.
+However, consider this: If your first shot is a guaranteed kill, you don't
+need to worry about FireDly for the second one. Plus, on the range bonus
+granted, 5 seconds more just means an already severly diminished TF closes
+in a tiny bit, exposing itself to heavier damage on the second shot.
+
+
+               /=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D\
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D =A6 7 Fighter Tables =A6 =3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+               \=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D/
+
+--------------( General Data and abbreviations )---------------------------=
+---
+                ------------------------------
+FireDlay   =3D Delay between two shots
+MultFire   =3D # of shots fired per salvo
+NearDmg    =3D The weapon's max damage, applied between point-blank and Dmg=
+DisSt
+FarDmg     =3D The weapon's min damage, applied between point-blank and Dmg=
+DisEn
+DmgDisSt   =3D The distance between point-blank and the point where damage
+             starts to decrease.
+DmgDisEn   =3D The max range at which the weapon will do any damage.
+MaxAccry  =3D The maximum accuracy at AccDisSt? or AccDisEn? No way to know.
+AccDisSt   =3D The distance between point-blank and the point where accuracy
+             starts to decrease. The decay is not known.
+AccDisEn   =3D The max range at which the weapon will manage to hit a targe=
+t.
+Cost       =3D The cost in AU.
+Space      =3D The space used.
+ShldPen    =3D Shield Penetration.=20
+ArmrPierc  =3D Armour Piercing. Not used in the game.
+Size       =3D Currently used to determine the fighter's base HP.
+
+Improvements:=20
+   AP      =3D Armor Piercing: ArmorPierc *.75, Space * 1.5
+   AF      =3D AutoFire: MultFire * 3, Space *2
+   DP      =3D DualPod: MultFire * 2, Space *1.8
+   E       =3D Envelopping: ShieldPen *.5, Space *1.66
+
+Notes:
+- Fragility and DamagCap have been removed from the tables, as they seem to=
+=20
+lack any tangible effect. For base HP, it seems size is considered - has be=
+en
+added to the tables.
+- Armor Piercing doesn't work. Don't pick that!
+
+--------------( Chassis )--------------------------------------------------=
+---
+                -------
+Note that as for DF mounts, the values indicated are multipliers over the=
+ base
+value for each fighter.
+
+
+Type                     Space    Cost    NearDmg    FarDmg
+-----------------------------------------------------------
+Interceptor Chassis       1.5      1      1          1
+Space Control Chassis     3        2.5    1.4        1.2
+
+Visage on the official board points out that with double space versus just
+40% damage bonus, Space Control Chassis isn't worth it.
+Indeed, with only interceptors, you get twice as many fighters and hence
+twice as many shots...=20
+Note, however, that while Space Control fighters seem to participate in
+planetary bombardment, interceptors don't. If someone finds out otherwise,
+drop me a mail - due to my mixed ship designs, I'm usually not in a position
+to check that out myself.
+
+
+--------------( Fighter Types )--------------------------------------------=
+---
+                -------------
+
+Type                Fire  Mult  Near  Far  Dmg   Dmg    Max    Acc    Acc
+                    Dlay  Fire  Dmg   Dmg  DisSt DisEn  Accry  DisSt  DisEn
+---------------------------------------------------------------------------=
+           =20
+Fighter Laser       2.5    1     4     1    3k    4k    0.7    3k     4k
+Fighter Fusion Bm   2.5    1    15     2    3k    4k    0.8    3k     4k
+Fighter Neutron Bl  2.5    1    17     2    3k    4k    0.7    3k     4k
+Fighter Gravit Bm   2.5    1    25     2    3k    4k    0.7    3k     4k
+Fighter Phasors     2.5    1    24     4    3k    4k    0.7    3k     4k
+Fighter Plasma Cn   2.5    1   107     5    3k    4k    0.7    3k     4k
+Fighter Disrup Cn   2.5    1   105    30    3k    4k    0.5    3k     4k
+Fighter Mass Drv    2.5    1     7     5    3k    4k    0.5    3k     4k
+Fighter Gauss Cn    2.5    1    48    14    3k    4k    0.5    3k     4k
+Fighter Ion Pulse   2.5    1    16     4    3k    4k    0.7    3k     4k
+Fighter Particle    2.5    1    25     8    3k    4k    0.9    3k     4k
+Fighter Death Ray   2      1    78    38    3k    4k    0.9    3k     4k
+
+
+Type               Cost   Space Shld (Armr    Size   Improvements
+                                Pen   Pier)  =20
+-----------------------------------------------------------------------
+Fighter Laser        4     6    1      1       6     AF
+Fighter Fusion Bm   15    14    1      1       6     E
+Fighter Neutron Bl  17     7    1      1       6
+Fighter Gravit Bm   25     9    1      1       9
+Fighter Phasors     24     7    1      1       6     DP
+Fighter Plasma Cn  107    41    1      1      15     DP
+Fighter Disrup Cn  105    32    1      1      12
+Fighter Mass Drv     7    13    1      1       6     AP
+Fighter Gauss Cn    48    17    1      1       6
+Fighter Ion Pulse   16     5    0.5    0      18     DP
+Fighter Particle    25     9    0.1    0.8     9
+Fighter Death Ray   78    22    0.7    0.7    18
+
+--------------( Bottomline )-----------------------------------------------=
+---
+                ----------
+From those tables, the best fighter to use is the Phasors Fighter with Dual
+Pods. It has the best Dmg/Space ratio and the best Dmg/cost ratio. It is,
+comparatively, dirt cheap and small.
+Even though sheer firepower is rather small and Fragility is very low, you=
+ can
+safely swarm out any opposing force with dozens of fighters, which means an
+equivalent amount of targets to shoot down.
+
+Important note: AP doesn't have any effect right now. This also means that
+until ArmorPiercing gets patched in, the best fighter could actually be the
+Ion Pulse cannon: they have thrice the HP of phaser fighters, and both lowe=
+r=20
+cost and space.
+
+
+              /=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D\
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D =A6 8 Missile Tables =A6 =3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+              \=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D/
+
+After applying the data patch, note that damage and cost for missiles have
+been halved, while space has been _slightly_ lowered. At the same time,
+the Fire Delay has been reduced a lot.
+
+--------------( Warhead Chassis )------------------------------------------=
+---
+                ---------------
+As for DF mounts, all values are multipliers of the warhead's base values.
+Tags should be self-explanatory by now.
+
+                      FireDlay   Dmg    Cost    Space    Dmg / Spc
+------------------------------------------------------------------
+Point Defense Chassis    0.1     0.25    0.75    0.25     1
+Rocket Chassis           0.5     1       1       1        1
+Light Missile Chassis    1       2       2       1.25     1.6
+Heavy Missile Chassis    1.33    4       3       1.75     2.29
+Torpedo Chassis          1.66    5       5       2.5      2
+
+Notes:
+A quick scan of the Dmg / Spc calculation shows that you'll get the most
+out of Heavy Missile Chassis. In that respect, the Torpedo Chassis is a
+complete waste of space and money. Yes, sheer power matters, but it doesn't
+matter that much. The difference in space can be used either for another ra=
+ck
+(larger volleys) or perhaps that extram DF weapon or fighter you need.
+
+--------------( Warheads )-------------------------------------------------=
+---
+                --------
+Those are the base values for each warhead types. Tags are self-explanatory.
+Note that obviously, missiles don't suffer damage drop-off due to distance.
+All missiles have an accuracy of 0.95 (omitted), a FireDelay of 45 (omitted=
+),
+and a target range (I read that as lock-on distance) of 40000 distance unit.
+Current assumption set one square at roughly 4000 units, that  means a miss=
+ile
+in-flight will lock on any target within 10 squares of their current positi=
+on.
+
+                        Dmg    Cost    Space    Dmg / Spc
+------------------------------------------------------------------
+Nuclear Warhead         56     14         6      9.33
+Anionic Energy Warhead  82     15         6     13.67
+Neutronium Warhead     121     17         7     17.29
+Hercular Warhead       178     19         8     22.25
+Merculite Warhead      262     21         8     32.75
+High Energy X-Ray      386     23         9     42.89
+Scatter Pack Warhead   568     25        10     56.8
+Ionic Pulsar Warhead   836     28        11     76
+Energy Pulsar Warhead 1231     31        12    102.58
+Omega Warhead         1811     34        14    129.36
+
+Notes:
+Well, it seems like things are pretty clearcut for missiles.
+The better the warhead tech, the better the dmg / spc ratio, without much
+ado. When it comes to missiles, just get the best you can get, mount it on a
+heavy missile chassis, and you know it's just going to be a major bruiser.
+
+In terms of missiles per rack, remember the rules laid out in section 3 abo=
+ve:
+Missiles use some space, and racks use some more space.
+For your assault missiles, try to find the best balance between lasting pow=
+er,
+sheer damage and saturation (see section 3.J on that matter).
+
+Regarding improvements, note that until Armor Piercing is patched in, don't
+tick that box.
+One final note: I haven't got a real clue about Warhead HP so far. Need to
+delve into that topic anytime soon...
+
+///New v0.82
+TommyLV asked the following question on GameFaqs:
+"Is it better to fire many missiles that do less damage each or fewer missi=
+les
+that do more damage per missile, total theoretical damage the same for each=
+=20
+volley?"
+
+My reply:
+That's actually a tricky question, for two reasons:
+1. I don't have any hard data for missile HP values (neither for hulls, BTW=
+,=20
+but that's beside this point). So it's kinda hard to know if it's harder to=
+=20
+blow up a high-tech warhead or not.
+2. Target saturation theory would recommend the double amount of missiles
+based on the raw data.
+
+But look at the table again, in particuliar in respect to raw damage,=20
+respectively damage / space. One anionic energy warhead takes up 6 space,=20
+compared to 12 for the energy pulsar. Thing is, two anionics bring a damage=
+=20
+potential of 164, vs 1231 for the energy pulsar.
+In other terms, you need 7.6x the space for equal damage - and that's just=
+=20
+considering warhead space - you need also to add 8 more racks which also=20
+consume some space.
+
+Now, against a fighter, you'll clearly prefer the quantity, because most of=
+=20
+the damage gets wasted whenever an energy pulsar blows up a fighter. But=20
+against a cap ship? Since space is limited anyway, you'll have, in practice,
+20 anionics in a volley vs. 10 energy pulsars. Now let's assume that missile
+hp is constant no matter the tech level, and that the enemy PD shoots down=
+=20
+consistently 9 incoming missiles: the 11 anionics going through will apply=
+=20
+902 damage, still 300 points less than the single energy pulsar.
+
+The cut-off point where you need to worry is when enemy PD manages to shoot=
+=20
+down 10 missiles, because obviously, your high-power volley just got wasted=
+...
+
+Thing is, though, that the AI _never_ shoots volleys in numbers you could=20
+achieve with fully mixed design ships in at least two TFs - which also mean=
+s=20
+that aside perhaps orions, nobody's gonna be able to stop volleys of 60some=
+=20
+per TF. So in solo, I'd recommend going for the high damage any day.
+
+In multiplayer, it can become trickier depending on your opponent. If both=
+=20
+human players practice saturation tactics, I'd say at max techs, building=20
+around High-Energy X-Ray or Scatter Packs is probably gonna yield=20
+the best results.
+
+As in 3.J, the last paragraph here remains largely theorycraft, as I don't
+multiplay. By all means, send me feedback on my assumptions!
+///
+
+               /=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D\
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D =A6 9 Electronics =A6 =3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+               \=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D/
+
+To evaluate jamming and sensors is a tricky business, as the formulas invol=
+ved
+in MOO3's calculations are probably anything but obvious stuff.
+
+I've been fiddling with my spreadsheets for hours and still lack any clue
+about a comprehensive formula about how Jamming / cloaking offsets detectio=
+n.
+
+My main issue is to try to calculate the effective detection range versus
+jamming / cloaking, in other words, the distance beyond which a cloaked ship
+will remain invisible for each device used.
+
+In practice, detection devices use a value called OffTgtRg (Offense Target
+Range?), which seems matched against DefTgtRg (Defense Target Range?) used
+by cloaking devices.=20
+
+Anyway, without more sterile ravings, here is the raw data. If someone can
+find out exactly how MOO3 calculates Invisibility range vs. Detection range,
+drop me an e-mail. I'm curious.
+
+///New v0.82
+TommyLV posted this on Gamefaqs:
+For electronics here are my conclusions, they are reasonable but I make no=
+=20
+guarantee for their accuracy:
+The values given for ECM's, ECCM's, Cloaks and Sensors are multipliers that
+are made to the actual range to produce an apparent range. If the apparent=
+=20
+range is less than a certain value, the threshold detection value, then=20
+detection occurs, if greater than the TDV then the target is still hidden.
+All the ECM's in a TF are counted.
+All the ECCM's in a TF are counted.
+Only the best Sensor in the TF is counted. (Al: I'm sceptical here...)
+Only the WORST Cloak in the TF is counted.
+Every ship needs a Cloak in order not to give away the TF. This fact may=20
+explain the enemies penchant for attacking Transports and Colony TFs, no on=
+e=20
+gives these ships Cloaks and they are easily detected.
+As for the worst Cloak being relevant, the easiest ship to see would be the=
+=20
+one that would give away the TF.=20
+///
+
+--------------( Detection )------------------------------------------------=
+---
+                ---------
+
+            Cost   Space  OffTgtRg
+----------------------------------
+ECCM I       30      15    0.87
+ECCM II      90      20    0.81
+ECCM III    150      35    0.67
+ECCM IV     210      55    0.5
+ECCM V      270      90    0.3
+
+Focus Det    30      15    0.85
+High-Caliber 90      20    0.79
+X-Ray Trans 150      35    0.63
+Adv Loc Sys 210      55    0.46
+Ultimate DS 270      90    0.25
+
+
+--------------( Cloaking )-------------------------------------------------=
+---
+                --------
+
+                   Cost  Space  DefTgtRg    Cloaking
+----------------------------------------------------
+ECM I               30    15    1.12   =20
+ECM II              60    20    1.17   =20
+ECM III            120    35    1.33   =20
+ECM IV             240    55    1.6   =20
+ECM V              480    90    2.2   =20
+Cloaking Device     30    15    2.2        1.5
+Phased Cloaking     30    20    3.3        1.8
+Reactive Cloaking   30    35    4.95       3
+Ghost Device        30    55    7.425      7.425
+
+A quick glance on this table confirms that cloaking is both cheaper and more
+effective than jamming (ECM devices). However, cloaks can't be stacked.
+Also, cloaks have a Cloaking value. How this one is used is anyone's guess.
+
+Possibly, DefTgRg works for missile acquisition and is offset by ECCM, while
+Cloaking works for visual detection, and is only offset by sensors. If that=
+ is
+the case, this would mean that missiles might be able to target a fleet,
+while it remains untargettable by the main fleet? I wish I could do some
+serious multiplayer testing for that, but that almost requires a second MOO3
+CD - and this game is not THAT good.
+
+Post data patch, most values have been changed, apparently without much rhy=
+me
+nor reason.
+In short, ECCM and sensors _seem_ to have become more powerful than ECM aga=
+in.
+
+Without cloaking, detection has been made easier. In practice, I am under=
+ the
+impression my latest tests find guardians much quicker than before. That mi=
+ght
+be just me, though.
+
+
+               /=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D\
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D =A6 10 Misc Tech Tables =A6 =3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+               \=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D/
+
+--------------( System Drives )--------------------------------------------=
+---
+                -------------
+
+For Drives (both warp and system), cost and space are multipliers of speed=
+ and
+hull size.
+
+Name                 Cost   Space    MaxSpeed
+---------------------------------------------
+Thrusters              25    0.25      1500
+Improved Thrusters     27    0.235     1800
+Hydrogen Fuel Cells    30    0.2325    2100
+Impulse Engine         32    0.218     2400
+Iridium Fuel Cells     35    0.2155    2700
+Dotomite Crystals      37    0.201     3000
+Uridium Fuel Cells     40    0.1995    3300
+Reajax Fuel Cells      42    0.185     3600
+Trilithium Crystals    50    0.183     3900
+Transwarp Drive        52    0.169     4200
+           =20
+--------------( Warp Engines )---------------------------------------------=
+---
+                ------------
+
+Name                 Cost   Space    MaxWarp
+---------------------------------------------           =20
+Retro Engine         100     0.25       85
+Nuclear Engine       126     0.235     105
+Sub-Light Drives     158     0.2325    133
+Fusion Drives        200     0.218     168
+Impulse Drives       252     0.2155    211
+Ion Drives           318     0.201     266
+Anti-Matter Drives   400     0.1995    336
+Inter-Phased Drives  502     0.185     422
+Hyper Drives         634     0.183     532
+Warp Factor X        800     0.169     672
+
+Small note: Warp Factor X's desc in the tech matrix window lists warp speed=
+ at
+532, a copy-paste error...
+
+For all drives, in most cases, better techs also use up less space, so keep
+that in mind when designing.
+Exceptions are Hydrogen fuel cells and Sub-light engines.
+As I tend to cap off system speed at 3000 for most ship types, I redesign=
+ all
+of them consistently after reaching Dotomite Crystals.=20
+
+               /=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D\
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D =A6 11 Credits and Thanks =A6 =
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+               \=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D/
+
+This FAQ owes to the various contributions posted on both Gamefaqs' and
+Infogrames' official boards. Thanks to all the people who have posted their
+initial findings and who have commented on those, in particuliar GothFather=
+,=20
+and Visage.
+Ben mailed to point out that there's only one single Master not several -
+that error has now been corrected on both my FAQs. Thanks a bunch!
+Also thanks to Zhaneel and dakgm from the Gamefaqs boards for direct feedba=
+ck.
+
+              /=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D\
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D =A6 12 Hosting Information =A6 =3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+              \=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D/
+
+The latest update of this document can usually be found on gamefaqs.com
+
+Currently authorized hosts:
+http://www.gamefaqs.com
+http://www.actiontrip.com
+http://www.neoseeker.com/
+http://faqs.ign.com/
+http://dlh.net/
+http://moo3outpost.lacota.net/
+</pre>
+</div> =20
+
+
+
+<div class=3D"site_tracking">
+<img src=3D"http://dw.com.com/clear/c.gif?sid=3D19&amp;edid=3D107&amp;ptid=
+=3D6468&amp;onid=3D36&amp;ursuid=3D&amp;ursappid=3D46&amp;pid=3D19577&amp;p=
+rodtypid=3D8&amp;contid=3D22405&amp;conttypid=3D9&amp;useract=3D178&amp;xre=
+f=3Dhttp%3A%2F%2Fwww.gamefaqs.com%2Fcomputer%2Fdoswin%2Fgame%2F19577.html&a=
+mp;oid=3D6468-19-19577-22405&amp;ts=3D1266163410&amp;url=3Dhttp%3A%2F%2Fwww=
+.gamefaqs.com%2Fcomputer%2Fdoswin%2Ffile%2F19577%2F22405" height=3D"1" widt=
+h=3D"1"><script type=3D"text/javascript" src=3D"urn:snapshot-8CB150C6:http:=
+//js.revsci.net/gateway/gw.js?csid=3DK05540"></script>
+			<script type=3D"text/javascript" language=3D"JavaScript"><!--
+/* Script removed by snapshot save */
+--></script>
+			<script type=3D"text/javascript" src=3D"urn:snapshot-497F1DE4:http://i.i=
+.com.com/cnwk.1d/Ads/common/madUCat/MadUCat.js"></script> <iframe src=3D"ur=
+n:snapshot-B7F505F6:http://mads.gamefaqs.com/mac-ad?beacon=3D1&amp;site=3D1=
+9&amp;NCAT=3D36:23282:120:&amp;ptype=3D6468&amp;pid=3D19577" frameborder=3D=
+"0" height=3D"1" width=3D"1"></iframe>
+</div>
+<div id=3D"footer"> =20
+<div class=3D"lefttext">
+<b>Master of Orion III: Armaments FAQ</b> by <a href=3D"http://www.gamefaqs=
+.com/features/recognition/32747.html">Alastair412</a><br>
+Version 0.82,  Last Updated 2003-04-15=20
+<a href=3D"http://dw.com.com/redir?asid=3D0&amp;astid=3D8&amp;siteid=3D19&a=
+mp;edid=3D107&amp;destCat=3D&amp;destURL=3Dhttp%3A%2F%2Fdb.gamefaqs.com%2Fc=
+omputer%2Fdoswin%2Ffile%2Fmaster_of_orion_3_armaments.txt">View/Download Or=
+iginal File</a>
+</div>
+<div class=3D"righttext">
+Hosted by <a href=3D"http://www.gamefaqs.com/">GameFAQs</a><br>
+Return to <a href=3D"http://www.gamefaqs.com/computer/doswin/game/19577.htm=
+l"><b>Master of Orion III (PC) FAQs &amp; Guides</b></a>
+</div>
+</div>
+</body></html>
+------=_NextPart_000_0000_EF03AA4B.5396A2E5
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://dw.com.com/clear/c.gif?sid=19&edid=107&ptid=6468&onid=36&ursuid=&ursappid=46&pid=19577&prodtypid=8&contid=22405&conttypid=9&useract=178&xref=http%3A%2F%2Fwww.gamefaqs.com%2Fcomputer%2Fdoswin%2Fgame%2F19577.html&oid=6468-19-19577-22405&ts=1266163410&url=http%3A%2F%2Fwww.gamefaqs.com%2Fcomputer%2Fdoswin%2Ffile%2F19577%2F22405
+
+R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7
+------=_NextPart_000_0000_EF03AA4B.5396A2E5
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: urn:snapshot-D7E18BAD:http://www.gamefaqs.com/css_wide/file.css
+
+/* Effective stylesheet produced by snapshot save */
+a { color: rgb(255, 102, 0); font-weight: bold; text-decoration: none; }
+a:hover { text-decoration: underline; }
+body { margin: 0pt; padding: 0pt; background: rgb(255, 255, 255) none repea=
+t scroll 0% 0%; -moz-background-clip: border; -moz-background-origin: paddi=
+ng; -moz-background-inline-policy: continuous; color: rgb(0, 0, 0); }
+div, form, iframe { margin: 0pt; padding: 0pt; }
+img { border: 0pt none ; }
+p { margin: 0pt 0pt 10px; }
+#header { border-bottom: 2px solid rgb(255, 102, 0); background: rgb(0, 0,=
+ 0) none repeat scroll 0% 0%; clear: both; -moz-background-clip: border; -m=
+oz-background-origin: padding; -moz-background-inline-policy: continuous;=
+ float: left; font-family: arial,helvetica,sans-serif; font-style: normal;=
+ font-variant: normal; font-weight: normal; font-size: 12px; line-height:=
+ normal; font-size-adjust: none; font-stretch: normal; -x-system-font: none=
+; color: rgb(255, 255, 255); width: 100%; text-align: center; }
+#footer { border-top: 2px solid rgb(255, 102, 0); background: rgb(0, 0, 0)=
+ none repeat scroll 0% 0%; clear: both; -moz-background-clip: border; -moz-=
+background-origin: padding; -moz-background-inline-policy: continuous; floa=
+t: left; font-family: arial,helvetica,sans-serif; font-style: normal; font-=
+variant: normal; font-weight: normal; font-size: 12px; line-height: normal;=
+ font-size-adjust: none; font-stretch: normal; -x-system-font: none; color:=
+ rgb(255, 255, 255); width: 100%; text-align: center; }
+#pagetop { border-bottom: 2px solid rgb(255, 102, 0); background: rgb(0, 0,=
+ 0) none repeat scroll 0% 0%; clear: both; width: 100%; -moz-background-cli=
+p: border; -moz-background-origin: padding; -moz-background-inline-policy:=
+ continuous; float: left; text-align: center; font-family: arial,helvetica,=
+sans-serif; font-style: normal; font-variant: normal; font-weight: normal;=
+ font-size: 12px; line-height: normal; font-size-adjust: none; font-stretch=
+: normal; -x-system-font: none; color: rgb(255, 255, 255); }
+#pagebottom { border-top: 2px solid rgb(255, 102, 0); background: rgb(0, 0,=
+ 0) none repeat scroll 0% 0%; clear: both; width: 100%; -moz-background-cli=
+p: border; -moz-background-origin: padding; -moz-background-inline-policy:=
+ continuous; float: left; text-align: center; font-family: arial,helvetica,=
+sans-serif; font-style: normal; font-variant: normal; font-weight: normal;=
+ font-size: 12px; line-height: normal; font-size-adjust: none; font-stretch=
+: normal; -x-system-font: none; color: rgb(255, 255, 255); }
+#body { padding: 10px; clear: both; }
+.righttext { padding: 0pt 10px; float: right; text-align: right; }
+.lefttext { padding: 0pt 10px; float: left; text-align: left; }
+
+------=_NextPart_000_0000_EF03AA4B.5396A2E5
+Content-Type: text/html
+Content-Transfer-Encoding: quoted-printable
+Content-Location: urn:snapshot-B7F505F6:http://mads.gamefaqs.com/mac-ad?beacon=1&site=19&NCAT=36:23282:120:&ptype=6468&pid=19577
+
+<html><head>
+<meta http-equiv=3D"content-type" content=3D"text/html; charset=3DISO-8859-=
+15"><!-- MAC ad --><!-- no beacon mappings defined --><!-- MAC [r20091112-1=
+054-msm-v1-13-11-DynamicHttpFetch:1.13.11] c13-ad-xw1.cnet.com::2572401552=
+ 2010.02.14.16.03.31 --><!-- MAC T 0.0.0.0 --></head><body></body></html>
+------=_NextPart_000_0000_EF03AA4B.5396A2E5
+Content-Type: text/javascript
+Content-Transfer-Encoding: quoted-printable
+Content-Location: urn:snapshot-A0BB2879:http://pixel.quantserve.com/api/segments.json?a=p-51jhoCdjGFIVU&callback=cbsiParseQC
+
+/* Script removed by snapshot save */
+
+------=_NextPart_000_0000_EF03AA4B.5396A2E5
+Content-Type: text/javascript
+Content-Transfer-Encoding: quoted-printable
+Content-Location: urn:snapshot-9AB626D6:http://pix04.revsci.net/K05540/b3/0/3/0902121/960748909.js?D=DM_LOC%3Dhttp%253A%252F%252Fwww.gamefaqs.com%252Fcomputer%252Fdoswin%252Ffile%252F19577%252F22405%253Fncat%253D36%253A23282%253A120%253A%2526site%253D19%2526pid%253D19577%2526ptype%253D6468%26DM_REF%3Dhttp%253A%252F%252Fwww.gamefaqs.com%252Fcomputer%252Fdoswin%252Fgame%252F19577.html%26DM_EOM%3D1&C=K05540
+
+/* Script removed by snapshot save */
+
+------=_NextPart_000_0000_EF03AA4B.5396A2E5
+Content-Type: application/x-javascript
+Content-Transfer-Encoding: quoted-printable
+Content-Location: urn:snapshot-1C53B855:http://www.gamefaqs.com/js/simplejax.js
+
+/* Script removed by snapshot save */
+
+------=_NextPart_000_0000_EF03AA4B.5396A2E5
+Content-Type: text/javascript
+Content-Transfer-Encoding: quoted-printable
+Content-Location: urn:snapshot-8CB150C6:http://js.revsci.net/gateway/gw.js?csid=K05540
+
+/* Script removed by snapshot save */
+
+------=_NextPart_000_0000_EF03AA4B.5396A2E5
+Content-Type: text/javascript
+Content-Transfer-Encoding: quoted-printable
+Content-Location: urn:snapshot-497F1DE4:http://i.i.com.com/cnwk.1d/Ads/common/madUCat/MadUCat.js
+
+/* Script removed by snapshot save */
+
+------=_NextPart_000_0000_EF03AA4B.5396A2E5--

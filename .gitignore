@@ -1,0 +1,9 @@
+*.class
+*.war
+*.ear
+build/*
+dist/*
+nbproject/private/*
+*~
+log*.txt
+*.lck
