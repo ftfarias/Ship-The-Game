@@ -36,12 +36,19 @@ public class ShipGame {
     }
 
     private void createPlayerAndShips() {
-        playerShip = ShipFactory.buildPlayerShip();
+        playerShip = ShipFactory.buildPlayerShip(universe);
         playerShip.setCurrentPosition(new Position(1, 2));
         universe.addShip(playerShip);
 
-//        Ship otherShip = ShipFactory.buildDumbFighterShip();
-//        universe.addShip(otherShip);
+        Ship otherShip = ShipFactory.buildDumbFighterShip(universe);
+        otherShip.setCurrentPosition(new Position(3, 3));
+        otherShip.moveTo(new Position(3, 3));
+        universe.addShip(otherShip);
+
+        otherShip = ShipFactory.buildDumbFighterShip(universe);
+        otherShip.setCurrentPosition(new Position(4, 5));
+        otherShip.moveTo(new Position(-2, -2));
+        universe.addShip(otherShip);
     }
 
     private void startTimer() {
@@ -55,7 +62,7 @@ public class ShipGame {
                 lastTurnTime = System.currentTimeMillis();
                 universe.timeElapsed(elapsedTime);
             }
-        }, 1000, 107);
+        }, 1000, 50);
     }
 
     public void exit() {

@@ -2,9 +2,8 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package ship.domain.ship.movement;
+package ship.domain.ship.movebehavior;
 
-import ship.domain.ship.movement.OmnidirectionalMoveBehavior;
 import ship.domain.universe.Position;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -52,6 +51,15 @@ public class OmnidirectionalMoveBehaviorTest {
         Position p = new Position(1, 2);
         instance.setCurrentPosition(p);
         assertEquals(p, instance.getCurrentPosition());
+    }
+
+
+    @Test
+    public void testIsMoving() {
+        instance.setCurrentPosition(Position.ORIGIN);
+        assertFalse(instance.isMoving());
+        instance.moveTo(new Position(10, 10));
+        assertTrue(instance.isMoving());
     }
 
     @Test

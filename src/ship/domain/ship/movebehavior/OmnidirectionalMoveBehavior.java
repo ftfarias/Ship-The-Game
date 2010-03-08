@@ -1,6 +1,6 @@
-package ship.domain.ship.movement;
+package ship.domain.ship.movebehavior;
 
-import ship.domain.universe.Movable;
+import ship.domain.ship.powergrid.PowerGrid;
 import ship.domain.universe.Position;
 import ship.domain.universe.Range;
 
@@ -9,10 +9,14 @@ import ship.domain.universe.Range;
  * @author Felipe Farias
  * @version 1.0
  */
-public class OmnidirectionalMoveBehavior implements Movable {
+public class OmnidirectionalMoveBehavior implements MoveBehavior {
+
+    private static final String NAME = "Omnidirectional Graviton Engine";
+    private static final String DESCRIPTION = "A non-inertial engines that moves in any direction. Consumes a lot of energy";
     private Position currentPosition;
     private Position destination;
     private double speed;
+    private PowerGrid powerGrid = null;
 
     public OmnidirectionalMoveBehavior() {
         setCurrentPosition(Position.ORIGIN);
@@ -20,6 +24,17 @@ public class OmnidirectionalMoveBehavior implements Movable {
         setSpeed(1);
     }
 
+    public PowerGrid getPowerGrid() {
+        return powerGrid;
+    }
+
+    public void setPowerGrid(PowerGrid powerGrid) {
+        this.powerGrid = powerGrid;
+    }
+
+    protected boolean isMoving() {
+        return !currentPosition.equals(destination);
+    }
 
     public double getSpeed() {
         return speed;
@@ -43,6 +58,7 @@ public class OmnidirectionalMoveBehavior implements Movable {
     public void setCurrentPosition(Position newPosition) {
 //        System.out.println("Current Position : "+newPosition);
         this.currentPosition = newPosition;
+        this.destination = newPosition;
     }
 
     @Override
@@ -65,21 +81,41 @@ public class OmnidirectionalMoveBehavior implements Movable {
     public void timeElapsed(double time) {
 //        System.out.println("Time :"+time+ "   "+currentPosition.equals(destination) );
 //        System.out.println("Curre: "+currentPosition+" ->  "+destination);
-        if (currentPosition.equals(destination)) {
+        if (!isMoving()) {
             return;
         }
+
+        double actualSpeed = getActualSpeed();
+
 //        System.out.println("1");
         // limit to time increment so you will NOT pass the destination
-        if (speed * time > currentPosition.distance(destination) ) {
+        if (actualSpeed * time > currentPosition.distance(destination)) {
             // calc the new time intervel to reach the destination
-            time = currentPosition.distance(destination) / speed;
+            time = currentPosition.distance(destination) / actualSpeed;
         }
 //        System.out.println("time: "+time+ "speed: "+speed);
         double angle = Math.atan2(destination.getY() - currentPosition.getY(), destination.getX() - currentPosition.getX());
-        double xStep = Math.cos(angle) * speed * time;
-        double yStep = Math.sin(angle) * speed * time;
+        double xStep = Math.cos(angle) * actualSpeed * time;
+        double yStep = Math.sin(angle) * actualSpeed * time;
         double x = currentPosition.getX() + xStep;
         double y = currentPosition.getY() + yStep;
-        setCurrentPosition(new Position(x, y));
+        currentPosition = new Position(x, y);
+    }
+
+    @Override
+    public String getName() {
+        return NAME;
+    }
+
+    @Override
+    public String getDescription() {
+        return DESCRIPTION;
+    }
+
+    private double getActualSpeed() {
+        if (powerGrid == null) {
+            return 0;
+        }
+        return powerGrid.requestEnergy(speed * 100) / 100;
     }
 }

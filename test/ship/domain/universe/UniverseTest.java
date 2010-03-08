@@ -9,7 +9,7 @@ import ship.domain.universe.Universe;
 import ship.domain.universe.Range;
 import ship.domain.universe.Position;
 import ship.domain.universe.Positionable;
-import ship.domain.ship.movement.OmnidirectionalMoveBehavior;
+import ship.domain.ship.movebehavior.OmnidirectionalMoveBehavior;
 import java.util.Set;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -58,13 +58,13 @@ public class UniverseTest {
     public void testAddMovableObject() {
         Positionable obj = getPositionableMock();
         universe.addObject(obj);
-        Set<Positionable> result = universe.getMovablesInPosition(mockPosition,Range.VISUAL);
+        Set<Object> result = universe.getObjectInRange(mockPosition, 10.0);
         assertTrue(result.contains(obj));
         assertEquals(1, result.size());
     }
 
     @Test
-    public void testGetMovablesInPosition() {
+    public void testGetObjectInRange() {
     }
 
 }

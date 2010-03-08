@@ -7,4 +7,5 @@ package ship.ui.map;
  */
 public interface MapView {
 
+    public void refresh();
 }

@@ -15,7 +15,7 @@ public abstract class DefaultSwingView implements ActionListener {
     protected void createView() {
         viewFrame = new JFrame("Ship - The Game");
         viewFrame.setSize(500, 500);
-        //viewFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        viewFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         viewFrame.setLocationRelativeTo(null);
         //viewFrame.
 

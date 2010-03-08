@@ -3,14 +3,14 @@
  * and open the template in the editor.
  */
 
-package ship.domain.universe;
+package ship.domain.ship.powergenerator;
 
 /**
  *
  * @author Felipe T. Farias <ftfarias@gmail.com>
  */
-public interface TimeDependent {
+public interface PowerGenerator {
 
-    public void timeElapsed(double timeElapsed);
+    public double getEnergy(double timeElapsed);
 
 }

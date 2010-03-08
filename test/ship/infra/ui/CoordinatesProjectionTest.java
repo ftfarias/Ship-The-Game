@@ -46,6 +46,10 @@ public class CoordinatesProjectionTest {
 
     @Test
     public void testConvertX() {
+        assertEquals(-1, instance.convertX(-3));
+        assertEquals(0, instance.convertX(-2));
+        assertEquals(1, instance.convertX(-1));
+        assertEquals(2, instance.convertX(0));
         assertEquals(3, instance.convertX(1));
         assertEquals(4, instance.convertX(2));
         assertEquals(5, instance.convertX(3));
@@ -54,6 +58,9 @@ public class CoordinatesProjectionTest {
 
     @Test
     public void testConvertY() {
+        assertEquals(-2, instance.convertY(-2));
+        assertEquals(1, instance.convertY(-1));
+        assertEquals(4, instance.convertY(0));
         assertEquals(7, instance.convertY(1));
         assertEquals(10, instance.convertY(2));
         assertEquals(13, instance.convertY(3));
@@ -76,17 +83,18 @@ public class CoordinatesProjectionTest {
     @Test
     public void testConstructor2forLinear() {
         Graphics2D g2d = mock(Graphics2D.class);
-        Rectangle r = new Rectangle(10, 20);
+        Rectangle r = new Rectangle(100, 100);
         when(g2d.getClipBounds()).thenReturn(r);
-        Position p = new Position(5, 5);
+        Position p = new Position(5, 10);
 
         instance = new CoordinatesProjection(p, 10, g2d);
+        System.out.println("Scalar X: "+instance.getXScalar());
 
-        assertEquals(5, instance.getXLinear(),0.01);
-        assertEquals(10, instance.getYLinear(),0.01);
+        assertEquals(0, instance.getXLinear(),0.01);
+        assertEquals(-50, instance.getYLinear(),0.01);
 
-        assertEquals(5, instance.convertX(0),0.01);
-        assertEquals(10, instance.convertY(0),0.01);
+        assertEquals(0, instance.convertX(0),0.01);
+        assertEquals(-50, instance.convertY(0),0.01);
 
     }
 
@@ -100,7 +108,7 @@ public class CoordinatesProjectionTest {
         instance = new CoordinatesProjection(p, 10, g2d);
 
 
-        assertEquals(50, instance.convertX(0),0.01);
-        assertEquals(200, instance.convertY(0),0.01);
+        assertEquals(0, instance.convertX(0),0.01);
+        assertEquals(-100, instance.convertY(0),0.01);
     }
 }

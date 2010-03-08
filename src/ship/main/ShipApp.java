@@ -3,6 +3,8 @@ package ship.main;
 import ship.application.ShipGame;
 import ship.ui.GameController;
 import ship.ui.GameControllerImpl;
+import ship.ui.map.MapController;
+import ship.ui.map.MapControllerImpl;
 
 /**
  *
@@ -16,6 +18,7 @@ public class ShipApp {
         ShipGame game = new ShipGame();
         game.initialize();
         GameController gameController = new GameControllerImpl(game);
+        MapController mapController = new MapControllerImpl(game.getPlayerShip());
     }
 
 

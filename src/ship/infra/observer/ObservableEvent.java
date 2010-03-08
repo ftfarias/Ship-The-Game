@@ -12,6 +12,8 @@ package ship.infra.observer;
 public enum ObservableEvent {
     TIME_ELAPSED,
     SHIP_ADDED,
-    SHIP_REMOVED;
-
+    SHIP_REMOVED,
+    SHIP_MOVED,
+    SHIP_SRS_DETECTED_OBJECT, // SRS = Short Range Sensor
+    POWER_GRID_UPDATE;
 }

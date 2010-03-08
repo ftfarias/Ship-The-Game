@@ -1,9 +1,12 @@
 package ship.ui.map;
 
+import java.awt.Dimension;
+import java.awt.GraphicsEnvironment;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.text.Position;
+import ship.domain.ship.Ship;
+import ship.ui.services.PositionService;
 import ship.ui.template.DefaultSwingView;
 
 /**
@@ -15,14 +18,36 @@ public class MapSwingView extends DefaultSwingView implements MapView {
 
     private MapController controller;
 
+    private Ship ship; // model
+
+    public MapSwingView(MapController mapController, Ship ship) {
+        assert ship != null;
+        assert mapController != null;
+        this.controller = mapController;
+        this.ship = ship;
+        createView();
+    }
+
+    @Override
+    protected void createView() {
+        super.createView();
+        viewFrame.setLocation(PositionService.getPositionForMap());
+    }
+
     @Override
     protected void createControls() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        viewFrame.setPreferredSize(new Dimension(500, 500));
+        JPanel mapPanel = new MapPanel(ship);
+        viewFrame.setContentPane(mapPanel);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void refresh() {
+        viewFrame.repaint();
     }
 
 }

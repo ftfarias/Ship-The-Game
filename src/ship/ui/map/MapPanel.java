@@ -3,11 +3,12 @@ package ship.ui.map;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.util.Set;
 import javax.swing.JPanel;
 import ship.domain.ship.Ship;
-import ship.domain.universe.Position;
-import ship.domain.universe.Universe;
 import ship.infra.ui.CoordinatesProjection;
+import ship.ui.render.ShipRender;
+import ship.ui.render.SimpleShipRenderImpl;
 
 /**
  *
@@ -17,16 +18,15 @@ import ship.infra.ui.CoordinatesProjection;
 public class MapPanel extends JPanel {
 
     private CoordinatesProjection coordinatesProjection;
-    private Universe universe;
     private Ship ship;
-    private final int radius;
+    private final double sensorRadius;
+    private ShipRender shipRender = new SimpleShipRenderImpl();
 
-    public MapPanel(Universe universe, Ship ship, int radius) {
+    public MapPanel(Ship ship) {
         setDoubleBuffered(true);
         setBackground(Color.BLACK);
-        this.universe = universe;
         this.ship = ship;
-        this.radius = radius;
+        this.sensorRadius = ship.getShortSensorRange();
     }
 
     @Override
@@ -34,33 +34,32 @@ public class MapPanel extends JPanel {
         clear(g);
         Graphics2D g2d = (Graphics2D) g;
         //coordinatesProjection = new CoordinatesProjection(new Position(0, 0), radius, g2d);
-        coordinatesProjection = new CoordinatesProjection(ship.getCurrentPosition(), radius, g2d);
-        setBackground(new Color(20, 20, 20));
+        coordinatesProjection = new CoordinatesProjection(ship.getCurrentPosition(), sensorRadius*2, g2d);
+        setBackground(new Color(40, 40, 40));
         g2d.fillOval(0, 0, g2d.getClipBounds().width, g2d.getClipBounds().height);
         drawGrid(g2d);
-        drawPlayerShip(g2d, ship);
-
+        drawUniverse(g2d);
+        drawPlayerShip(g2d);
     }
 
     protected void drawGrid(Graphics2D g2d) {
 
-        int lowLimitX = (int) (Math.round(ship.getCurrentPosition().getX()) - radius / 2) ;
-        int highLimitX = (int) (Math.round(ship.getCurrentPosition().getX()) + radius / 2) ;
+        int lowLimitX = calcLowLimit(ship.getCurrentPosition().getX());
+        int highLimitX = calcHighLimit(ship.getCurrentPosition().getX());
 
-        int lowLimitY = (int) (Math.round(ship.getCurrentPosition().getY()) - radius / 2) ;
-        int highLimitY = (int) (Math.round(ship.getCurrentPosition().getY()) + radius / 2)     ;
 
-   //     System.out.println("Hih Y" + highLimitY);
+        int lowLimitY = calcLowLimit(ship.getCurrentPosition().getY());
+        int highLimitY = calcHighLimit(ship.getCurrentPosition().getY());
 
         g2d.setColor(new Color(80, 80, 80));
         for (int c = lowLimitX; c <= highLimitX; c++) {
 //        for (int c = 0; c < radius + 1; c++) {
-            g2d.drawLine(x(c), y(lowLimitX), x(c), y(highLimitX));
+            g2d.drawLine(x(c), y(lowLimitY), x(c), y(highLimitY));
             g2d.drawString(String.valueOf(c), x(c)+2, 15);
         }
 
         for (int c = lowLimitY; c <= highLimitY; c++) {
-            g2d.drawLine(x(lowLimitY), y(c), x(highLimitY), y(c));
+            g2d.drawLine(x(lowLimitX), y(c), x(highLimitX), y(c));
             g2d.drawString(String.valueOf(c), 5, y(c)-2);
         }
 
@@ -74,22 +73,31 @@ public class MapPanel extends JPanel {
         return coordinatesProjection.convertY(y);
     }
 
+
+    protected int calcLowLimit(double position) {
+        return (int) (Math.round(position - sensorRadius)-1);
+    }
+
+    protected int calcHighLimit(double position) {
+        return (int) (Math.round(position + sensorRadius)+1);
+    }
+
+
     protected void clear(Graphics g) {
         super.paintComponent(g);
     }
 
-    private void drawPlayerShip(Graphics2D g2d, Ship ship) {
-        g2d.setColor(Color.BLUE);
-        drawShip(g2d, ship);
+    private void drawPlayerShip(Graphics2D g2d) {
+        shipRender.render(coordinatesProjection, g2d, ship, Color.WHITE);
     }
 
-    private void drawShip(Graphics2D g2d, Ship ship) {
-        int x = x(ship.getCurrentPosition().getX());
-        int y = y(ship.getCurrentPosition().getY());
-        g2d.fillOval(x, y, 10, 10);
-        g2d.setColor(Color.WHITE);
-        // g2d.fill3DRect(x+3, y+3, 30, 30, true);
-        g2d.drawString(ship.getName(), x + 15, y + 25);
-        g2d.drawString(ship.getCurrentPosition().toString(), x + 15, y + 40);
+    private void drawUniverse(Graphics2D g2d) {
+        Set<Object> objects = ship.getShortSensorScanResults();
+        for (Object obj:objects) {
+            if (obj instanceof Ship) {
+                Ship aShip = (Ship) obj;
+                shipRender.render(coordinatesProjection, g2d, aShip, Color.BLUE);
+            }
+        }
     }
 }

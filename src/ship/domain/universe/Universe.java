@@ -13,6 +13,7 @@ import ship.infra.observer.Observer;
  * @version 1.0
  */
 public class Universe {
+
     private Observable<Universe> observable = new Observable<Universe>();
     private Set<Object> objects = new HashSet<Object>();
     private double universeTime = 0;
@@ -25,8 +26,8 @@ public class Universe {
         objects.remove(object);
     }
 
-    public Set<Positionable> getMovablesInPosition(Position position, Range range) {
-        Set<Positionable> result = new HashSet<Positionable>();
+    public Set<Object> getObjectInRange(Position position, double range) {
+        Set<Object> result = new HashSet<Object>();
         for (Object obj : objects) {
             if (obj instanceof Positionable) {
                 Positionable p = (Positionable) obj;
@@ -84,7 +85,6 @@ public class Universe {
     }
 
     public double getUniverseTime() {
-        return universeTime/10000;
+        return universeTime / 10000;
     }
-    
 }

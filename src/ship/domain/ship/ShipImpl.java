@@ -1,9 +1,15 @@
 package ship.domain.ship;
 
+import java.util.Set;
 import ship.domain.player.Player;
-import ship.domain.universe.Movable;
+import ship.domain.ship.battery.Battery;
+import ship.domain.ship.powergenerator.PowerGenerator;
+import ship.domain.ship.sensor.Sensor;
+import ship.domain.ship.movebehavior.MoveBehavior;
+import ship.domain.ship.powergrid.PowerGrid;
 import ship.domain.universe.Position;
 import ship.domain.universe.Range;
+import ship.domain.universe.Universe;
 import ship.infra.observer.Observable;
 import ship.infra.observer.ObservableEvent;
 import ship.infra.observer.Observer;
@@ -13,18 +19,27 @@ import ship.infra.observer.Observer;
  * @author Felipe Farias
  * @version 1.0
  */
-public class ShipImpl implements Ship {
+public class ShipImpl implements Ship, Observer<PowerGrid>{
 
     private Observable<Ship> observable = new Observable<Ship>();
     private String name;
     private Player player;
-    private Movable moveBehavior;
+    private MoveBehavior moveBehavior;
+    private final Universe universe;
+    private Sensor sensor;
+    private PowerGrid powerGrid;
+
+    
 //    private double bearing;
 
-    public ShipImpl(String name, Player player, Movable moveBehavior) {
+    public ShipImpl(String name, Player player, Universe universe, MoveBehavior moveBehavior, Sensor sensor, PowerGrid powerGrid) {
         this.name = name;
         this.player = player;
         this.moveBehavior = moveBehavior;
+        this.universe = universe;
+        this.sensor = sensor;
+        this.powerGrid = powerGrid;
+        powerGrid.registerObserver(this);
     }
 
     @Override
@@ -60,6 +75,7 @@ public class ShipImpl implements Ship {
     @Override
     public void setCurrentPosition(Position position) {
         moveBehavior.setCurrentPosition(position);
+        notifyAll(ObservableEvent.SHIP_MOVED);
     }
 
     @Override
@@ -83,13 +99,17 @@ public class ShipImpl implements Ship {
     }
 
     @Override
-    public boolean canMoveTo(Position position) {
-        return moveBehavior.canMoveTo(position);
-    }
-
-    @Override
     public void timeElapsed(double time) {
+        powerGrid.timeElapsed(time);
+        
         moveBehavior.timeElapsed(time);
+
+        // run sensors
+        if (sensor.runShortSensorScan(universe, getCurrentPosition())) {
+            notifyAll(ObservableEvent.SHIP_SRS_DETECTED_OBJECT);
+        }
+
+        powerGrid.update();
     }
 
     @Override
@@ -107,8 +127,39 @@ public class ShipImpl implements Ship {
         observable.registerObserver(observer);
     }
 
-    public void notifyAll(Ship object, ObservableEvent event) {
-        observable.notifyAll(object, event);
+    private void notifyAll(ObservableEvent event) {
+        observable.notifyAll(this, event);
+    }
+
+
+    @Override
+    public double getShortSensorRange() {
+        return sensor.getShortRangeSensorRadius();
+    }
+
+   @Override
+    public Set<Object> getShortSensorScanResults() {
+        return sensor.getShortSensorScanResults();
+    }
+
+//    @Override
+//    public double getBatteryCharge() {
+//        return battery.getCharge();
+//    }
+//
+//    @Override
+//    public double getBatteryMaxCharge() {
+//        return battery.getMaxCharge();
+//    }
+
+    @Override
+    public void update(PowerGrid object, ObservableEvent event) {
+        notifyAll(event);
+    }
+
+    @Override
+    public PowerGrid getPowerGrid() {
+        return powerGrid;
     }
 
 }
