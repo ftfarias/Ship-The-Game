@@ -3,15 +3,12 @@
  * and open the template in the editor.
  */
 
-package ship.ui;
-
-import ship.domain.universe.Universe;
-import ship.infra.observer.Observer;
+package ship.ui.powergrid;
 
 /**
  *
  * @author Felipe T. Farias <ftfarias@gmail.com>
  */
-public interface GameView extends Observer<Universe> {
+public interface PowerGridController {
 
 }

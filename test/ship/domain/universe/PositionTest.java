@@ -4,7 +4,6 @@
  */
 package ship.domain.universe;
 
-import ship.domain.universe.Position;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

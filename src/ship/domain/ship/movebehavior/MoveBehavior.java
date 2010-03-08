@@ -17,6 +17,8 @@ public interface MoveBehavior extends Positionable, TimeDependent {
     public boolean canMoveTo(Position position);
 
     public void moveTo(Position position);
+
+    public Position getDestination();
     
     public String getName();
 

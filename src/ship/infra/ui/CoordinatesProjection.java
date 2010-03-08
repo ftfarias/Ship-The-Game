@@ -60,5 +60,15 @@ public class CoordinatesProjection {
         return y.convert(coordinate);
     }
 
+    public double invertedProjectionX(int coordinate) {
+        return x.invertConvert(coordinate);
+    }
+
+    public double invertedProjectionY(int coordinate) {
+        return y.invertConvert(coordinate);
+    }
+
+
+
 
 }

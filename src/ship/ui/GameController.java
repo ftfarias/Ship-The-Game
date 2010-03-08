@@ -11,6 +11,10 @@ package ship.ui;
  */
 public interface GameController {
 
+    public void showMapFrame();
+
+    public void showPowerGridFrame();
+
     public void exit();
 
     public void moveTo();

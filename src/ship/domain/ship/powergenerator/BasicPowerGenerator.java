@@ -6,11 +6,21 @@ package ship.domain.ship.powergenerator;
  * @version 1.0
  */
 public class BasicPowerGenerator implements PowerGenerator{
-    private static final double MEGA_WATTS = 10;
+    private final double energyPerSecond;
+
+
+    public BasicPowerGenerator() {
+        energyPerSecond = 100;
+    }
+
+    public BasicPowerGenerator(double energyPerSecond) {
+        this.energyPerSecond = energyPerSecond;
+    }
+
 
     @Override
     public double getEnergy(double timeElapsed) {
-        return MEGA_WATTS * timeElapsed / 1000;
+        return energyPerSecond * timeElapsed / 1000;
     }
 
 }

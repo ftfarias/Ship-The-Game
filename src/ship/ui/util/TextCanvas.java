@@ -1,4 +1,4 @@
-package ship.ui.render;
+package ship.ui.util;
 
 /**
  *

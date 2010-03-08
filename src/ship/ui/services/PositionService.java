@@ -15,6 +15,12 @@ public class PositionService {
         center.setLocation(center.x-250, center.y-250);
         return center;
     }
+    
+    public static Point getPositionForPowerGrid() {
+        Point center = GraphicsEnvironment.getLocalGraphicsEnvironment().getCenterPoint();
+        center.setLocation(center.x+250, center.y-250);
+        return center;
+    }
 
     
 

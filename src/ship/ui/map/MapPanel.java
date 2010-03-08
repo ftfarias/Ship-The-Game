@@ -3,9 +3,12 @@ package ship.ui.map;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.Set;
 import javax.swing.JPanel;
 import ship.domain.ship.Ship;
+import ship.domain.universe.Position;
 import ship.infra.ui.CoordinatesProjection;
 import ship.ui.render.ShipRender;
 import ship.ui.render.SimpleShipRenderImpl;
@@ -22,11 +25,20 @@ public class MapPanel extends JPanel {
     private final double sensorRadius;
     private ShipRender shipRender = new SimpleShipRenderImpl();
 
-    public MapPanel(Ship ship) {
+    public MapPanel(final Ship ship) {
         setDoubleBuffered(true);
         setBackground(Color.BLACK);
         this.ship = ship;
         this.sensorRadius = ship.getShortSensorRange();
+
+        addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+                double x = coordinatesProjection.invertedProjectionX(e.getX());
+                double y = coordinatesProjection.invertedProjectionY(e.getY());
+                ship.moveTo(new Position(x, y));
+            }
+        });
+
     }
 
     @Override

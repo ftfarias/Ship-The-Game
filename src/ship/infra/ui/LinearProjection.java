@@ -18,6 +18,11 @@ public class LinearProjection {
         return (int) Math.round(convertDouble(coordinate));
     }
 
+    public double invertConvert(int coordinate) {
+        return (coordinate - linear) / scalar;
+    }
+
+
     public double convertDouble(double coordinate) {
         return (coordinate*scalar) + linear;
     }

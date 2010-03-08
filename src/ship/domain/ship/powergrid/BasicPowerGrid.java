@@ -13,8 +13,9 @@ public class BasicPowerGrid extends DefaultPowerGrid {
 
     protected Battery battery;
     protected PowerGenerator powerGenerator;
-    private double avaliableEnergy = 0;
-    private double powerGridBalance = 0;
+    protected double avaliableEnergy = 0;
+    protected double powerGridBalance = 0;
+    protected double timeElapsed;
 
     public BasicPowerGrid(PowerGenerator powerGenerator, Battery battery) {
         this.battery = battery;
@@ -25,27 +26,38 @@ public class BasicPowerGrid extends DefaultPowerGrid {
 
     @Override
     public void timeElapsed(double timeElapsed) {
+        this.timeElapsed = timeElapsed;
         avaliableEnergy = powerGenerator.getEnergy(timeElapsed);
+        powerGridBalance = 0;
     }
 
     @Override
     public double requestEnergy(double amountRequested) {
-        if (amountRequested < avaliableEnergy) {
+        if (amountRequested <= avaliableEnergy) {
             avaliableEnergy -= amountRequested;
             return amountRequested;
         } else {
-            avaliableEnergy += battery.drain(amountRequested - avaliableEnergy);
+//            System.out.println("AE: " + avaliableEnergy);
+//            System.out.println("Drain: " + (amountRequested - avaliableEnergy));
+            double drainedEnergy = battery.drain(amountRequested - avaliableEnergy);
+            powerGridBalance -=  drainedEnergy;
+            avaliableEnergy += drainedEnergy;
+//            System.out.println("AE2: " + avaliableEnergy);
             double result = avaliableEnergy;
             avaliableEnergy = 0;
+            
             return result;
         }
     }
 
     @Override
     public void update() {
-        powerGridBalance = avaliableEnergy;
+        
 //        notifyAll(ObservableEvent.POWER_GRID_UPDATE);
+
+
         if (avaliableEnergy > 0) {
+            powerGridBalance += avaliableEnergy;
             battery.charge(avaliableEnergy);
         }
         notifyAll(this, ObservableEvent.POWER_GRID_UPDATE);
@@ -53,6 +65,19 @@ public class BasicPowerGrid extends DefaultPowerGrid {
 
     @Override
     public double getPowerGridBalance() {
-        return powerGridBalance;
+        return powerGridBalance/timeElapsed*1000;
+
+
+    }
+
+    public double getBatteryMaxCharge() {
+        return battery.getMaxCharge();
+
+
+    }
+
+    public double getBatteryCharge() {
+        return battery.getCharge();
+
     }
 }

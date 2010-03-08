@@ -22,6 +22,7 @@ public class SimpleShipRenderImpl implements ShipRender {
         // g2d.fill3DRect(x+3, y+3, 30, 30, true);
         g2d.drawString(ship.getName(), x + 15, y + 25);
         g2d.drawString(ship.getCurrentPosition().toString(), x + 15, y + 40);
+        g2d.drawString("["+ship.getDestination().toString()+"]" , x + 15, y + 55);
 
     }
 

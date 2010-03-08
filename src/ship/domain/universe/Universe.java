@@ -45,7 +45,7 @@ public class Universe {
     }
 
     public void removeShip(Ship ship) {
-        addObject(ship);
+        removeObject(ship);
         updateObservers(ObservableEvent.SHIP_REMOVED);
     }
 

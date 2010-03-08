@@ -13,6 +13,8 @@ public class OmnidirectionalMoveBehavior implements MoveBehavior {
 
     private static final String NAME = "Omnidirectional Graviton Engine";
     private static final String DESCRIPTION = "A non-inertial engines that moves in any direction. Consumes a lot of energy";
+    private static final double ENERGY_PER_SPEEDY_UNIT = 8000;
+
     private Position currentPosition;
     private Position destination;
     private double speed;
@@ -20,7 +22,6 @@ public class OmnidirectionalMoveBehavior implements MoveBehavior {
 
     public OmnidirectionalMoveBehavior() {
         setCurrentPosition(Position.ORIGIN);
-        moveTo(Position.ORIGIN);
         setSpeed(1);
     }
 
@@ -86,19 +87,23 @@ public class OmnidirectionalMoveBehavior implements MoveBehavior {
         }
 
         double actualSpeed = getActualSpeed();
+        //double actualSpeed = speed;
 
 //        System.out.println("1");
         // limit to time increment so you will NOT pass the destination
-        if (actualSpeed * time > currentPosition.distance(destination)) {
+        if ((actualSpeed * time) > currentPosition.distance(destination)) {
             // calc the new time intervel to reach the destination
+            System.out.println("Limiting move: time: "+time+" Speed: "+actualSpeed+"   Distance:"+(time*actualSpeed));
             time = currentPosition.distance(destination) / actualSpeed;
         }
-//        System.out.println("time: "+time+ "speed: "+speed);
+//        System.out.println("time: "+time+ "  speed: "+actualSpeed);
         double angle = Math.atan2(destination.getY() - currentPosition.getY(), destination.getX() - currentPosition.getX());
         double xStep = Math.cos(angle) * actualSpeed * time;
         double yStep = Math.sin(angle) * actualSpeed * time;
         double x = currentPosition.getX() + xStep;
         double y = currentPosition.getY() + yStep;
+//        System.out.println("Step x: "+xStep+"   Step y: "+yStep);
+//        System.out.println("New Position: "+new Position(x, y).toString());
         currentPosition = new Position(x, y);
     }
 
@@ -112,10 +117,19 @@ public class OmnidirectionalMoveBehavior implements MoveBehavior {
         return DESCRIPTION;
     }
 
-    private double getActualSpeed() {
+    protected double getActualSpeed() {
         if (powerGrid == null) {
+//            System.out.println("NO power, no move");
             return 0;
         }
-        return powerGrid.requestEnergy(speed * 100) / 100;
+//        System.out.println("requested speed: "+speed);
+        double actualSpeed = powerGrid.requestEnergy(speed * ENERGY_PER_SPEEDY_UNIT) / ENERGY_PER_SPEEDY_UNIT;
+//        System.out.println("actual Speed: "+actualSpeed);
+        return actualSpeed;
+    }
+
+    @Override
+    public Position getDestination() {
+        return destination;
     }
 }

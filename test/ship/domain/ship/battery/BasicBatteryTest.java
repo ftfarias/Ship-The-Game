@@ -32,7 +32,7 @@ public class BasicBatteryTest {
 
     @Before
     public void setUp() {
-        instance = new BasicBattery(100, 50);
+        instance = new BasicBattery(50, 100);
     }
 
     @After

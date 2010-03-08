@@ -1,10 +1,12 @@
 package ship.main;
 
 import ship.application.ShipGame;
+import ship.domain.ship.powergrid.BasicPowerGrid;
 import ship.ui.GameController;
 import ship.ui.GameControllerImpl;
 import ship.ui.map.MapController;
 import ship.ui.map.MapControllerImpl;
+import ship.ui.powergrid.BasicPowerGridController;
 
 /**
  *
@@ -19,9 +21,6 @@ public class ShipApp {
         game.initialize();
         GameController gameController = new GameControllerImpl(game);
         MapController mapController = new MapControllerImpl(game.getPlayerShip());
+        new BasicPowerGridController((BasicPowerGrid) game.getPlayerShip().getPowerGrid());
     }
-
-
-
-
 }

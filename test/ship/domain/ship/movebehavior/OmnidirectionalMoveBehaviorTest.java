@@ -10,7 +10,10 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import ship.domain.ship.powergrid.PowerGrid;
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
+import ship.infra.observer.Observer;
 
 /**
  *
@@ -34,6 +37,46 @@ public class OmnidirectionalMoveBehaviorTest {
     @Before
     public void setUp() {
         instance = new OmnidirectionalMoveBehavior();
+//        PowerGenerator mockPowerGenerator = mock(PowerGenerator.class);
+//        when(mockPowerGenerator.getEnergy(anyDouble())).thenReturn(100000.0);
+
+//        PowerGrid powerGrid = mock(PowerGrid.class);
+//        when(powerGrid.requestEnergy(anyDouble())).thenReturn(Double.MAX_VALUE);
+
+        PowerGrid powerGrid = new PowerGrid() {
+
+            @Override
+            public double requestEnergy(double amountRequested) {
+                return amountRequested;
+            }
+
+            @Override
+            public double getPowerGridBalance() {
+                return 0;
+            }
+
+            @Override
+            public void update() {
+            }
+
+            @Override
+            public void timeElapsed(double timeElapsed) {
+            }
+
+            @Override
+            public void registerObserver(Observer observer) {
+            }
+
+            @Override
+            public void removeAllObservers() {
+            }
+
+            @Override
+            public void removeObserver(Observer observer) {
+            }
+        };
+
+        instance.setPowerGrid(powerGrid);
     }
 
     @After
@@ -71,7 +114,8 @@ public class OmnidirectionalMoveBehaviorTest {
 
     @Test
     public void testMoveToInAxisX1() {
-        Position origin = new Position(0, 0);
+        System.out.println("testMoveToInAxisX1");
+        Position origin = Position.ORIGIN;
         Position destiny = new Position(10, 0);
         instance.setCurrentPosition(origin);
         instance.setSpeed(5);
@@ -87,7 +131,7 @@ public class OmnidirectionalMoveBehaviorTest {
 
     @Test
     public void testMoveToInAxisXChangingSpeed() {
-        Position origin = new Position(0, 0);
+        Position origin = Position.ORIGIN;
         Position destiny = new Position(10, 0);
         instance.setCurrentPosition(origin);
         instance.setSpeed(2.5);
@@ -109,7 +153,7 @@ public class OmnidirectionalMoveBehaviorTest {
 
     @Test
     public void testMoveToInAxisY() {
-        Position origin = new Position(0, 0);
+        Position origin = Position.ORIGIN;
         Position destiny = new Position(0, 10);
         instance.setCurrentPosition(origin);
         instance.setSpeed(5);
@@ -125,7 +169,7 @@ public class OmnidirectionalMoveBehaviorTest {
 
     @Test
     public void testMoveToBothAxis() {
-        Position origin = new Position(0, 0);
+        Position origin = Position.ORIGIN;
         Position destiny = new Position(30, 40);
         instance.setCurrentPosition(origin);
         instance.setSpeed(5);

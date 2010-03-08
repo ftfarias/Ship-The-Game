@@ -1,4 +1,6 @@
-package ship.ui.render;
+package ship.ui.util;
+
+import ship.ui.render.Render;
 
 /**
  *

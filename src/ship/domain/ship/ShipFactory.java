@@ -38,7 +38,7 @@ public class ShipFactory {
         //Movable moveBehavior = new OmnidirectionalMoveBehavior();
         
         PowerGenerator powerGenerator = new BasicPowerGenerator();
-        Battery battery = new BasicBattery(50, 100);
+        Battery battery = new BasicBattery(100, 10000);
         PowerGrid powerGrid = new BasicPowerGrid(powerGenerator, battery);
 
         Sensor sensor = new BasicSensor();

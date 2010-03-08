@@ -25,6 +25,7 @@ public interface Ship extends Positionable, TimeDependent, ObservableInterface {
 
 //    void setUniverse(Universe universe);
 
+    Universe getUniverse();
 
     public String getName();
 
@@ -39,6 +40,8 @@ public interface Ship extends Positionable, TimeDependent, ObservableInterface {
     public Set<Object> getShortSensorScanResults();
 
     public void moveTo(Position position);
+
+    public Position getDestination();
 
     public PowerGrid getPowerGrid();
 }

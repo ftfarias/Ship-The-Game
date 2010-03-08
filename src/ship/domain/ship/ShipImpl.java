@@ -19,7 +19,7 @@ import ship.infra.observer.Observer;
  * @author Felipe Farias
  * @version 1.0
  */
-public class ShipImpl implements Ship, Observer<PowerGrid>{
+public class ShipImpl implements Ship{
 
     private Observable<Ship> observable = new Observable<Ship>();
     private String name;
@@ -39,7 +39,6 @@ public class ShipImpl implements Ship, Observer<PowerGrid>{
         this.universe = universe;
         this.sensor = sensor;
         this.powerGrid = powerGrid;
-        powerGrid.registerObserver(this);
     }
 
     @Override
@@ -142,24 +141,20 @@ public class ShipImpl implements Ship, Observer<PowerGrid>{
         return sensor.getShortSensorScanResults();
     }
 
-//    @Override
-//    public double getBatteryCharge() {
-//        return battery.getCharge();
-//    }
-//
-//    @Override
-//    public double getBatteryMaxCharge() {
-//        return battery.getMaxCharge();
-//    }
-
-    @Override
-    public void update(PowerGrid object, ObservableEvent event) {
-        notifyAll(event);
-    }
-
     @Override
     public PowerGrid getPowerGrid() {
         return powerGrid;
     }
+
+    @Override
+    public Universe getUniverse() {
+        return universe;
+    }
+
+    @Override
+    public Position getDestination() {
+        return moveBehavior.getDestination();
+    }
+
 
 }

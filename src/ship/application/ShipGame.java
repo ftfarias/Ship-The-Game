@@ -38,6 +38,7 @@ public class ShipGame {
     private void createPlayerAndShips() {
         playerShip = ShipFactory.buildPlayerShip(universe);
         playerShip.setCurrentPosition(new Position(1, 2));
+        playerShip.moveTo(new Position(0, 0));
         universe.addShip(playerShip);
 
         Ship otherShip = ShipFactory.buildDumbFighterShip(universe);

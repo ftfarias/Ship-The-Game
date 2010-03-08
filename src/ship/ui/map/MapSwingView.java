@@ -1,11 +1,12 @@
 package ship.ui.map;
 
 import java.awt.Dimension;
-import java.awt.GraphicsEnvironment;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.JPanel;
-import javax.swing.text.Position;
 import ship.domain.ship.Ship;
+import ship.infra.observer.ObservableEvent;
 import ship.ui.services.PositionService;
 import ship.ui.template.DefaultSwingView;
 
@@ -16,9 +17,8 @@ import ship.ui.template.DefaultSwingView;
  */
 public class MapSwingView extends DefaultSwingView implements MapView {
 
-    private MapController controller;
-
-    private Ship ship; // model
+    private final MapController controller;
+    private final Ship ship; // model
 
     public MapSwingView(MapController mapController, Ship ship) {
         assert ship != null;
@@ -26,6 +26,8 @@ public class MapSwingView extends DefaultSwingView implements MapView {
         this.controller = mapController;
         this.ship = ship;
         createView();
+        ship.registerObserver(this);
+        ship.getUniverse().registerObserver(this);
     }
 
     @Override
@@ -38,6 +40,7 @@ public class MapSwingView extends DefaultSwingView implements MapView {
     protected void createControls() {
         viewFrame.setPreferredSize(new Dimension(500, 500));
         JPanel mapPanel = new MapPanel(ship);
+
         viewFrame.setContentPane(mapPanel);
     }
 
@@ -46,8 +49,13 @@ public class MapSwingView extends DefaultSwingView implements MapView {
     }
 
     @Override
-    public void refresh() {
-        viewFrame.repaint();
+    public void update(Object object, ObservableEvent event) {
+        if ((event == ObservableEvent.SHIP_ADDED)
+                || (event == ObservableEvent.SHIP_REMOVED)
+                || (event == ObservableEvent.SHIP_MOVED)
+                || (event == ObservableEvent.TIME_ELAPSED)
+                || (event == ObservableEvent.SHIP_SRS_DETECTED_OBJECT)) {
+            viewFrame.repaint();
+        }
     }
-
 }

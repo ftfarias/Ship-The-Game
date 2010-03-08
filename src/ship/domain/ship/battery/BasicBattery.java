@@ -1,7 +1,5 @@
 package ship.domain.ship.battery;
 
-import ship.infra.observer.ObservableEvent;
-
 /**
  *
  * @author Felipe Farias
