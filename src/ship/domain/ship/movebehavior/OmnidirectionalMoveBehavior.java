@@ -93,7 +93,7 @@ public class OmnidirectionalMoveBehavior implements MoveBehavior {
         // limit to time increment so you will NOT pass the destination
         if ((actualSpeed * time) > currentPosition.distance(destination)) {
             // calc the new time intervel to reach the destination
-            System.out.println("Limiting move: time: "+time+" Speed: "+actualSpeed+"   Distance:"+(time*actualSpeed));
+            //System.out.println("Limiting move: time: "+time+" Speed: "+actualSpeed+"   Distance:"+(time*actualSpeed));
             time = currentPosition.distance(destination) / actualSpeed;
         }
 //        System.out.println("time: "+time+ "  speed: "+actualSpeed);
