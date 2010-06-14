@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Set;
 import ship.domain.player.Player;
 import ship.domain.ship.battery.Battery;
+import ship.domain.ship.computer.Computer;
 import ship.domain.ship.module.Module;
 import ship.domain.ship.sensor.Sensor;
 import ship.domain.ship.movebehavior.MoveBehavior;
@@ -34,6 +35,7 @@ public class ShipImpl implements Ship {
     private PowerGrid powerGrid;
     private Battery battery;
     private PowerGenerator powerGenerator;
+    private Computer computer;
     private List<Module> modules = new ArrayList<Module>();
     private List<TimeDependent> timeDependents = new ArrayList<TimeDependent>();
 
@@ -57,6 +59,8 @@ public class ShipImpl implements Ship {
 
         timeDependents.add(moveBehavior);
         timeDependents.add(powerGrid);
+
+        System.out.println("New Ship "+name+" created");
     }
 
     @Override
@@ -200,4 +204,12 @@ public class ShipImpl implements Ship {
     @Override
     public void afterTimeElapsed() {
     }
+
+    @Override
+    public Computer getComputer() {
+        return computer;
+    }
+
+    
+
 }

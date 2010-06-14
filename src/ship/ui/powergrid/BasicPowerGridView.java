@@ -32,7 +32,6 @@ public class BasicPowerGridView extends DefaultSwingView implements PowerGridVie
         this.powerGrid = powerGrid;
         createView();
         powerGrid.registerObserver(this);
-        
     }
 
     @Override

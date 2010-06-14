@@ -23,5 +23,10 @@ public class PositionService {
     }
 
     
+    public static Point getPositionForComputer() {
+        Point center = GraphicsEnvironment.getLocalGraphicsEnvironment().getCenterPoint();
+        center.setLocation(center.x-750, center.y-250);
+        return center;
+    }
 
 }
