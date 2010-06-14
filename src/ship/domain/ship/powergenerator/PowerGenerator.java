@@ -1,15 +1,12 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package ship.domain.ship.powergenerator;
+
+import ship.domain.ship.module.Module;
 
 /**
  *
  * @author Felipe T. Farias <ftfarias@gmail.com>
  */
-public interface PowerGenerator {
+public interface PowerGenerator extends Module {
 
     public double getEnergy(double timeElapsed);
 

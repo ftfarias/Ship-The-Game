@@ -37,17 +37,20 @@ public class ShipGame {
 
     private void createPlayerAndShips() {
         playerShip = ShipFactory.buildPlayerShip(universe);
+        playerShip.setName("Eagle Centurion");
         playerShip.setCurrentPosition(new Position(1, 2));
         playerShip.moveTo(new Position(0, 0));
         universe.addShip(playerShip);
 
         Ship otherShip = ShipFactory.buildDumbFighterShip(universe);
         otherShip.setCurrentPosition(new Position(3, 3));
+        otherShip.setName("Cargo Ship");
         otherShip.moveTo(new Position(3, 3));
         universe.addShip(otherShip);
 
         otherShip = ShipFactory.buildDumbFighterShip(universe);
         otherShip.setCurrentPosition(new Position(4, 5));
+        otherShip.setName("Particular Ship");
         otherShip.moveTo(new Position(-2, -2));
         universe.addShip(otherShip);
     }

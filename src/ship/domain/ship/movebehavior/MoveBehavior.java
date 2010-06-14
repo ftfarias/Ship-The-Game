@@ -4,6 +4,7 @@
  */
 package ship.domain.ship.movebehavior;
 
+import ship.domain.ship.module.Module;
 import ship.domain.universe.Position;
 import ship.domain.universe.Positionable;
 import ship.domain.universe.TimeDependent;
@@ -12,7 +13,7 @@ import ship.domain.universe.TimeDependent;
  *
  * @author Felipe T. Farias <ftfarias@gmail.com>
  */
-public interface MoveBehavior extends Positionable, TimeDependent {
+public interface MoveBehavior extends Positionable, TimeDependent, Module {
 
     public boolean canMoveTo(Position position);
 

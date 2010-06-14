@@ -28,7 +28,6 @@ public class BasicPowerGrid extends DefaultPowerGrid {
     public void timeElapsed(double timeElapsed) {
         this.timeElapsed = timeElapsed;
         avaliableEnergy = powerGenerator.getEnergy(timeElapsed);
-        powerGridBalance = 0;
     }
 
     @Override
@@ -40,44 +39,61 @@ public class BasicPowerGrid extends DefaultPowerGrid {
 //            System.out.println("AE: " + avaliableEnergy);
 //            System.out.println("Drain: " + (amountRequested - avaliableEnergy));
             double drainedEnergy = battery.drain(amountRequested - avaliableEnergy);
-            powerGridBalance -=  drainedEnergy;
+            powerGridBalance -= drainedEnergy;
             avaliableEnergy += drainedEnergy;
 //            System.out.println("AE2: " + avaliableEnergy);
             double result = avaliableEnergy;
             avaliableEnergy = 0;
-            
+
             return result;
         }
     }
 
     @Override
-    public void update() {
-        
-//        notifyAll(ObservableEvent.POWER_GRID_UPDATE);
+    public double getPowerGridBalance() {
+        return powerGridBalance / timeElapsed * 1000;
+    }
 
+    public double getBatteryMaxCharge() {
+        return battery.getMaxCharge();
+    }
 
+    public double getBatteryCharge() {
+        return battery.getCharge();
+    }
+
+    @Override
+    public void beforeTimeElapsed() {
+        powerGridBalance = 0;
+    }
+
+    @Override
+    public void afterTimeElapsed() {
         if (avaliableEnergy > 0) {
             powerGridBalance += avaliableEnergy;
             battery.charge(avaliableEnergy);
+            // avaliableEnergy = 0;
         }
         notifyAll(this, ObservableEvent.POWER_GRID_UPDATE);
     }
 
     @Override
-    public double getPowerGridBalance() {
-        return powerGridBalance/timeElapsed*1000;
-
-
+    public String getDescription() {
+        return "Basic Power Grid";
     }
 
-    public double getBatteryMaxCharge() {
-        return battery.getMaxCharge();
-
-
+    @Override
+    public long getWeight() {
+        return 100l;
     }
 
-    public double getBatteryCharge() {
-        return battery.getCharge();
+    @Override
+    public long getSize() {
+        return 100l;
+    }
 
+    @Override
+    public long getValue() {
+        return 10l;
     }
 }

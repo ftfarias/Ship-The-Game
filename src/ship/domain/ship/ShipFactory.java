@@ -38,7 +38,8 @@ public class ShipFactory {
         //Movable moveBehavior = new OmnidirectionalMoveBehavior();
         
         PowerGenerator powerGenerator = new BasicPowerGenerator();
-        Battery battery = new BasicBattery(100, 10000);
+        Battery battery = new BasicBattery(10000, 10000);
+
         PowerGrid powerGrid = new BasicPowerGrid(powerGenerator, battery);
 
         Sensor sensor = new BasicSensor();
@@ -47,9 +48,7 @@ public class ShipFactory {
         moveBehavior.setPowerGrid(powerGrid);
         moveBehavior.setSpeed(0.001);
 
-
-        
-        ShipImpl ship = new ShipImpl("My Ship", player, universe, moveBehavior, sensor, powerGrid);
+        ShipImpl ship = new ShipImpl("My Ship", player, universe, moveBehavior, sensor, powerGrid, battery, powerGenerator);
         return ship;
     }
 }

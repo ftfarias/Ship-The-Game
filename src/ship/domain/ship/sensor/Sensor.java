@@ -6,6 +6,7 @@
 package ship.domain.ship.sensor;
 
 import java.util.Set;
+import ship.domain.ship.module.Module;
 import ship.domain.universe.Position;
 import ship.domain.universe.Universe;
 
@@ -13,7 +14,7 @@ import ship.domain.universe.Universe;
  *
  * @author Felipe T. Farias <ftfarias@gmail.com>
  */
-public interface Sensor {
+public interface Sensor extends Module {
     /**
      * conducts a search in the universe for objects
      * @param universe

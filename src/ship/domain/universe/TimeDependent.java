@@ -11,6 +11,11 @@ package ship.domain.universe;
  */
 public interface TimeDependent {
 
+    public void beforeTimeElapsed();
+
     public void timeElapsed(double timeElapsed);
+
+    public void afterTimeElapsed();
+
 
 }

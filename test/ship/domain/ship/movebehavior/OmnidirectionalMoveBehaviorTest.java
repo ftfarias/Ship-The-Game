@@ -56,10 +56,6 @@ public class OmnidirectionalMoveBehaviorTest {
             }
 
             @Override
-            public void update() {
-            }
-
-            @Override
             public void timeElapsed(double timeElapsed) {
             }
 
@@ -73,6 +69,34 @@ public class OmnidirectionalMoveBehaviorTest {
 
             @Override
             public void removeObserver(Observer observer) {
+            }
+
+            @Override
+            public void beforeTimeElapsed() {
+            }
+
+            @Override
+            public void afterTimeElapsed() {
+            }
+
+            @Override
+            public String getDescription() {
+                return "";
+            }
+
+            @Override
+            public long getWeight() {
+                return 0l;
+            }
+
+            @Override
+            public long getSize() {
+                return 0l;
+            }
+
+            @Override
+            public long getValue() {
+                return 0l;
             }
         };
 
@@ -95,7 +119,6 @@ public class OmnidirectionalMoveBehaviorTest {
         instance.setCurrentPosition(p);
         assertEquals(p, instance.getCurrentPosition());
     }
-
 
     @Test
     public void testIsMoving() {

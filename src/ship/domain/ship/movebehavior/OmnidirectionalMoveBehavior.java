@@ -13,7 +13,7 @@ public class OmnidirectionalMoveBehavior implements MoveBehavior {
 
     private static final String NAME = "Omnidirectional Graviton Engine";
     private static final String DESCRIPTION = "A non-inertial engines that moves in any direction. Consumes a lot of energy";
-    private static final double ENERGY_PER_SPEEDY_UNIT = 8000;
+    private static final double ENERGY_PER_SPEEDY_UNIT = 12000;
 
     private Position currentPosition;
     private Position destination;
@@ -87,7 +87,6 @@ public class OmnidirectionalMoveBehavior implements MoveBehavior {
         }
 
         double actualSpeed = getActualSpeed();
-        //double actualSpeed = speed;
 
 //        System.out.println("1");
         // limit to time increment so you will NOT pass the destination
@@ -131,5 +130,30 @@ public class OmnidirectionalMoveBehavior implements MoveBehavior {
     @Override
     public Position getDestination() {
         return destination;
+    }
+
+    @Override
+    public void beforeTimeElapsed() {
+
+    }
+
+    @Override
+    public void afterTimeElapsed() {
+
+    }
+
+    @Override
+    public long getWeight() {
+        return 100l;
+    }
+
+    @Override
+    public long getSize() {
+        return 100l;
+    }
+
+    @Override
+    public long getValue() {
+        return 10l;
     }
 }

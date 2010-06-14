@@ -13,7 +13,7 @@ public class Player {
     private UUID uuid;
     private String name;
 
-    private PlayerType playterType;
+    private PlayerType playerType;
 
 
     public String getName() {
@@ -33,11 +33,11 @@ public class Player {
     }
 
     public PlayerType getPlayterType() {
-        return playterType;
+        return playerType;
     }
 
     public void setPlayterType(PlayerType playterType) {
-        this.playterType = playterType;
+        this.playerType = playterType;
     }
 
 

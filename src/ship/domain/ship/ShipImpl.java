@@ -1,14 +1,18 @@
 package ship.domain.ship;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import ship.domain.player.Player;
 import ship.domain.ship.battery.Battery;
-import ship.domain.ship.powergenerator.PowerGenerator;
+import ship.domain.ship.module.Module;
 import ship.domain.ship.sensor.Sensor;
 import ship.domain.ship.movebehavior.MoveBehavior;
+import ship.domain.ship.powergenerator.PowerGenerator;
 import ship.domain.ship.powergrid.PowerGrid;
 import ship.domain.universe.Position;
 import ship.domain.universe.Range;
+import ship.domain.universe.TimeDependent;
 import ship.domain.universe.Universe;
 import ship.infra.observer.Observable;
 import ship.infra.observer.ObservableEvent;
@@ -19,7 +23,7 @@ import ship.infra.observer.Observer;
  * @author Felipe Farias
  * @version 1.0
  */
-public class ShipImpl implements Ship{
+public class ShipImpl implements Ship {
 
     private Observable<Ship> observable = new Observable<Ship>();
     private String name;
@@ -28,17 +32,31 @@ public class ShipImpl implements Ship{
     private final Universe universe;
     private Sensor sensor;
     private PowerGrid powerGrid;
+    private Battery battery;
+    private PowerGenerator powerGenerator;
+    private List<Module> modules = new ArrayList<Module>();
+    private List<TimeDependent> timeDependents = new ArrayList<TimeDependent>();
 
-    
 //    private double bearing;
-
-    public ShipImpl(String name, Player player, Universe universe, MoveBehavior moveBehavior, Sensor sensor, PowerGrid powerGrid) {
+    public ShipImpl(String name, Player player, Universe universe, MoveBehavior moveBehavior, Sensor sensor, PowerGrid powerGrid,
+            Battery battery, PowerGenerator powerGenerator) {
         this.name = name;
         this.player = player;
         this.moveBehavior = moveBehavior;
         this.universe = universe;
         this.sensor = sensor;
         this.powerGrid = powerGrid;
+        this.battery = battery;
+        this.powerGenerator = powerGenerator;
+
+        modules.add(moveBehavior);
+        modules.add(sensor);
+        modules.add(powerGrid);
+        modules.add(battery);
+        modules.add(powerGenerator);
+
+        timeDependents.add(moveBehavior);
+        timeDependents.add(powerGrid);
     }
 
     @Override
@@ -53,12 +71,24 @@ public class ShipImpl implements Ship{
 
     @Override
     public long getSize() {
-        return 0l;
+        long totalSize = 0;
+
+        for (Module m : modules) {
+            totalSize += m.getSize();
+        }
+
+        return totalSize;
     }
 
     @Override
     public long getWeight() {
-        return 0l;
+        long totalWeight = 0;
+
+        for (Module m : modules) {
+            totalWeight += m.getWeight();
+        }
+
+        return totalWeight;
     }
 
     @Override
@@ -99,16 +129,24 @@ public class ShipImpl implements Ship{
 
     @Override
     public void timeElapsed(double time) {
-        powerGrid.timeElapsed(time);
-        
-        moveBehavior.timeElapsed(time);
+
+        for (TimeDependent td : timeDependents) {
+            td.beforeTimeElapsed();
+        }
+
+        for (TimeDependent td : timeDependents) {
+            td.timeElapsed(time);
+        }
+
+        for (TimeDependent td : timeDependents) {
+            td.afterTimeElapsed();
+        }
+
 
         // run sensors
         if (sensor.runShortSensorScan(universe, getCurrentPosition())) {
             notifyAll(ObservableEvent.SHIP_SRS_DETECTED_OBJECT);
         }
-
-        powerGrid.update();
     }
 
     @Override
@@ -130,13 +168,12 @@ public class ShipImpl implements Ship{
         observable.notifyAll(this, event);
     }
 
-
     @Override
     public double getShortSensorRange() {
         return sensor.getShortRangeSensorRadius();
     }
 
-   @Override
+    @Override
     public Set<Object> getShortSensorScanResults() {
         return sensor.getShortSensorScanResults();
     }
@@ -156,5 +193,11 @@ public class ShipImpl implements Ship{
         return moveBehavior.getDestination();
     }
 
+    @Override
+    public void beforeTimeElapsed() {
+    }
 
+    @Override
+    public void afterTimeElapsed() {
+    }
 }

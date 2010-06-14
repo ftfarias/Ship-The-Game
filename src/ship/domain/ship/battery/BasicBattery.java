@@ -52,4 +52,25 @@ public class BasicBattery extends DefaultBattery implements Battery {
         currentCharge -= returnedAmount;
         return returnedAmount;
     }
+
+    @Override
+    public String getDescription() {
+        return "Basic Batery";
+    }
+
+    @Override
+    public long getWeight() {
+        return 100l;
+    }
+
+    @Override
+    public long getSize() {
+        return 10l;
+    }
+
+    @Override
+    public long getValue() {
+        return 100l;
+    }
+
 }

@@ -5,11 +5,13 @@
 
 package ship.domain.ship.battery;
 
+import ship.domain.ship.module.Module;
+
 /**
  *
  * @author Felipe T. Farias <ftfarias@gmail.com>
  */
-public interface Battery {
+public interface Battery extends Module{
 
     public double getCharge();
 
