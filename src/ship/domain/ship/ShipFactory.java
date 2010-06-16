@@ -5,6 +5,8 @@ import ship.domain.player.playerType.DumbFighterPlayer;
 import ship.domain.player.playerType.ManualPlayer;
 import ship.domain.ship.battery.BasicBattery;
 import ship.domain.ship.battery.Battery;
+import ship.domain.ship.computer.Computer;
+import ship.domain.ship.computer.StandardComputer;
 import ship.domain.ship.movebehavior.OmnidirectionalMoveBehavior;
 import ship.domain.ship.powergenerator.BasicPowerGenerator;
 import ship.domain.ship.powergenerator.PowerGenerator;
@@ -21,19 +23,19 @@ import ship.domain.universe.Universe;
  */
 public class ShipFactory {
 
-    public static ShipImpl buildPlayerShip(Universe universe) {
-        ShipImpl ship = buildBasicShip(universe);
+    public static ShipImpl buildPlayerShip(Universe universe, String shipName) {
+        ShipImpl ship = buildBasicShip(universe, shipName);
         ship.getPlayer().setPlayterType(new ManualPlayer());
         return ship;
     }
 
-    public static ShipImpl buildDumbFighterShip(Universe universe) {
-        ShipImpl ship = buildBasicShip(universe);
+    public static ShipImpl buildDumbFighterShip(Universe universe, String shipName) {
+        ShipImpl ship = buildBasicShip(universe, shipName);
         ship.getPlayer().setPlayterType(new DumbFighterPlayer());
         return ship;
     }
 
-    public static ShipImpl buildBasicShip(Universe universe) {
+    public static ShipImpl buildBasicShip(Universe universe, String shipName) {
         Player player = new Player();
         //Movable moveBehavior = new OmnidirectionalMoveBehavior();
         
@@ -48,7 +50,12 @@ public class ShipFactory {
         moveBehavior.setPowerGrid(powerGrid);
         moveBehavior.setSpeed(0.001);
 
-        ShipImpl ship = new ShipImpl("My Ship", player, universe, moveBehavior, sensor, powerGrid, battery, powerGenerator);
+        Computer computer = new StandardComputer();
+
+        ShipImpl ship = new ShipImpl(shipName, player, universe, moveBehavior, sensor, powerGrid, battery, powerGenerator, computer);
+
+        computer.setShip(ship);
+
         return ship;
     }
 }

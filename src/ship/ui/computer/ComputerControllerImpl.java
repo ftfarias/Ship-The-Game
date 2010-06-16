@@ -19,6 +19,12 @@ public class ComputerControllerImpl extends DefaultController implements Compute
     public ComputerControllerImpl(Computer computer) {
         this.computer = computer;
         this.view = new ComputerViewImpl(this, computer);
+        computer.registerObserver(view);
+    }
+
+    @Override
+    public void inputCommand(String command) {
+        computer.inputCommand(command);
     }
 
 }

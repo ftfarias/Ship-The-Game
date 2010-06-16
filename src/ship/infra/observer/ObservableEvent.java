@@ -15,5 +15,6 @@ public enum ObservableEvent {
     SHIP_REMOVED,
     SHIP_MOVED,
     SHIP_SRS_DETECTED_OBJECT, // SRS = Short Range Sensor
-    POWER_GRID_UPDATE;
+    POWER_GRID_UPDATE,
+    COMPUTER_OUTPUT;
 }

@@ -5,44 +5,21 @@
 
 package ship.domain.ship.computer;
 
+import ship.domain.ship.Ship;
 import ship.domain.ship.module.Module;
 import ship.domain.universe.TimeDependent;
+import ship.infra.observer.ObservableInterface;
 
 /**
  *
  * @author ftfarias
  */
-public class Computer implements Module, TimeDependent {
+public interface Computer extends Module, TimeDependent, ObservableInterface {
 
-    @Override
-    public String getDescription() {
-        return "Ship's Computer";
-    }
+    public void setShip(Ship ship);
 
-    @Override
-    public long getWeight() {
-        return 10;
-    }
+    public String getDisplayText();
 
-    @Override
-    public long getSize() {
-        return 1;
-    }
+    public void inputCommand(String command);
 
-    @Override
-    public long getValue() {
-        return 1000;
-    }
-
-    @Override
-    public void beforeTimeElapsed() {
-    }
-
-    @Override
-    public void timeElapsed(double timeElapsed) {
-    }
-
-    @Override
-    public void afterTimeElapsed() {
-    }
 }

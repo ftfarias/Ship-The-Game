@@ -37,7 +37,7 @@ public class MapSwingView extends DefaultSwingView implements MapView {
     }
 
     @Override
-    protected void createControls() {
+    protected void initComponents() {
         viewFrame.setPreferredSize(new Dimension(500, 500));
         JPanel mapPanel = new MapPanel(ship);
 

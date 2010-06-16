@@ -41,7 +41,7 @@ public class ShipImpl implements Ship {
 
 //    private double bearing;
     public ShipImpl(String name, Player player, Universe universe, MoveBehavior moveBehavior, Sensor sensor, PowerGrid powerGrid,
-            Battery battery, PowerGenerator powerGenerator) {
+            Battery battery, PowerGenerator powerGenerator, Computer computer) {
         this.name = name;
         this.player = player;
         this.moveBehavior = moveBehavior;
@@ -50,17 +50,20 @@ public class ShipImpl implements Ship {
         this.powerGrid = powerGrid;
         this.battery = battery;
         this.powerGenerator = powerGenerator;
+        this.computer = computer;
 
         modules.add(moveBehavior);
         modules.add(sensor);
         modules.add(powerGrid);
         modules.add(battery);
         modules.add(powerGenerator);
+        modules.add(computer);
 
-        timeDependents.add(moveBehavior);
         timeDependents.add(powerGrid);
+        timeDependents.add(moveBehavior);
+        timeDependents.add(computer);
 
-        System.out.println("New Ship "+name+" created");
+        System.out.println("new ship \""+name+"\" created");
     }
 
     @Override
@@ -132,14 +135,14 @@ public class ShipImpl implements Ship {
     }
 
     @Override
-    public void timeElapsed(double time) {
+    public void timeElapsed(long timeElapsed) {
 
         for (TimeDependent td : timeDependents) {
             td.beforeTimeElapsed();
         }
 
         for (TimeDependent td : timeDependents) {
-            td.timeElapsed(time);
+            td.timeElapsed(timeElapsed);
         }
 
         for (TimeDependent td : timeDependents) {

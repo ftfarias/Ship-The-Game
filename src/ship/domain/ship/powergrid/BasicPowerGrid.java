@@ -25,7 +25,7 @@ public class BasicPowerGrid extends DefaultPowerGrid {
     }
 
     @Override
-    public void timeElapsed(double timeElapsed) {
+    public void timeElapsed(long timeElapsed) {
         this.timeElapsed = timeElapsed;
         avaliableEnergy = powerGenerator.getEnergy(timeElapsed);
     }

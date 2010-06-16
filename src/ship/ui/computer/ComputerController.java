@@ -10,5 +10,7 @@ package ship.ui.computer;
  * @author ftfarias
  */
 public interface ComputerController {
+    
+    public void inputCommand(String command);
 
 }

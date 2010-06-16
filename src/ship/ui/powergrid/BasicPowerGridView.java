@@ -27,7 +27,7 @@ public class BasicPowerGridView extends DefaultSwingView implements PowerGridVie
     private JProgressBar batteryGauge;
     private JLabel batteryChargeValue;
 
-    BasicPowerGridView(BasicPowerGridController controller, BasicPowerGrid powerGrid) {
+    public BasicPowerGridView(BasicPowerGridController controller, BasicPowerGrid powerGrid) {
         this.controller = controller;
         this.powerGrid = powerGrid;
         createView();
@@ -41,7 +41,7 @@ public class BasicPowerGridView extends DefaultSwingView implements PowerGridVie
     }
 
     @Override
-    protected void createControls() {
+    protected void initComponents() {
        // viewFrame.setPreferredSize(new Dimension(500, 500));
 //        viewFrame.setContentPane(mapPanel);
         JPanel centerPanel = new JPanel(new GridLayout(0, 2, 3, 3));

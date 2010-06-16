@@ -19,7 +19,7 @@ public abstract class DefaultSwingView implements ActionListener {
         viewFrame.setLocationRelativeTo(null);
         //viewFrame.
 
-        createControls();
+        initComponents();
         viewFrame.pack();
         viewFrame.setVisible(true);
     }
@@ -27,6 +27,6 @@ public abstract class DefaultSwingView implements ActionListener {
     public DefaultSwingView() {
     }
 
-    protected abstract void createControls();
+    protected abstract void initComponents();
 
 }
