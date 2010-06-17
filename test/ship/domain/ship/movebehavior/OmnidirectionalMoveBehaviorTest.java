@@ -56,11 +56,7 @@ public class OmnidirectionalMoveBehaviorTest {
             }
 
             @Override
-            public void update() {
-            }
-
-            @Override
-            public void timeElapsed(double timeElapsed) {
+            public void timeElapsed(long timeElapsed) {
             }
 
             @Override
@@ -73,6 +69,34 @@ public class OmnidirectionalMoveBehaviorTest {
 
             @Override
             public void removeObserver(Observer observer) {
+            }
+
+            @Override
+            public void beforeTimeElapsed() {
+            }
+
+            @Override
+            public void afterTimeElapsed() {
+            }
+
+            @Override
+            public String getDescription() {
+                return "";
+            }
+
+            @Override
+            public long getWeight() {
+                return 0l;
+            }
+
+            @Override
+            public long getSize() {
+                return 0l;
+            }
+
+            @Override
+            public long getValue() {
+                return 0l;
             }
         };
 
@@ -95,7 +119,6 @@ public class OmnidirectionalMoveBehaviorTest {
         instance.setCurrentPosition(p);
         assertEquals(p, instance.getCurrentPosition());
     }
-
 
     @Test
     public void testIsMoving() {
@@ -121,11 +144,11 @@ public class OmnidirectionalMoveBehaviorTest {
         instance.setSpeed(5);
 
         instance.moveTo(destiny);
-        instance.timeElapsed(1);
+        instance.timeElapsed(null);
         assertEquals(new Position(5, 0), instance.getCurrentPosition());
 
         instance.moveTo(destiny);
-        instance.timeElapsed(0.5);
+        instance.timeElapsed(null);
         assertEquals(new Position(7.5, 0), instance.getCurrentPosition());
     }
 
@@ -137,17 +160,17 @@ public class OmnidirectionalMoveBehaviorTest {
         instance.setSpeed(2.5);
 
         instance.moveTo(destiny);
-        instance.timeElapsed(1);
+        instance.timeElapsed(null);
         assertEquals(new Position(2.5, 0), instance.getCurrentPosition());
 
         instance.setSpeed(5);
         instance.moveTo(destiny);
-        instance.timeElapsed(1);
+        instance.timeElapsed(null);
         assertEquals(new Position(7.5, 0), instance.getCurrentPosition());
 
         instance.setSpeed(0.1);
         instance.moveTo(destiny);
-        instance.timeElapsed(1);
+        instance.timeElapsed(null);
         assertEquals(new Position(7.6, 0), instance.getCurrentPosition());
     }
 
@@ -159,11 +182,11 @@ public class OmnidirectionalMoveBehaviorTest {
         instance.setSpeed(5);
 
         instance.moveTo(destiny);
-        instance.timeElapsed(1);
+        instance.timeElapsed(null);
         assertEquals(new Position(0, 5), instance.getCurrentPosition());
 
         instance.moveTo(destiny);
-        instance.timeElapsed(0.5);
+        instance.timeElapsed(null);
         assertEquals(new Position(0, 7.5), instance.getCurrentPosition());
     }
 
@@ -175,15 +198,15 @@ public class OmnidirectionalMoveBehaviorTest {
         instance.setSpeed(5);
 
         instance.moveTo(destiny);
-        instance.timeElapsed(1);
+        instance.timeElapsed(null);
         assertEquals(new Position(3, 4), instance.getCurrentPosition());
 
         instance.moveTo(new Position(0, 0));
-        instance.timeElapsed(0.5);
+        instance.timeElapsed(null);
         assertEquals(new Position(1.5, 2), instance.getCurrentPosition());
 
         instance.moveTo(new Position(0, 0));
-        instance.timeElapsed(0.5);
+        instance.timeElapsed(null);
         assertEquals(new Position(0, 0), instance.getCurrentPosition());
     }
 
@@ -195,7 +218,7 @@ public class OmnidirectionalMoveBehaviorTest {
         instance.setSpeed(1);
 
         instance.moveTo(destiny);
-        instance.timeElapsed(60);
+        instance.timeElapsed(null);
         assertEquals(destiny, instance.getCurrentPosition());
     }
 
@@ -207,7 +230,7 @@ public class OmnidirectionalMoveBehaviorTest {
         instance.setSpeed(1);
 
         instance.moveTo(destiny);
-        instance.timeElapsed(60);
+        instance.timeElapsed(null);
         assertEquals(destiny, instance.getCurrentPosition());
     }
 
@@ -219,7 +242,7 @@ public class OmnidirectionalMoveBehaviorTest {
         instance.setSpeed(1);
 
         instance.moveTo(destiny);
-        instance.timeElapsed(60);
+        instance.timeElapsed(null);
         assertEquals(destiny, instance.getCurrentPosition());
 
     }
@@ -232,7 +255,7 @@ public class OmnidirectionalMoveBehaviorTest {
         instance.setSpeed(1);
 
         instance.moveTo(destiny);
-        instance.timeElapsed(60);
+        instance.timeElapsed(null);
         assertEquals(destiny, instance.getCurrentPosition());
     }
 

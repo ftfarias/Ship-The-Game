@@ -60,7 +60,7 @@ public class SwingGameViewImpl extends DefaultSwingView implements GameView {
     }
 
     @Override
-    protected void createControls() {
+    protected void initComponents() {
         //viewFrame.setPreferredSize(new Dimension(500, 500));
         viewFrame.setLocation(0, 0);
         menuBar = new JMenuBar();

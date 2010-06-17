@@ -45,11 +45,32 @@ public class BasicPowerGridTest {
             public double getEnergy(double timeElapsed) {
                 return 100 * timeElapsed;
             }
+
+            @Override
+            public String getDescription() {
+                return "";
+            }
+
+            @Override
+            public long getWeight() {
+                return 0l;
+            }
+
+            @Override
+            public long getSize() {
+                return 0l;
+            }
+
+            @Override
+            public long getValue() {
+                return 0l;
+            }
         };
 
         battery = mock(Battery.class);
         when(battery.drain(100.0)).thenReturn(100.0);
         when(battery.drain(150.0)).thenReturn(150.0);
+        when(battery.drain(250.0)).thenReturn(250.0);
         when(battery.drain(500.0)).thenReturn(300.0);
 
 
@@ -64,87 +85,93 @@ public class BasicPowerGridTest {
     @Test
     public void testTimeElapsed() {
         assertEquals(0, instance.avaliableEnergy, 0.0001);
-        instance.timeElapsed(1);
+        instance.timeElapsed(null);
         assertEquals(100, instance.avaliableEnergy, 0.0001);
-        instance.timeElapsed(3.5);
+        instance.timeElapsed(null);
         assertEquals(350, instance.avaliableEnergy, 0.0001);
     }
 
     @Test
     public void testRequestEnergyLess() {
-        instance.timeElapsed(1.01);
+        instance.beforeTimeElapsed();
+        instance.timeElapsed(null);
         assertEquals(101, instance.avaliableEnergy, 0.0001);
 
         assertEquals(100, instance.requestEnergy(100), 0.0001);
 
         assertEquals(1, instance.avaliableEnergy, 0.0001);
-        instance.update();
+        instance.afterTimeElapsed();
         verify(battery).charge(1.0);
     }
 
     @Test
     public void testRequestEnergyExactAmount() {
-        instance.timeElapsed(1.0);
+        instance.beforeTimeElapsed();
+        instance.timeElapsed(null);
         assertEquals(100, instance.avaliableEnergy, 0.0001);
 
         assertEquals(100, instance.requestEnergy(100), 0.0001);
 
         assertEquals(0, instance.avaliableEnergy, 0.0001);
-        instance.update();
+        instance.afterTimeElapsed();
         verify(battery, never()).charge(anyDouble());
         verify(battery, never()).drain(anyDouble());
     }
 
     @Test
     public void testRequestEnergy3() {
-        instance.timeElapsed(1.0);
+        instance.beforeTimeElapsed();
+        instance.timeElapsed(null);
         assertEquals(100, instance.avaliableEnergy, 0.0001);
 
         assertEquals(200, instance.requestEnergy(200), 0.0001);
 
         assertEquals(0, instance.avaliableEnergy, 0.0001);
-        instance.update();
+        instance.afterTimeElapsed();
         verify(battery).drain(100);
     }
 
     @Test
     public void testRequestEnergyOverload() {
-        instance.timeElapsed(1.0);
+        instance.beforeTimeElapsed();
+        instance.timeElapsed(null);
         assertEquals(100, instance.avaliableEnergy, 0.0001);
 
         assertEquals(400, instance.requestEnergy(600), 0.0001);
 
         assertEquals(0, instance.avaliableEnergy, 0.0001);
-        instance.update();
+        instance.afterTimeElapsed();
         verify(battery).drain(500);
         assertEquals(0, instance.avaliableEnergy, 0.0001);
     }
 
-
     @Test
     public void testUpdate() {
+        instance.beforeTimeElapsed();
         assertEquals(0, instance.avaliableEnergy, 0.0001);
-        instance.timeElapsed(1);
+        instance.timeElapsed(null);
         assertEquals(100, instance.avaliableEnergy, 0.0001);
-        instance.update();
+        instance.afterTimeElapsed();
         verify(battery).charge(100.0);
     }
 
     @Test
     public void testGetPowerGridBalance() {
+        instance.beforeTimeElapsed();
         assertEquals(0, instance.avaliableEnergy, 0.0001);
-        instance.timeElapsed(1);
+        instance.timeElapsed(null);
         assertEquals(100, instance.avaliableEnergy, 0.0001);
-        instance.update();
-        assertEquals(100, instance.getPowerGridBalance(), 0.0001);
+        instance.afterTimeElapsed();
+        assertEquals(100000, instance.getPowerGridBalance(), 0.0001);
     }
 
     @Test
     public void testGetPowerGridBalance2() {
+        instance.beforeTimeElapsed();
         assertEquals(0, instance.avaliableEnergy, 0.0001);
-        instance.timeElapsed(1);
+        instance.timeElapsed(null);
         assertEquals(250, instance.requestEnergy(250), 0.0001);
-        instance.update();
-        assertEquals(-150, instance.getPowerGridBalance(), 0.0001);
+        instance.afterTimeElapsed();
+        assertEquals(-150000, instance.getPowerGridBalance(), 0.0001);
     }
 }

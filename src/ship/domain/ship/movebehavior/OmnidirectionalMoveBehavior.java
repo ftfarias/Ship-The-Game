@@ -13,7 +13,7 @@ public class OmnidirectionalMoveBehavior implements MoveBehavior {
 
     private static final String NAME = "Omnidirectional Graviton Engine";
     private static final String DESCRIPTION = "A non-inertial engines that moves in any direction. Consumes a lot of energy";
-    private static final double ENERGY_PER_SPEEDY_UNIT = 8000;
+    private static final double ENERGY_PER_SPEEDY_UNIT = 12000;
 
     private Position currentPosition;
     private Position destination;
@@ -79,7 +79,8 @@ public class OmnidirectionalMoveBehavior implements MoveBehavior {
     }
 
     @Override
-    public void timeElapsed(double time) {
+    public void timeElapsed(long time) {
+        double timeElapsed = time; // convert "long" to "double"
 //        System.out.println("Time :"+time+ "   "+currentPosition.equals(destination) );
 //        System.out.println("Curre: "+currentPosition+" ->  "+destination);
         if (!isMoving()) {
@@ -87,19 +88,18 @@ public class OmnidirectionalMoveBehavior implements MoveBehavior {
         }
 
         double actualSpeed = getActualSpeed();
-        //double actualSpeed = speed;
 
 //        System.out.println("1");
         // limit to time increment so you will NOT pass the destination
-        if ((actualSpeed * time) > currentPosition.distance(destination)) {
+        if ((actualSpeed * timeElapsed) > currentPosition.distance(destination)) {
             // calc the new time intervel to reach the destination
             //System.out.println("Limiting move: time: "+time+" Speed: "+actualSpeed+"   Distance:"+(time*actualSpeed));
-            time = currentPosition.distance(destination) / actualSpeed;
+            timeElapsed = currentPosition.distance(destination) / actualSpeed;
         }
 //        System.out.println("time: "+time+ "  speed: "+actualSpeed);
         double angle = Math.atan2(destination.getY() - currentPosition.getY(), destination.getX() - currentPosition.getX());
-        double xStep = Math.cos(angle) * actualSpeed * time;
-        double yStep = Math.sin(angle) * actualSpeed * time;
+        double xStep = Math.cos(angle) * actualSpeed * timeElapsed;
+        double yStep = Math.sin(angle) * actualSpeed * timeElapsed;
         double x = currentPosition.getX() + xStep;
         double y = currentPosition.getY() + yStep;
 //        System.out.println("Step x: "+xStep+"   Step y: "+yStep);
@@ -131,5 +131,30 @@ public class OmnidirectionalMoveBehavior implements MoveBehavior {
     @Override
     public Position getDestination() {
         return destination;
+    }
+
+    @Override
+    public void beforeTimeElapsed() {
+
+    }
+
+    @Override
+    public void afterTimeElapsed() {
+
+    }
+
+    @Override
+    public long getWeight() {
+        return 100l;
+    }
+
+    @Override
+    public long getSize() {
+        return 100l;
+    }
+
+    @Override
+    public long getValue() {
+        return 10l;
     }
 }

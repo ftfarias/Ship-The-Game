@@ -6,6 +6,7 @@ package ship.domain.ship;
 
 import java.util.Set;
 import ship.domain.player.Player;
+import ship.domain.ship.computer.Computer;
 import ship.domain.ship.powergrid.PowerGrid;
 import ship.domain.universe.Position;
 import ship.domain.universe.Positionable;
@@ -44,4 +45,7 @@ public interface Ship extends Positionable, TimeDependent, ObservableInterface {
     public Position getDestination();
 
     public PowerGrid getPowerGrid();
+
+    public Computer getComputer();
+
 }

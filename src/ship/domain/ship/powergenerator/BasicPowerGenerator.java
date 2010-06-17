@@ -23,4 +23,24 @@ public class BasicPowerGenerator implements PowerGenerator{
         return energyPerSecond * timeElapsed / 1000;
     }
 
+    @Override
+    public String getDescription() {
+        return "Basic Power Generator";
+    }
+
+    @Override
+    public long getWeight() {
+        return 100l;
+    }
+
+    @Override
+    public long getSize() {
+        return 100l;
+    }
+
+    @Override
+    public long getValue() {
+        return 100l;
+    }
+
 }

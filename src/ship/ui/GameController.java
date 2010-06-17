@@ -15,6 +15,8 @@ public interface GameController {
 
     public void showPowerGridFrame();
 
+    public void showComputerFrame();
+
     public void exit();
 
     public void moveTo();

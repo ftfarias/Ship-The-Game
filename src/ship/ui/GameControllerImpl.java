@@ -3,6 +3,7 @@ package ship.ui;
 import ship.application.ShipGame;
 import ship.domain.ship.powergrid.BasicPowerGrid;
 import ship.domain.universe.Position;
+import ship.ui.computer.ComputerControllerImpl;
 import ship.ui.map.MapControllerImpl;
 import ship.ui.powergrid.BasicPowerGridController;
 import ship.ui.template.DefaultController;
@@ -45,6 +46,11 @@ public class GameControllerImpl extends DefaultController implements GameControl
             System.out.println("ship moving to "+destiny);
             game.getPlayerShip().moveTo(destiny);
         }
+    }
+
+    @Override
+    public void showComputerFrame() {
+        new ComputerControllerImpl(game.getPlayerShip().getComputer());
     }
 
 
