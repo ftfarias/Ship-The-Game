@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package ship.domain.ship.powergrid;
+package ship.domain.ship.shield;
 
 import ship.domain.universe.TimeDependent;
 import ship.infra.observer.ObservableInterface;
@@ -12,12 +12,11 @@ import ship.infra.observer.ObservableInterface;
  *
  * @author Felipe T. Farias <ftfarias@gmail.com>
  */
-public interface PowerGrid extends TimeDependent, ObservableInterface {
+public interface Shield extends TimeDependent, ObservableInterface {
 
-    public double requestEnergy(double amountRequested);
+    public boolean isShieldUp();
 
-    public double getPowerGridBalance();
+    public void shieldsUp();
 
-    public void update();
-
+    public void shieldsDown();
 }
