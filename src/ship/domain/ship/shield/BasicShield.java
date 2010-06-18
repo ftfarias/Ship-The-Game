@@ -1,7 +1,5 @@
 package ship.domain.ship.shield;
 
-import ship.domain.ship.powergrid.PowerGrid;
-
 /**
  *
  * @author Felipe Farias
@@ -9,14 +7,10 @@ import ship.domain.ship.powergrid.PowerGrid;
  */
 public class BasicShield extends DefaultShield implements Shield {
 
+    private static final double DISCHARGE_RATE = 30; // Kjoules/sec
     private double shieldStrength = 0;
     private double maxShieldStrength = 10000;
     private double maxRechargeRate = 100;
-    private PowerGrid powerGrid;
-
-    public BasicShield(PowerGrid powerGrid) {
-        this.powerGrid = powerGrid;
-    }
 
     public double getShieldStrength() {
         return shieldStrength;
@@ -33,23 +27,55 @@ public class BasicShield extends DefaultShield implements Shield {
         super.shieldsUp();
     }
 
-
-
     @Override
-    public void timeElapsed(double timeElapsed) {
+    public void timeElapsed(long timeElapsed) {
         if (isShieldUp()) {
+            applyShieldNaturalDischarge(timeElapsed);
             if (shieldStrength < maxShieldStrength) {
-                recharge();
+                recharge(timeElapsed);
             }
         }
     }
 
-    private void recharge() {
-        double amountToRecharge = maxShieldStrength - shieldStrength;
-        if (amountToRecharge > maxRechargeRate) {
-            amountToRecharge = maxRechargeRate;
-        }
-        double energyAvaliable = powerGrid.requestEnergy(amountToRecharge);
+    private void recharge(long timeElapsed) {
+        double amountToRecharge = Math.max(maxShieldStrength - shieldStrength, maxRechargeRate) * timeElapsed / 100;
+        double energyAvaliable = ship.getPowerGrid().requestEnergy(amountToRecharge);
         shieldStrength += energyAvaliable;
+        notifyUpdate();
+    }
+
+    @Override
+    public void beforeTimeElapsed() {
+        
+    }
+
+    @Override
+    public void afterTimeElapsed() {
+
+    }
+
+    @Override
+    public String getDescription() {
+        return "Basic Shield";
+    }
+
+    @Override
+    public long getWeight() {
+        return 100;
+    }
+
+    @Override
+    public long getSize() {
+        return 100;
+    }
+
+    @Override
+    public long getValue() {
+        return 100;
+    }
+
+    private void applyShieldNaturalDischarge(long timeElapsed) {
+        shieldStrength -= (DISCHARGE_RATE * timeElapsed / 1000);
+
     }
 }

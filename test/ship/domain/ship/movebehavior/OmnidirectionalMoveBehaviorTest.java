@@ -141,14 +141,14 @@ public class OmnidirectionalMoveBehaviorTest {
         Position origin = Position.ORIGIN;
         Position destiny = new Position(10, 0);
         instance.setCurrentPosition(origin);
-        instance.setSpeed(5);
+        instance.setSpeed(2.5);
 
         instance.moveTo(destiny);
-        instance.timeElapsed(null);
+        instance.timeElapsed(2);
         assertEquals(new Position(5, 0), instance.getCurrentPosition());
 
         instance.moveTo(destiny);
-        instance.timeElapsed(null);
+        instance.timeElapsed(1);
         assertEquals(new Position(7.5, 0), instance.getCurrentPosition());
     }
 
@@ -160,17 +160,17 @@ public class OmnidirectionalMoveBehaviorTest {
         instance.setSpeed(2.5);
 
         instance.moveTo(destiny);
-        instance.timeElapsed(null);
+        instance.timeElapsed(1);
         assertEquals(new Position(2.5, 0), instance.getCurrentPosition());
 
         instance.setSpeed(5);
         instance.moveTo(destiny);
-        instance.timeElapsed(null);
+        instance.timeElapsed(1);
         assertEquals(new Position(7.5, 0), instance.getCurrentPosition());
 
         instance.setSpeed(0.1);
         instance.moveTo(destiny);
-        instance.timeElapsed(null);
+        instance.timeElapsed(1);
         assertEquals(new Position(7.6, 0), instance.getCurrentPosition());
     }
 
@@ -179,14 +179,14 @@ public class OmnidirectionalMoveBehaviorTest {
         Position origin = Position.ORIGIN;
         Position destiny = new Position(0, 10);
         instance.setCurrentPosition(origin);
-        instance.setSpeed(5);
+        instance.setSpeed(2.5);
 
         instance.moveTo(destiny);
-        instance.timeElapsed(null);
+        instance.timeElapsed(2);
         assertEquals(new Position(0, 5), instance.getCurrentPosition());
 
         instance.moveTo(destiny);
-        instance.timeElapsed(null);
+        instance.timeElapsed(1);
         assertEquals(new Position(0, 7.5), instance.getCurrentPosition());
     }
 
@@ -195,18 +195,18 @@ public class OmnidirectionalMoveBehaviorTest {
         Position origin = Position.ORIGIN;
         Position destiny = new Position(30, 40);
         instance.setCurrentPosition(origin);
-        instance.setSpeed(5);
+        instance.setSpeed(2.5);
 
         instance.moveTo(destiny);
-        instance.timeElapsed(null);
+        instance.timeElapsed(2);
         assertEquals(new Position(3, 4), instance.getCurrentPosition());
 
         instance.moveTo(new Position(0, 0));
-        instance.timeElapsed(null);
+        instance.timeElapsed(1);
         assertEquals(new Position(1.5, 2), instance.getCurrentPosition());
 
         instance.moveTo(new Position(0, 0));
-        instance.timeElapsed(null);
+        instance.timeElapsed(1);
         assertEquals(new Position(0, 0), instance.getCurrentPosition());
     }
 
@@ -218,7 +218,7 @@ public class OmnidirectionalMoveBehaviorTest {
         instance.setSpeed(1);
 
         instance.moveTo(destiny);
-        instance.timeElapsed(null);
+        instance.timeElapsed(60);
         assertEquals(destiny, instance.getCurrentPosition());
     }
 
@@ -230,7 +230,7 @@ public class OmnidirectionalMoveBehaviorTest {
         instance.setSpeed(1);
 
         instance.moveTo(destiny);
-        instance.timeElapsed(null);
+        instance.timeElapsed(60);
         assertEquals(destiny, instance.getCurrentPosition());
     }
 
@@ -242,7 +242,7 @@ public class OmnidirectionalMoveBehaviorTest {
         instance.setSpeed(1);
 
         instance.moveTo(destiny);
-        instance.timeElapsed(null);
+        instance.timeElapsed(60);
         assertEquals(destiny, instance.getCurrentPosition());
 
     }
@@ -255,7 +255,7 @@ public class OmnidirectionalMoveBehaviorTest {
         instance.setSpeed(1);
 
         instance.moveTo(destiny);
-        instance.timeElapsed(null);
+        instance.timeElapsed(60);
         assertEquals(destiny, instance.getCurrentPosition());
     }
 
@@ -268,3 +268,4 @@ public class OmnidirectionalMoveBehaviorTest {
         assertFalse(instance.inRange(p2, 4.9));
     }
 }
+

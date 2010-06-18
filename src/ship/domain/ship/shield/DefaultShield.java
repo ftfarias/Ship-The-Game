@@ -1,6 +1,6 @@
 package ship.domain.ship.shield;
 
-import ship.domain.ship.powergrid.PowerGrid;
+import ship.domain.ship.Ship;
 import ship.infra.observer.Observable;
 import ship.infra.observer.ObservableEvent;
 import ship.infra.observer.Observer;
@@ -14,6 +14,11 @@ public abstract class DefaultShield implements Shield {
 
     private boolean shieldEnabled = false;
     protected Observable<Shield> observable = new Observable<Shield>();
+    protected Ship ship;
+
+    public void setShip(Ship ship) {
+        this.ship = ship;
+    }
 
     @Override
     public boolean isShieldUp() {
@@ -48,4 +53,10 @@ public abstract class DefaultShield implements Shield {
     public void notifyAll(Shield object, ObservableEvent event) {
         observable.notifyAll(object, event);
     }
+
+    public void notifyUpdate() {
+        observable.notifyAll(this, ObservableEvent.SHIELD_UPDATE);
+    }
+
+    
 }
