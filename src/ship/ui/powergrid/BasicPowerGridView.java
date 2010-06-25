@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
+import javax.swing.SwingUtilities;
 import ship.domain.ship.powergrid.BasicPowerGrid;
 import ship.domain.ship.powergrid.PowerGrid;
 import ship.infra.observer.ObservableEvent;
@@ -42,7 +43,7 @@ public class BasicPowerGridView extends DefaultSwingView implements PowerGridVie
 
     @Override
     protected void initComponents() {
-       // viewFrame.setPreferredSize(new Dimension(500, 500));
+        // viewFrame.setPreferredSize(new Dimension(500, 500));
 //        viewFrame.setContentPane(mapPanel);
         JPanel centerPanel = new JPanel(new GridLayout(0, 2, 3, 3));
 //        JPanel centerPanel = new MapPanel(game.getPlayerShip());
@@ -94,19 +95,29 @@ public class BasicPowerGridView extends DefaultSwingView implements PowerGridVie
     }
 
     private void updateBattery() {
-        batteryGauge.setMaximum((int) powerGrid.getBatteryMaxCharge());
-        batteryGauge.setValue((int) powerGrid.getBatteryCharge());
-        batteryGauge.setString(NumberFormater.INTEGER_FORMAT.format(powerGrid.getBatteryCharge()) + " - " + (int) (batteryGauge.getPercentComplete() * 100) + "%");
+        SwingUtilities.invokeLater(new Runnable() {
+
+            @Override
+            public void run() {
+                batteryGauge.setMaximum((int) powerGrid.getBatteryMaxCharge());
+                batteryGauge.setValue((int) powerGrid.getBatteryCharge());
+                batteryGauge.setString(NumberFormater.INTEGER_FORMAT.format(powerGrid.getBatteryCharge()) + " - " + (int) (batteryGauge.getPercentComplete() * 100) + "%");
+            }
+        });
     }
 
     private void updatePowerGridBalance() {
-        batteryChargeValue.setText(NumberFormater.INTEGER_FORMAT.format(powerGrid.getPowerGridBalance()));
-        if (powerGrid.getPowerGridBalance() >= 0) {
-            batteryChargeValue.setBackground(Color.GREEN);
-        } else {
-            batteryChargeValue.setBackground(Color.RED);
-        }
-
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                batteryChargeValue.setText(NumberFormater.INTEGER_FORMAT.format(powerGrid.getPowerGridBalance()));
+                if (powerGrid.getPowerGridBalance() >= 0) {
+                    batteryChargeValue.setBackground(Color.GREEN);
+                } else {
+                    batteryChargeValue.setBackground(Color.RED);
+                }
+            }
+        });
     }
 
     @Override

@@ -13,7 +13,7 @@ public class OmnidirectionalMoveBehavior implements MoveBehavior {
 
     private static final String NAME = "Omnidirectional Graviton Engine";
     private static final String DESCRIPTION = "A non-inertial engines that moves in any direction. Consumes a lot of energy";
-    private static final double ENERGY_PER_SPEEDY_UNIT = 12000;
+    private static final double ENERGY_PER_SPEEDY_UNIT = 1200;
 
     private Position currentPosition;
     private Position destination;

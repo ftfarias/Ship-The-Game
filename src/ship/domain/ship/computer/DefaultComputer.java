@@ -84,6 +84,10 @@ public class DefaultComputer implements Computer {
         observable.registerObserver(observer);
     }
 
+    public void notifyUpdate() {
+        observable.notifyAll(this, ObservableEvent.COMPUTER_OUTPUT);
+    }
+
     protected void run(String command) {
     }
 }

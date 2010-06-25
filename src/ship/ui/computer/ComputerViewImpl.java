@@ -10,9 +10,13 @@ import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.lang.reflect.InvocationTargetException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
+import javax.swing.SwingUtilities;
 import ship.domain.ship.computer.Computer;
 import ship.infra.observer.ObservableEvent;
 import ship.ui.services.PositionService;
@@ -32,6 +36,7 @@ public class ComputerViewImpl extends DefaultSwingView implements ComputerView {
     public ComputerViewImpl(ComputerController controller, Computer computer) {
         this.controller = controller;
         this.computer = computer;
+        System.out.println("Creating Computer View Impl for "+computer);
         createView();
     }
 
@@ -39,7 +44,7 @@ public class ComputerViewImpl extends DefaultSwingView implements ComputerView {
     protected final void createView() {
         super.createView();
         viewFrame.setLocation(PositionService.getPositionForComputer());
-        
+
     }
 
     @Override
@@ -59,8 +64,6 @@ public class ComputerViewImpl extends DefaultSwingView implements ComputerView {
         viewFrame.setMinimumSize(new Dimension(500, 500));
         viewFrame.add(inputPane, BorderLayout.SOUTH);
         viewFrame.add(outputPane, BorderLayout.CENTER);
-
-        
     }
 
     @Override
@@ -74,7 +77,22 @@ public class ComputerViewImpl extends DefaultSwingView implements ComputerView {
     @Override
     public void update(Computer computer, ObservableEvent event) {
         if (event == ObservableEvent.COMPUTER_OUTPUT) {
-            outputPane.setText(computer.getDisplayText());
+            try {
+                updateDisplay(computer.getDisplayText());
+            } catch (InterruptedException ex) {
+                Logger.getLogger(ComputerViewImpl.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InvocationTargetException ex) {
+                Logger.getLogger(ComputerViewImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+    }
+
+    private void updateDisplay(String text) throws InterruptedException, InvocationTargetException {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                outputPane.setText(computer.getDisplayText());
+            }
+        });
     }
 }

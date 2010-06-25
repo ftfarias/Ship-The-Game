@@ -49,6 +49,10 @@ public class BasicPowerGrid extends DefaultPowerGrid {
         }
     }
 
+    /**
+     * 
+     * @return the power grid balance (kJoules/second)
+     */
     @Override
     public double getPowerGridBalance() {
         return powerGridBalance / timeElapsed * 1000;
