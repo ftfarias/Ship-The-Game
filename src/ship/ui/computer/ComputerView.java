@@ -14,4 +14,6 @@ import ship.infra.observer.Observer;
  */
 public interface ComputerView extends Observer<Computer>{
 
+    public void setButton(int button, String caption, String command);
+
 }

@@ -18,5 +18,6 @@ public enum ObservableEvent {
     POWER_GRID_UPDATE,
     SHIELD_UPDATE,
     BATTERY_UPDATE,
-    COMPUTER_OUTPUT;
+    COMPUTER_OUTPUT,
+    COMPUTER_BUTTONS;
 }

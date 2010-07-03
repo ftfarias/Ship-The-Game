@@ -1,13 +1,11 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ship.domain.ship.computer;
 
 import ship.domain.ship.computer.task.Task;
 import java.util.LinkedList;
 import java.util.Queue;
+import ship.domain.ship.computer.task.ClearDisplayTask;
 import ship.domain.ship.computer.task.PrintTask;
+import ship.domain.ship.computer.task.ShowNavTask;
 
 /**
  *
@@ -18,9 +16,22 @@ public class StandardComputer extends DefaultComputer {
     protected Queue<Task> tasks = new LinkedList<Task>();
     protected StringBuilder displayText = new StringBuilder();
     protected long taskCompletedPercent = 0;
+    protected ComputerButton[] buttons = new ComputerButton[12];
 
     public StandardComputer() {
         System.out.println("Standard Computer created ! Sn: " + this.hashCode());
+        buttons[0] = new ComputerButton("Navegation", "nav");
+        buttons[1] = new ComputerButton("Power Grid", "pwrgrd");
+        buttons[2] = new ComputerButton("Computer", "computer");
+        buttons[3] = new ComputerButton("Generators", "gen");
+        buttons[4] = new ComputerButton("Weapons", "wpn");
+        buttons[5] = new ComputerButton("Shield", "shld");
+        buttons[6] = new ComputerButton("Comm", "comm");
+        buttons[7] = new ComputerButton("Sensors", "sns");
+        buttons[8] = new ComputerButton("Clear", "cls");
+        buttons[9] = new ComputerButton("", "");
+        buttons[10] = new ComputerButton("", "");
+        buttons[11] = new ComputerButton("", "");
     }
 
     @Override
@@ -43,7 +54,11 @@ public class StandardComputer extends DefaultComputer {
     public void addDisplay(String text) {
         displayText.append(text);
         displayText.append("<br>");
-        notifyUpdate();
+        notifyOutputUpdate();
+    }
+
+    public void clearDisplay() {
+        displayText.delete(0, displayText.length());
     }
 
     @Override
@@ -52,13 +67,13 @@ public class StandardComputer extends DefaultComputer {
         if (task != null) {
             tasks.add(task);
             addDisplay("new task added: " + task);
-            notifyUpdate();
+            notifyOutputUpdate();
         }
     }
 
     public void addTask(Task task) {
         tasks.add(task);
-        notifyUpdate();
+        notifyOutputUpdate();
     }
 
     public int getCurrentTaskProgressDone() {
@@ -90,17 +105,31 @@ public class StandardComputer extends DefaultComputer {
                 tasks.remove(currentTask);
                 remainingTime = 0;
                 currentTask = tasks.peek();
-                notifyUpdate();
+                notifyOutputUpdate();
+                notifyButtonsUpdate();
             }
         }
     }
 
     protected Task interpretCommand(String command) {
-        Task task = new PrintTask(this, command);
+        // System.out.println("new command: "+command);
+        Task task;
+        if (command.equalsIgnoreCase("cls")) {
+            task = new ClearDisplayTask(this);
+        } else if (command.equalsIgnoreCase("nav")) {
+            task = new ShowNavTask(this);
+        } else {
+            task = new PrintTask(this, command);
+        }
         return task;
     }
 
     private long getTimeForTask(Task currentTask, long remainingTime) {
         return Math.min(currentTask.getTimeRemaing(), remainingTime);
+    }
+
+    @Override
+    public ComputerButton[] getButtons() {
+        return buttons;
     }
 }

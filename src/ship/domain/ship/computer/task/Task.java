@@ -13,6 +13,10 @@ public class Task {
     private long timeToComplete;
     private long remainingTime;
 
+    public Task(StandardComputer computer) {
+        this(computer, 1);
+    }
+
     public Task(StandardComputer computer, long timeToComplete) {
         this.computer = computer;
         this.timeToComplete = timeToComplete;
