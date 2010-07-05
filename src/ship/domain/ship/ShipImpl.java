@@ -196,6 +196,11 @@ public class ShipImpl implements Ship {
     }
 
     @Override
+    public MoveBehavior getMoveBehavior() {
+        return moveBehavior;
+    }
+
+    @Override
     public Universe getUniverse() {
         return universe;
     }

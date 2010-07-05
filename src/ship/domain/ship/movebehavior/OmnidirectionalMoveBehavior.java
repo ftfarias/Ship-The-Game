@@ -15,6 +15,7 @@ public class OmnidirectionalMoveBehavior implements MoveBehavior {
     private static final String DESCRIPTION = "A non-inertial engines that moves in any direction. Consumes a lot of energy";
     private static final double ENERGY_PER_SPEEDY_UNIT = 1200;
 
+    private boolean enabled = true;
     private Position currentPosition;
     private Position destination;
     private double speed;
@@ -37,6 +38,7 @@ public class OmnidirectionalMoveBehavior implements MoveBehavior {
         return !currentPosition.equals(destination);
     }
 
+    @Override
     public double getSpeed() {
         return speed;
     }
@@ -157,4 +159,31 @@ public class OmnidirectionalMoveBehavior implements MoveBehavior {
     public long getValue() {
         return 10l;
     }
+
+    @Override
+    public void turnOn() {
+        enabled = true;
+    }
+
+    @Override
+    public void turnOff() {
+        enabled = false;
+    }
+
+    @Override
+    public void stop() {
+        destination = currentPosition;
+    }
+
+    @Override
+    public void increaseSpeed() {
+        speed = speed + 5;
+    }
+
+    @Override
+    public void decreaseSpeed() {
+        speed = speed - 5;
+    }
+
+
 }

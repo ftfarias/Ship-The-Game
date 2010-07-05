@@ -18,7 +18,11 @@ public class ShowNavTask extends Task {
         computer.clearDisplay();
         computer.addDisplay("Navigation Data");
         computer.addDisplay("");
-        computer.addDisplay("Ship pos: ");
+        computer.addDisplay("<b>Current Position</b>: "+getShip().getDestination());
+        computer.addDisplay("<b>Destination</b>: "+getShip().getDestination());
+        computer.addDisplay("<b>Speed</b>: "+getShip().getMoveBehavior().getSpeed());
+
+
     }
 
 

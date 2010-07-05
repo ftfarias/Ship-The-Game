@@ -96,15 +96,15 @@ public class ComputerViewImpl extends DefaultSwingView implements ComputerView {
         c.weighty = 1;
         viewFrame.add(outputPane, c);
 
-//        c = new GridBagConstraints();
-//        c.fill = GridBagConstraints.HORIZONTAL;
-//        c.gridx = 0;
-//        c.gridy = 5;
-//        c.gridwidth = 5;
-//        c.gridheight = 1;
-//        c.weightx = 1;
-//        c.weighty = 1;
-//        viewFrame.add(inputPane, c);
+        c = new GridBagConstraints();
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 0;
+        c.gridy = 5;
+        c.gridwidth = 6;
+        c.gridheight = 1;
+        c.weightx = 0.001;
+        c.weighty = 0.001;
+        viewFrame.add(inputPane, c);
 
 
     }
@@ -120,7 +120,7 @@ public class ComputerViewImpl extends DefaultSwingView implements ComputerView {
         c.weightx = 0.001;
         c.weighty = 0.001;
         // sets the minimun size for bottom buttons
-        c.ipady = 30;
+        c.ipady = 10;
         viewFrame.add(button, c);
         button.addActionListener(this);
 

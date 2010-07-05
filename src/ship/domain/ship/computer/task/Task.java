@@ -1,5 +1,6 @@
 package ship.domain.ship.computer.task;
 
+import ship.domain.ship.Ship;
 import ship.domain.ship.computer.StandardComputer;
 
 /**
@@ -42,5 +43,9 @@ public class Task {
             return true;
         }
         return false;
+    }
+
+    public Ship getShip() {
+        return computer.getShip();
     }
 }

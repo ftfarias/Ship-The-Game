@@ -1,5 +1,6 @@
 package ship.domain.ship.computer;
 
+import ship.domain.ship.Ship;
 import ship.domain.ship.computer.task.Task;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -20,6 +21,10 @@ public class StandardComputer extends DefaultComputer {
 
     public StandardComputer() {
         System.out.println("Standard Computer created ! Sn: " + this.hashCode());
+        setButtonsForMainMenu();
+    }
+
+    public void setButtonsForMainMenu() {
         buttons[0] = new ComputerButton("Navegation", "nav");
         buttons[1] = new ComputerButton("Power Grid", "pwrgrd");
         buttons[2] = new ComputerButton("Computer", "computer");
@@ -28,10 +33,14 @@ public class StandardComputer extends DefaultComputer {
         buttons[5] = new ComputerButton("Shield", "shld");
         buttons[6] = new ComputerButton("Comm", "comm");
         buttons[7] = new ComputerButton("Sensors", "sns");
-        buttons[8] = new ComputerButton("Clear", "cls");
+        buttons[8] = new ComputerButton("Main", "main");
         buttons[9] = new ComputerButton("", "");
         buttons[10] = new ComputerButton("", "");
-        buttons[11] = new ComputerButton("", "");
+        buttons[11] = new ComputerButton("Clear", "cls");
+    }
+
+    public void setButton(int index, String caption, String command) {
+        buttons[index] = new ComputerButton(caption, command);
     }
 
     @Override
@@ -113,16 +122,46 @@ public class StandardComputer extends DefaultComputer {
 
     protected Task interpretCommand(String command) {
         // System.out.println("new command: "+command);
-        Task task;
-        if (command.equalsIgnoreCase("cls")) {
+        Task task = null;
+
+        if (command.equalsIgnoreCase("main")) {
+            setButtonsForMainMenu();
+            notifyButtonsUpdate();
+            return null;
+        } else if (command.equalsIgnoreCase("cls")) {
             task = new ClearDisplayTask(this);
-        } else if (command.equalsIgnoreCase("nav")) {
-            task = new ShowNavTask(this);
+        } else if (command.startsWith("nav")) {
+            return interpretNavCommand(command);
         } else {
             task = new PrintTask(this, command);
         }
         return task;
     }
+
+    protected Task interpretNavCommand(String command) {
+        setButton(1, "SPD +", "navspd+");
+        setButton(2, "SPD -", "navspd-");
+        setButton(4, "ON", "navon");
+        setButton(5, "OFF", "navoff");
+        setButton(6, "STOP", "navstop");
+        notifyButtonsUpdate();
+        Task task = new ShowNavTask(this);
+        if (command.equalsIgnoreCase("navstop")) {
+             getShip().getMoveBehavior().stop();
+        } else if (command.startsWith("navspd+")) {
+            getShip().getMoveBehavior().increaseSpeed();
+        } else if (command.startsWith("navspd+")) {
+            getShip().getMoveBehavior().decreaseSpeed();
+        } else if (command.startsWith("navon")) {
+            getShip().getMoveBehavior().turnOn();
+        } else if (command.startsWith("navoff")) {
+            getShip().getMoveBehavior().turnOff();
+        } else {
+        }
+        return task;
+
+    }
+
 
     private long getTimeForTask(Task currentTask, long remainingTime) {
         return Math.min(currentTask.getTimeRemaing(), remainingTime);
@@ -131,5 +170,9 @@ public class StandardComputer extends DefaultComputer {
     @Override
     public ComputerButton[] getButtons() {
         return buttons;
+    }
+
+    public Ship getShip() {
+        return ship;
     }
 }

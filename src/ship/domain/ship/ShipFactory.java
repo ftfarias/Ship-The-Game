@@ -34,14 +34,14 @@ public class ShipFactory {
 
         Random r = new Random();
         computer.addTask(new PrintTask(computer, 1, "Computer on-line !"));
-        computer.addTask(new PrintTask(computer, 500+r.nextInt(5500), "Booting MaxOS XII..."));
-        computer.addTask(new PrintTask(computer, 500+r.nextInt(5500), "Instantiating Round-Robin task queues..."));
-        computer.addTask(new PrintTask(computer, 500+r.nextInt(5000), "Balancing decision matrix..."));
-        computer.addTask(new PrintTask(computer, 500+r.nextInt(5500), "Training neural networks..."));
-        computer.addTask(new PrintTask(computer, 500+r.nextInt(5500), "Rendering a new brain..."));
-        computer.addTask(new PrintTask(computer, 500+r.nextInt(5500), "Load00ing artificial intelligence routines..."));
-        computer.addTask(new PrintTask(computer, 500+r.nextInt(5500), "Singularity Conscious System (SCS) ready !"));
-        computer.addTask(new PrintTask(computer, 500+r.nextInt(5500), "Computer is awake and conscious!"));
+//        computer.addTask(new PrintTask(computer, 500+r.nextInt(5500), "Booting MaxOS XII..."));
+//        computer.addTask(new PrintTask(computer, 500+r.nextInt(5500), "Instantiating Round-Robin task queues..."));
+//        computer.addTask(new PrintTask(computer, 500+r.nextInt(5000), "Balancing decision matrix..."));
+//        computer.addTask(new PrintTask(computer, 500+r.nextInt(5500), "Training neural networks..."));
+//        computer.addTask(new PrintTask(computer, 500+r.nextInt(5500), "Rendering a new brain..."));
+//        computer.addTask(new PrintTask(computer, 500+r.nextInt(5500), "Load00ing artificial intelligence routines..."));
+//        computer.addTask(new PrintTask(computer, 500+r.nextInt(5500), "Singularity Conscious System (SCS) ready !"));
+//        computer.addTask(new PrintTask(computer, 500+r.nextInt(5500), "Computer is awake and conscious!"));
         return ship;
     }
 
