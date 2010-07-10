@@ -1,6 +1,7 @@
 package ship.domain.ship.computer.task;
 
 import ship.domain.ship.computer.StandardComputer;
+import ship.ui.util.NumberFormater;
 
 /**
  *
@@ -18,14 +19,15 @@ public class ShowNavTask extends Task {
         computer.clearDisplay();
         computer.addDisplay("Navigation Data");
         computer.addDisplay("");
-        computer.addDisplay("<b>Current Position</b>: "+getShip().getDestination());
-        computer.addDisplay("<b>Destination</b>: "+getShip().getDestination());
-        computer.addDisplay("<b>Speed</b>: "+getShip().getMoveBehavior().getSpeed());
+        if (getShip().getMoveBehavior().isEnabled()) {
+
+            computer.addDisplay("<b>Current Position</b>: " + getShip().getDestination());
+            computer.addDisplay("<b>Destination</b>: " + getShip().getDestination());
+            computer.addDisplay("<b>Speed</b>: " + NumberFormater.format(getShip().getMoveBehavior().getSpeed() * 1000));
+        } else {
+            computer.addDisplay("<b>NAVIGATION SYSTEM IS DISABLED</b>");
+        }
 
 
     }
-
-
-
-
 }

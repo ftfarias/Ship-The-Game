@@ -31,8 +31,12 @@ public interface MoveBehavior extends Positionable, TimeDependent, Module {
 
     public void decreaseSpeed();
 
+    public void setSpeedRelativeToMaxSpeed(double newSpeed);
+
     public Position getDestination();
     
     public String getName();
+
+    public boolean isEnabled();
 
 }

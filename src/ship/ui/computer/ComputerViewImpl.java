@@ -32,7 +32,7 @@ public class ComputerViewImpl extends DefaultSwingView implements ComputerView {
     private final Computer computer;
     private JTextPane outputPane;
     private JTextField inputPane;
-    private JButton[] jbuttons = new JButton[12];
+    private JButton[] jbuttons = new JButton[20];
 
     public ComputerViewImpl(ComputerController controller, Computer computer) {
         super();
@@ -70,28 +70,37 @@ public class ComputerViewImpl extends DefaultSwingView implements ComputerView {
 
         // buttons
         viewFrame.setLayout(new GridBagLayout());
-        addButton(jbuttons[0], 0, 0);
-        addButton(jbuttons[1], 0, 1);
-        addButton(jbuttons[2], 0, 2);
-        addButton(jbuttons[3], 0, 3);
-
+        addButton(jbuttons[0], 1, 0);
+        addButton(jbuttons[1], 2, 0);
+        addButton(jbuttons[2], 3, 0);
+        addButton(jbuttons[3], 4, 0);
         addButton(jbuttons[4], 5, 0);
-        addButton(jbuttons[5], 5, 1);
-        addButton(jbuttons[6], 5, 2);
-        addButton(jbuttons[7], 5, 3);
 
-        addButton(jbuttons[8], 1, 4);
-        addButton(jbuttons[9], 2, 4);
-        addButton(jbuttons[10], 3, 4);
-        addButton(jbuttons[11], 4, 4);
+        addButton(jbuttons[5], 0, 1);
+        addButton(jbuttons[6], 0, 2);
+        addButton(jbuttons[7], 0, 3);
+        addButton(jbuttons[8], 0, 4);
+        addButton(jbuttons[9], 0, 5);
+
+        addButton(jbuttons[10], 6, 1);
+        addButton(jbuttons[11], 6, 2);
+        addButton(jbuttons[12], 6, 3);
+        addButton(jbuttons[13], 6, 4);
+        addButton(jbuttons[14], 6, 5);
+
+        addButton(jbuttons[15], 1, 6);
+        addButton(jbuttons[16], 2, 6);
+        addButton(jbuttons[17], 3, 6);
+        addButton(jbuttons[18], 4, 6);
+        addButton(jbuttons[19], 5, 6);
 
         // output panel
         GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.BOTH;
         c.gridx = 1;
-        c.gridy = 0;
-        c.gridwidth = 4;
-        c.gridheight = 4;
+        c.gridy = 1;
+        c.gridwidth = 5;
+        c.gridheight = 5;
         c.weightx = 1;
         c.weighty = 1;
         viewFrame.add(outputPane, c);
@@ -99,8 +108,8 @@ public class ComputerViewImpl extends DefaultSwingView implements ComputerView {
         c = new GridBagConstraints();
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 0;
-        c.gridy = 5;
-        c.gridwidth = 6;
+        c.gridy = 7;
+        c.gridwidth = 7;
         c.gridheight = 1;
         c.weightx = 0.001;
         c.weighty = 0.001;
