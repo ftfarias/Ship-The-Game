@@ -2,6 +2,8 @@ package ship.application;
 
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import ship.domain.ship.Ship;
 import ship.domain.ship.ShipFactory;
 import ship.domain.universe.Position;
@@ -16,6 +18,7 @@ import ship.infra.observer.Observer;
  * @version 1.0
  */
 public class ShipGame {
+
     private Observable<ShipGame> observable = new Observable<ShipGame>();
     private Universe universe;
     private long lastTurnTime;
@@ -29,6 +32,7 @@ public class ShipGame {
         createPlayerAndShips();
         System.out.println("Starting game...");
         startTimer();
+        //startGameLoop();
     }
 
     private void setupUniverse() {
@@ -63,7 +67,7 @@ public class ShipGame {
                 lastTurnTime = System.currentTimeMillis();
                 universe.timeElapsed(elapsedTime);
             }
-        }, 1000, 50);
+        }, 2000, 5);
     }
 
     public void exit() {
@@ -91,5 +95,4 @@ public class ShipGame {
     public Ship getPlayerShip() {
         return playerShip;
     }
-
 }

@@ -2,6 +2,8 @@ SHIP THE GAME
 
 Ship the Game is a my fun way to study Design Patterns and DDD programing. The goal here is not making a game or study a game framework, but create an application with good programing principles using layers, tests units, real OO, etc
 
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a><br /><span xmlns:dc="http://purl.org/dc/elements/1.1/" property="dc:title">Ship-The_Game</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+
 The project was created Netbeans 6.8, and the only lib I'm using is Mockito for tests. The graphics are Swing based
 
 So far I did:

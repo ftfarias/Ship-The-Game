@@ -15,7 +15,7 @@ import ship.infra.observer.ObservableInterface;
  */
 public interface PowerGrid extends TimeDependent, ObservableInterface, Module {
 
-    double requestEnergy(double amountRequested);
+    public double requestEnergy(double amountRequested);
 
     public double getPowerGridBalance();
 }

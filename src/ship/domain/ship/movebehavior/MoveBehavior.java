@@ -15,14 +15,28 @@ import ship.domain.universe.TimeDependent;
  */
 public interface MoveBehavior extends Positionable, TimeDependent, Module {
 
+    public double getSpeed();
+
     public boolean canMoveTo(Position position);
 
     public void moveTo(Position position);
+
+    public void turnOn();
+
+    public void turnOff();
+
+    public void stop();
+
+    public void increaseSpeed();
+
+    public void decreaseSpeed();
+
+    public void setSpeedRelativeToMaxSpeed(double newSpeed);
 
     public Position getDestination();
     
     public String getName();
 
-    public String getDescription();
+    public boolean isEnabled();
 
 }

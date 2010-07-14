@@ -1,8 +1,8 @@
 package ship.domain.ship.sensor;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Set;
+import ship.domain.ship.Ship;
 import ship.domain.universe.Position;
 import ship.domain.universe.Universe;
 
@@ -14,7 +14,12 @@ import ship.domain.universe.Universe;
 public class BasicSensor implements Sensor {
     private double shortRangeSensorRadius = 5.0;
     private Set<Object> shortScanResult = Collections.EMPTY_SET;
+    private Ship ship;
 
+    @Override
+    public void setShip(Ship ship) {
+        this.ship = ship;
+    }
 
     @Override
     public double getShortRangeSensorRadius() {

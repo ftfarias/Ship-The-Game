@@ -11,6 +11,7 @@ import ship.domain.ship.sensor.Sensor;
 import ship.domain.ship.movebehavior.MoveBehavior;
 import ship.domain.ship.powergenerator.PowerGenerator;
 import ship.domain.ship.powergrid.PowerGrid;
+import ship.domain.ship.shield.Shield;
 import ship.domain.universe.Position;
 import ship.domain.universe.Range;
 import ship.domain.universe.TimeDependent;
@@ -38,10 +39,11 @@ public class ShipImpl implements Ship {
     private Computer computer;
     private List<Module> modules = new ArrayList<Module>();
     private List<TimeDependent> timeDependents = new ArrayList<TimeDependent>();
+    private final Shield shield;
 
 //    private double bearing;
     public ShipImpl(String name, Player player, Universe universe, MoveBehavior moveBehavior, Sensor sensor, PowerGrid powerGrid,
-            Battery battery, PowerGenerator powerGenerator, Computer computer) {
+            Battery battery, PowerGenerator powerGenerator, Computer computer, Shield shield) {
         this.name = name;
         this.player = player;
         this.moveBehavior = moveBehavior;
@@ -51,6 +53,7 @@ public class ShipImpl implements Ship {
         this.battery = battery;
         this.powerGenerator = powerGenerator;
         this.computer = computer;
+        this.shield = shield;
 
         modules.add(moveBehavior);
         modules.add(sensor);
@@ -58,12 +61,14 @@ public class ShipImpl implements Ship {
         modules.add(battery);
         modules.add(powerGenerator);
         modules.add(computer);
+        modules.add(shield);
 
         timeDependents.add(powerGrid);
         timeDependents.add(moveBehavior);
         timeDependents.add(computer);
+        timeDependents.add(shield);
 
-        System.out.println("new ship \""+name+"\" created");
+        System.out.println("new ship \"" + name + "\" created");
     }
 
     @Override
@@ -191,6 +196,11 @@ public class ShipImpl implements Ship {
     }
 
     @Override
+    public MoveBehavior getMoveBehavior() {
+        return moveBehavior;
+    }
+
+    @Override
     public Universe getUniverse() {
         return universe;
     }
@@ -212,7 +222,4 @@ public class ShipImpl implements Ship {
     public Computer getComputer() {
         return computer;
     }
-
-    
-
 }

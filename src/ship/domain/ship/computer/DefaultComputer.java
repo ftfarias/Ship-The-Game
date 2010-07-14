@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ship.domain.ship.computer;
 
 import ship.domain.ship.Ship;
@@ -70,20 +66,33 @@ public class DefaultComputer implements Computer {
     }
 
     @Override
-    public void removeObserver(Observer observer) {
+    public final void removeObserver(Observer observer) {
         observable.removeObserver(observer);
     }
 
     @Override
-    public void removeAllObservers() {
+    public final void removeAllObservers() {
         observable.removeAllObservers();
     }
 
     @Override
-    public void registerObserver(Observer observer) {
+    public final void registerObserver(Observer observer) {
         observable.registerObserver(observer);
     }
 
+    public final void notifyOutputUpdate() {
+        observable.notifyAll(this, ObservableEvent.COMPUTER_OUTPUT);
+    }
+
+    public final void notifyButtonsUpdate() {
+        observable.notifyAll(this, ObservableEvent.COMPUTER_BUTTONS);
+    }
+
     protected void run(String command) {
+    }
+
+    @Override
+    public ComputerButton[] getButtons() {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

@@ -13,8 +13,10 @@ public class OmnidirectionalMoveBehavior implements MoveBehavior {
 
     private static final String NAME = "Omnidirectional Graviton Engine";
     private static final String DESCRIPTION = "A non-inertial engines that moves in any direction. Consumes a lot of energy";
-    private static final double ENERGY_PER_SPEEDY_UNIT = 12000;
-
+    private static final double ENERGY_PER_SPEEDY_UNIT = 1000;
+    private static final double MAX_SPEED = 0.25; // 1/4 of light speed
+    private static final double MIN_SPEED = 0.001; // 1/1000 of light speed
+    private boolean enabled = true;
     private Position currentPosition;
     private Position destination;
     private double speed;
@@ -37,21 +39,31 @@ public class OmnidirectionalMoveBehavior implements MoveBehavior {
         return !currentPosition.equals(destination);
     }
 
+    @Override
     public double getSpeed() {
+        if (!enabled) {
+            return 0;
+        }
         return speed;
     }
 
     public void setSpeed(double speed) {
-        this.speed = speed;
+        this.speed = Math.max(MIN_SPEED, Math.min(MAX_SPEED, speed));
     }
 
     @Override
     public boolean canMoveTo(Position position) {
+        if (!enabled) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public Position getCurrentPosition() {
+        if (!enabled) {
+            return new Position(0, 0);
+        }
         return currentPosition;
     }
 
@@ -80,6 +92,9 @@ public class OmnidirectionalMoveBehavior implements MoveBehavior {
 
     @Override
     public void timeElapsed(long time) {
+        if (!enabled) {
+            return;
+        }
         double timeElapsed = time; // convert "long" to "double"
 //        System.out.println("Time :"+time+ "   "+currentPosition.equals(destination) );
 //        System.out.println("Curre: "+currentPosition+" ->  "+destination);
@@ -87,15 +102,25 @@ public class OmnidirectionalMoveBehavior implements MoveBehavior {
             return;
         }
 
-        double actualSpeed = getActualSpeed();
+        // Finds the distance
+        double distanceToDistination = currentPosition.distance(destination);
+
+        double desiredSpeed = speed;
+
+        // if we are too close, reduces speed
+        if ((time * desiredSpeed) > distanceToDistination) {
+            desiredSpeed = distanceToDistination / time;
+        }
+
+        double actualSpeed = getActualSpeed(desiredSpeed, time);
 
 //        System.out.println("1");
         // limit to time increment so you will NOT pass the destination
-        if ((actualSpeed * timeElapsed) > currentPosition.distance(destination)) {
+//        if ((actualSpeed * timeElapsed) > currentPosition.distance(destination)) {
             // calc the new time intervel to reach the destination
             //System.out.println("Limiting move: time: "+time+" Speed: "+actualSpeed+"   Distance:"+(time*actualSpeed));
-            timeElapsed = currentPosition.distance(destination) / actualSpeed;
-        }
+//            timeElapsed = currentPosition.distance(destination) / actualSpeed;
+//        }
 //        System.out.println("time: "+time+ "  speed: "+actualSpeed);
         double angle = Math.atan2(destination.getY() - currentPosition.getY(), destination.getX() - currentPosition.getX());
         double xStep = Math.cos(angle) * actualSpeed * timeElapsed;
@@ -117,13 +142,12 @@ public class OmnidirectionalMoveBehavior implements MoveBehavior {
         return DESCRIPTION;
     }
 
-    protected double getActualSpeed() {
+    protected double getActualSpeed(double desiredSpeed, long time) {
         if (powerGrid == null) {
 //            System.out.println("NO power, no move");
             return 0;
         }
-//        System.out.println("requested speed: "+speed);
-        double actualSpeed = powerGrid.requestEnergy(speed * ENERGY_PER_SPEEDY_UNIT) / ENERGY_PER_SPEEDY_UNIT;
+        double actualSpeed = powerGrid.requestEnergy(desiredSpeed * ENERGY_PER_SPEEDY_UNIT * time/1000) / ENERGY_PER_SPEEDY_UNIT;
 //        System.out.println("actual Speed: "+actualSpeed);
         return actualSpeed;
     }
@@ -135,12 +159,10 @@ public class OmnidirectionalMoveBehavior implements MoveBehavior {
 
     @Override
     public void beforeTimeElapsed() {
-
     }
 
     @Override
     public void afterTimeElapsed() {
-
     }
 
     @Override
@@ -157,4 +179,51 @@ public class OmnidirectionalMoveBehavior implements MoveBehavior {
     public long getValue() {
         return 10l;
     }
+
+    @Override
+    public void turnOn() {
+        enabled = true;
+    }
+
+    @Override
+    public void turnOff() {
+        enabled = false;
+        speed = MIN_SPEED;
+    }
+
+    @Override
+    public void stop() {
+        destination = currentPosition;
+    }
+
+    @Override
+    public void increaseSpeed() {
+        if (!enabled) {
+            return;
+        }
+        speed = Math.min(MAX_SPEED, speed * 1.2);
+    }
+
+    @Override
+    public void decreaseSpeed() {
+        if (!enabled) {
+            return;
+        }
+        speed = Math.max(MIN_SPEED, speed * 0.8);
+    }
+
+    @Override
+    public void setSpeedRelativeToMaxSpeed(double newSpeed) {
+        if (!enabled) {
+            return;
+        }
+        setSpeed(MAX_SPEED*newSpeed);
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+
 }

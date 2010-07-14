@@ -6,6 +6,7 @@
 package ship.domain.ship.sensor;
 
 import java.util.Set;
+import ship.domain.ship.Ship;
 import ship.domain.ship.module.Module;
 import ship.domain.universe.Position;
 import ship.domain.universe.Universe;
@@ -22,8 +23,11 @@ public interface Sensor extends Module {
      * @return true if any object was detected
      */
     public boolean runShortSensorScan(Universe universe, Position position);
+
     public Set<Object> getShortSensorScanResults();
 
     public double getShortRangeSensorRadius();
+
+    public void setShip(Ship ship);
 
 }
