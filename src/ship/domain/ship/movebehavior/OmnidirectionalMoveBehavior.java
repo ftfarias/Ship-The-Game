@@ -10,12 +10,17 @@ import ship.domain.universe.Range;
  * @version 1.0
  */
 public class OmnidirectionalMoveBehavior implements MoveBehavior {
+    /*
+     * F16 max speed: 2500 km/h ~= 700 m/s
+     * a Ship in space ? maybe 3 times this:
+     * Ship max speed: 2100 m/s
+     */
 
     private static final String NAME = "Omnidirectional Graviton Engine";
     private static final String DESCRIPTION = "A non-inertial engines that moves in any direction. Consumes a lot of energy";
-    private static final double ENERGY_PER_SPEEDY_UNIT = 1000;
-    private static final double MAX_SPEED = 0.25; // 1/4 of light speed
-    private static final double MIN_SPEED = 0.001; // 1/1000 of light speed
+    private static final double ENERGY_PER_SPEEDY_UNIT = 1; // MW/(km/s)
+    private static final double MAX_SPEED = 2.100; // km/s
+    private static final double MIN_SPEED = 0.100; // km/s
     private boolean enabled = true;
     private Position currentPosition;
     private Position destination;
@@ -23,8 +28,7 @@ public class OmnidirectionalMoveBehavior implements MoveBehavior {
     private PowerGrid powerGrid = null;
 
     public OmnidirectionalMoveBehavior() {
-        setCurrentPosition(Position.ORIGIN);
-        setSpeed(1);
+        speed = MIN_SPEED;
     }
 
     public PowerGrid getPowerGrid() {
@@ -95,8 +99,8 @@ public class OmnidirectionalMoveBehavior implements MoveBehavior {
         if (!enabled) {
             return;
         }
-        double timeElapsed = time; // convert "long" to "double"
-//        System.out.println("Time :"+time+ "   "+currentPosition.equals(destination) );
+        double timeElapsed = ((double)time)/1000; // convert "long" to "double"
+        System.out.println("Time :"+time+ "   "+timeElapsed );
 //        System.out.println("Curre: "+currentPosition+" ->  "+destination);
         if (!isMoving()) {
             return;
@@ -108,11 +112,12 @@ public class OmnidirectionalMoveBehavior implements MoveBehavior {
         double desiredSpeed = speed;
 
         // if we are too close, reduces speed
-        if ((time * desiredSpeed) > distanceToDistination) {
-            desiredSpeed = distanceToDistination / time;
+        if ((timeElapsed * desiredSpeed) >= distanceToDistination) {
+            desiredSpeed = distanceToDistination / timeElapsed;
+            System.out.println("Reducing speed to "+desiredSpeed);
         }
 
-        double actualSpeed = getActualSpeed(desiredSpeed, time);
+        double actualSpeed = getActualSpeed(desiredSpeed, timeElapsed);
 
 //        System.out.println("1");
         // limit to time increment so you will NOT pass the destination
@@ -142,13 +147,14 @@ public class OmnidirectionalMoveBehavior implements MoveBehavior {
         return DESCRIPTION;
     }
 
-    protected double getActualSpeed(double desiredSpeed, long time) {
+    protected double getActualSpeed(double desiredSpeed, double time) {
         if (powerGrid == null) {
 //            System.out.println("NO power, no move");
             return 0;
         }
-        double actualSpeed = powerGrid.requestEnergy(desiredSpeed * ENERGY_PER_SPEEDY_UNIT * time/1000) / ENERGY_PER_SPEEDY_UNIT;
-//        System.out.println("actual Speed: "+actualSpeed);
+        double actualSpeed = powerGrid.requestEnergy(desiredSpeed * ENERGY_PER_SPEEDY_UNIT * time) / ENERGY_PER_SPEEDY_UNIT;
+//        double actualSpeed = desiredSpeed;
+//        System.out.println("Desired Speed:"+desiredSpeed+"     actual Speed: "+actualSpeed);
         return actualSpeed;
     }
 
