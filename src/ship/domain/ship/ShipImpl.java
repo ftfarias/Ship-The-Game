@@ -16,6 +16,7 @@ import ship.domain.universe.Position;
 import ship.domain.universe.Range;
 import ship.domain.universe.TimeDependent;
 import ship.domain.universe.Universe;
+import ship.infra.GeometryHelper;
 import ship.infra.observer.Observable;
 import ship.infra.observer.ObservableEvent;
 import ship.infra.observer.Observer;
@@ -40,6 +41,7 @@ public class ShipImpl implements Ship {
     private List<Module> modules = new ArrayList<Module>();
     private List<TimeDependent> timeDependents = new ArrayList<TimeDependent>();
     private final Shield shield;
+    private double bearing;
 
 //    private double bearing;
     public ShipImpl(String name, Player player, Universe universe, MoveBehavior moveBehavior, Sensor sensor, PowerGrid powerGrid,
@@ -68,7 +70,29 @@ public class ShipImpl implements Ship {
         timeDependents.add(computer);
         timeDependents.add(shield);
 
+        bearing = 0;
         System.out.println("new ship \"" + name + "\" created");
+    }
+
+    @Override
+    public double getBearingInDegrees() {
+        return bearing;
+    }
+
+    @Override
+    public double getBearingInRad() {
+        return Math.toRadians(bearing);
+    }
+
+
+    @Override
+    public void setBearingInDegrees(double bearing) {
+        this.bearing = GeometryHelper.normalizeAngleInDegrees(bearing);
+    }
+
+    @Override
+    public void setBearingInRad(double bearing) {
+        this.bearing = Math.toDegrees(GeometryHelper.normalizeAngleInRad(bearing));
     }
 
     @Override

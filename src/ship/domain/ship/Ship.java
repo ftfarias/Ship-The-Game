@@ -51,4 +51,13 @@ public interface Ship extends Positionable, TimeDependent, ObservableInterface {
 
     public MoveBehavior getMoveBehavior();
 
+    public double getBearingInDegrees();
+    
+    public double getBearingInRad();
+
+    public void setBearingInRad(double bearing);
+
+    public void setBearingInDegrees(double bearing);
+
+
 }

@@ -4,6 +4,7 @@
  */
 package ship.domain.ship.movebehavior;
 
+import ship.domain.ship.Ship;
 import ship.domain.ship.module.Module;
 import ship.domain.universe.Position;
 import ship.domain.universe.Positionable;
@@ -15,6 +16,13 @@ import ship.domain.universe.TimeDependent;
  */
 public interface MoveBehavior extends Positionable, TimeDependent, Module {
 
+    public void setShip(Ship ship);
+
+
+    /**
+     * 
+     * @return currente speed in km/s
+     */
     public double getSpeed();
 
     public boolean canMoveTo(Position position);

@@ -72,6 +72,7 @@ public class ShipFactory {
         computer.setShip(ship);
         shield.setShip(ship);
         sensor.setShip(ship);
+        moveBehavior.setShip(ship);
 
         return ship;
     }

@@ -1,8 +1,10 @@
 package ship.domain.ship.movebehavior;
 
+import ship.domain.ship.Ship;
 import ship.domain.ship.powergrid.PowerGrid;
 import ship.domain.universe.Position;
 import ship.domain.universe.Range;
+import ship.infra.GeometryHelper;
 
 /**
  *
@@ -18,7 +20,7 @@ public class OmnidirectionalMoveBehavior implements MoveBehavior {
 
     private static final String NAME = "Omnidirectional Graviton Engine";
     private static final String DESCRIPTION = "A non-inertial engines that moves in any direction. Consumes a lot of energy";
-    private static final double ENERGY_PER_SPEEDY_UNIT = 1; // MW/(km/s)
+    private static final double ENERGY_PER_SPEEDY_UNIT = 100; // MW/(km/s)
     private static final double MAX_SPEED = 2.100; // km/s
     private static final double MIN_SPEED = 0.100; // km/s
     private boolean enabled = true;
@@ -26,10 +28,16 @@ public class OmnidirectionalMoveBehavior implements MoveBehavior {
     private Position destination;
     private double speed;
     private PowerGrid powerGrid = null;
+    private Ship ship;
 
     public OmnidirectionalMoveBehavior() {
         speed = MIN_SPEED;
     }
+
+    public void setShip(Ship ship) {
+        this.ship = ship;
+    }
+
 
     public PowerGrid getPowerGrid() {
         return powerGrid;
@@ -100,7 +108,7 @@ public class OmnidirectionalMoveBehavior implements MoveBehavior {
             return;
         }
         double timeElapsed = ((double)time)/1000; // convert "long" to "double"
-        System.out.println("Time :"+time+ "   "+timeElapsed );
+//        System.out.println("Time :"+time+ "   "+timeElapsed );
 //        System.out.println("Curre: "+currentPosition+" ->  "+destination);
         if (!isMoving()) {
             return;
@@ -127,7 +135,13 @@ public class OmnidirectionalMoveBehavior implements MoveBehavior {
 //            timeElapsed = currentPosition.distance(destination) / actualSpeed;
 //        }
 //        System.out.println("time: "+time+ "  speed: "+actualSpeed);
-        double angle = Math.atan2(destination.getY() - currentPosition.getY(), destination.getX() - currentPosition.getX());
+
+        double xDistance = (destination.getX() - currentPosition.getX());
+        double yDistance = (destination.getY() - currentPosition.getY());
+        double angle = Math.atan2(yDistance, xDistance);
+
+        ship.setBearingInRad(GeometryHelper.convertAngleToBearingInRad(angle));
+
         double xStep = Math.cos(angle) * actualSpeed * timeElapsed;
         double yStep = Math.sin(angle) * actualSpeed * timeElapsed;
         double x = currentPosition.getX() + xStep;
@@ -149,11 +163,18 @@ public class OmnidirectionalMoveBehavior implements MoveBehavior {
 
     protected double getActualSpeed(double desiredSpeed, double time) {
         if (powerGrid == null) {
-//            System.out.println("NO power, no move");
             return 0;
         }
-        double actualSpeed = powerGrid.requestEnergy(desiredSpeed * ENERGY_PER_SPEEDY_UNIT * time) / ENERGY_PER_SPEEDY_UNIT;
-//        double actualSpeed = desiredSpeed;
+        // avoid DivisionByZero exception
+        if (time == 0) {
+            return 0;
+        }
+
+        double neededEnergy = desiredSpeed * time * ENERGY_PER_SPEEDY_UNIT;
+        
+        //System.out.println("time = "+time+"      desiredSpeed = "+desiredSpeed+"        neededEnergy = "+neededEnergy);
+
+        double actualSpeed = powerGrid.requestEnergy(neededEnergy) / (ENERGY_PER_SPEEDY_UNIT * time);
 //        System.out.println("Desired Speed:"+desiredSpeed+"     actual Speed: "+actualSpeed);
         return actualSpeed;
     }

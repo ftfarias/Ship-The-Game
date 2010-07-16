@@ -2,8 +2,6 @@ package ship.ui.map;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import javax.swing.JPanel;
 import ship.domain.ship.Ship;
 import ship.infra.observer.ObservableEvent;

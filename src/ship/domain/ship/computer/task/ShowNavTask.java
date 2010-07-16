@@ -23,7 +23,7 @@ public class ShowNavTask extends Task {
 
             computer.addDisplay("<b>Current Position</b>: " + getShip().getDestination());
             computer.addDisplay("<b>Destination</b>: " + getShip().getDestination());
-            computer.addDisplay("<b>Speed</b>: " + NumberFormater.format(getShip().getMoveBehavior().getSpeed())+" km/s");;
+            computer.addDisplay("<b>Speed</b>: " + NumberFormater.format(getShip().getMoveBehavior().getSpeed()*1000)+" m/s");;
         } else {
             computer.addDisplay("<b>NAVIGATION SYSTEM IS DISABLED</b>");
         }

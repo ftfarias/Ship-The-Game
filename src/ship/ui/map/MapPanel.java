@@ -10,8 +10,8 @@ import javax.swing.JPanel;
 import ship.domain.ship.Ship;
 import ship.domain.universe.Position;
 import ship.infra.ui.CoordinatesProjection;
+import ship.ui.render.ArrowShipRenderImpl;
 import ship.ui.render.ShipRender;
-import ship.ui.render.SimpleShipRenderImpl;
 
 /**
  *
@@ -23,7 +23,8 @@ public class MapPanel extends JPanel {
     private CoordinatesProjection coordinatesProjection;
     private Ship ship;
     private final double sensorRadius;
-    private ShipRender shipRender = new SimpleShipRenderImpl();
+    //private ShipRender shipRender = new SimpleShipRenderImpl();
+    private ShipRender shipRender = new ArrowShipRenderImpl();
 
     public MapPanel(final Ship ship) {
         setDoubleBuffered(true);
