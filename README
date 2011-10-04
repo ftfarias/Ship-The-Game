@@ -1,11 +1,11 @@
 SHIP THE GAME
 
-Ship the Game is a join adventure from me and my friend Mitchell (xelamitchell@gmail.com), a fun way to study Design Patterns and DDD programing.
-Our goal here is not making a visual stuning game (since neither me nor Mitchell know much about visual design), but study game design and create an application with good programing principles using layers, tests units, real OO, etc
+Ship the Game is a joint adventure from me and my friend Mitchell (xelamitchell@gmail.com), a fun way to study Design Patterns and DDD programing.
+Our goal here is not to make a visually stunning game (since neither Mitchell nor I know much about visual design), but to study game design and create an application with good programming principles using layers, tests units, real OO, etc
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a><br /><span xmlns:dc="http://purl.org/dc/elements/1.1/" property="dc:title">Ship-The_Game</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
 
-This project was created Netbeans 6.8, and the only lib I'm using is Mockito for tests. The graphics are Swing based.
+This project was created with Netbeans 6.8, and the only lib I'm using is Mockito for tests. The graphics are Swing based.
 
 So far we did:
 
@@ -20,20 +20,20 @@ So far we did:
   -> Move Behavior
   -> Battery
 - The UI uses Swing classes and is 2D. I'm trying to focus in a *TRUE* MVC implementation. Of course I'll love to see someone creating a 3D version.
-- We are alse plaining to create web services to the game, so it can be played anywhere for many people.
-- I created test units (JUnit 4) for the most important classes. I gave up to test all since I'm doing a lot of changes in the project and I don't have time.
-- Mitchell is reviewing the code and plaining JMokey integration in the future 
+- We are alse planning to create web services to the game, so it can be played anywhere for many people.
+- I created test units (JUnit 4) for the most important classes. I gave up testing all since I'm doing a lot of changes in the project and I don't have time.
+- Mitchell is reviewing the code and plaining JMonkey integration in the future 
 
-Many domain classes can be extended for more realistic implementations and complex behaviors, using the Strategy Design Pattern. I'm trying to keep the dependences at mininum level.
+Many domain classes can be extended for more realistic implementations and complex behaviours, using the Strategy Design Pattern. I'm trying to keep the dependencies at a mininum level.
 
 For the future I'm planning
 - weapons and defence systems... FIGHT !!!
-- Stelar bases and science outposts
-- Some A.I. ships and NPCs
+- Stellar bases and science outposts
+- Some A.I. for ships and NPCs
 - Asteroids and minning
 
 
-Please send us any critics, sugestions, ideas, etc. We promise to read and answer asap.
+Please send us any criticisms, suggestions, ideas, etc. We promise to read and answer ASAP.
 
 Felipe T. Farias
 and
